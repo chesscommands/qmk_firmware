@@ -26,9 +26,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 
-#define TAPPING_TOGGLE  1
+#define TAPPING_TOGGLE	1
 
-
+//	‚æ‚»‚Å‚ÅéŒ¾Ï‚İ20181021	#define TAPPING_TERM	180	// Tap‚©‚çHold‚ÉØ‚è‘Ö‚í‚é‚Ü‚Å‚Ì‰Ÿ‰ºŠÔ(ms)B
 
 
 
