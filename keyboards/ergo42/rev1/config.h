@@ -29,7 +29,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 
-
+//	“d—ÍÁ”ï‚Ì‚½‚ß‚É’Ç‰Á‚µ‚Ä‚¢‚é‚ª,‚Ç‚Ì’l‚ª“KØ‚È‚Ì‚©‚í‚©‚ç‚È‚¢20181026
+#define USB_MAX_POWER_CONSUMPTION 100
 
 
 
