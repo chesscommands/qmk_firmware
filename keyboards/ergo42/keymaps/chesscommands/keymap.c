@@ -353,20 +353,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* MOUSE Layer
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * | RESET|      | Home |      | End  | PgUp | Tab  |   | VolUp| Lclk |Middle| Rclk |      | Play |      |
+   * | RESET|      | Home | End  |      | PgUp | Tab  |   | VolUp| Lclk |Middle| Rclk |      | Play |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      | Del  |      |      |      | PgDn|ó\ñÒçœÇ›|  |MsLeft|MsDown| MsUp |MsRght|      | Stop |      |
+   * |      |      |      | Del  |      | PgDn|ó\ñÒçœÇ›|  |MsLeft|MsDown| MsUp |MsRght|      | Stop |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      |      |      |      |      |      |      |   | VolDn| Prev | Next |      | Mute |RShift|      |
+   * |      |      |      |      |      | Bkspc|      |   | VolDn| Prev | Next |      | Mute |RShift|      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      |      |      |      |      | Bkspc| Del  |   |      |      |      |      | Wleft|WRight|      |
+   * |      |      |      |      |      |      |      |   |      |      |      |      | Wleft|WRight|      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MOUSEPlate] = LAYOUT(
-	RESET,	XXXXXXX,	KC_HOME,	KC_NO,	KC_END,	KC_PGUP,	KC_TAB,			KC_AUDIO_VOL_UP,	KC_MS_BTN1,	KC_MS_BTN3,	KC_MS_BTN2,	KC_NO,	KC_MEDIA_PLAY_PAUSE,	XXXXXXX,
+	RESET,	XXXXXXX,	KC_HOME,	KC_END,	KC_NO,	KC_PGUP,	KC_TAB,			KC_AUDIO_VOL_UP,	KC_MS_BTN1,	KC_MS_BTN3,	KC_MS_BTN2,	KC_NO,	KC_MEDIA_PLAY_PAUSE,	XXXXXXX,
 	XXXXXXX,	KC_DELETE,	XXXXXXX,	KC_NO,	KC_NO,	KC_PGDOWN,	XXXXXXX,			KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_UP,	KC_MS_RIGHT,	KC_NO,	KC_MEDIA_STOP,	XXXXXXX,
-	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,			KC_AUDIO_VOL_DOWN,	KC_MEDIA_PREV_TRACK,	KC_MEDIA_NEXT_TRACK,	KC_NO,	KC_AUDIO_MUTE,	KC_RSHIFT,	XXXXXXX,
-	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	KC_BSPACE,	KC_DELETE,			XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	KC_MS_WH_LEFT,	KC_MS_WH_RIGHT,	XXXXXXX
+	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	KC_BSPACE,	XXXXXXX,			KC_AUDIO_VOL_DOWN,	KC_MEDIA_PREV_TRACK,	KC_MEDIA_NEXT_TRACK,	KC_NO,	KC_AUDIO_MUTE,	KC_RSHIFT,	XXXXXXX,
+	XXXXXXX,	XXXXXXX,	XXXXXXX,	_______,	_______,	_______,	XXXXXXX,			XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	KC_MS_WH_LEFT,	KC_MS_WH_RIGHT,	XXXXXXX
   )
 
 
