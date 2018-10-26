@@ -22,6 +22,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "config_common.h"
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0xBC42
 #define PRODUCT_ID      0x0042
@@ -44,6 +57,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* define tapping term */
 #define TAPPING_TERM 100
+//#define TAPPING_TERM 75
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST

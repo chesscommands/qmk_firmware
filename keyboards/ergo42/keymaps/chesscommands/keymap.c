@@ -78,6 +78,7 @@ enum TapDanceDeclarations{
 	LPRN_LBRC_LCBR,
 	RPRN_RBRC_RCBR,
 	ESC_SHIFT_LGUI,
+	_LCTRL_LALT,
 
 	SOME_OTHER_DANCE
 };
@@ -118,6 +119,15 @@ static tap escShiftLGui_tap_state = {
 	.state = 0
 };
 
+
+
+static tap left_Ctrl_Alt_tap_state = {
+	// タップでAlt+`(日本語英語切り替えwinのみ)・押し続けることでLCtrl・ダブルタップ後の押し続けでAltキーとする.
+	.is_press_action = true,
+	.state = 0
+	//	だめ20181024
+	//		使い物にならない.しっかり押さなければ認識されない.タップ時間を短くすればいいように思うが,そうした場合Altキーに切り替えるのがしんどい.失敗
+};
 
 
 
@@ -193,7 +203,6 @@ void ESL_finished (qk_tap_dance_state_t *state, void *user_data) {
 		case DOUBLE_HOLD: register_code(KC_LGUI); break;
 	}
 }
-
 void ESL_reset (qk_tap_dance_state_t *state, void *user_data) {
 	switch (escShiftLGui_tap_state.state) {
 		case SINGLE_TAP: unregister_code(KC_ESCAPE); break;
@@ -205,11 +214,33 @@ void ESL_reset (qk_tap_dance_state_t *state, void *user_data) {
 
 
 
+void LCTRLALT_finished (qk_tap_dance_state_t *state, void *user_data) {
+	left_Ctrl_Alt_tap_state.state = cur_dance(state);
+	switch (left_Ctrl_Alt_tap_state.state) {
+//		case SINGLE_TAP: register_code(HANZENjap_eng); break;
+		case SINGLE_TAP: register_code(KC_LCTRL); break;	// ← この組み合わせであれば使い物になりそうだ。
+		case SINGLE_HOLD: register_code(KC_LCTRL); break;
+		case DOUBLE_HOLD: register_code(KC_LALT); break;	// ← ほかのキーとの組み合わせができない.
+	}
+}
+void LCTRLALT_reset (qk_tap_dance_state_t *state, void *user_data) {
+	switch (left_Ctrl_Alt_tap_state.state) {
+//		case SINGLE_TAP: unregister_code(HANZENjap_eng); break;
+		case SINGLE_TAP: unregister_code(KC_LCTRL); break;
+		case SINGLE_HOLD: unregister_code(KC_LCTRL); break;
+		case DOUBLE_HOLD: unregister_code(KC_LALT); break;
+	}
+	left_Ctrl_Alt_tap_state.state = 0;
+}
+
+
+
 //Tap Dance Definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
 	[LPRN_LBRC_LCBR]  = ACTION_TAP_DANCE_FN_ADVANCED(NULL, LPRN_finished, LPRN_reset),
 	[RPRN_RBRC_RCBR]  = ACTION_TAP_DANCE_FN_ADVANCED(NULL, RPRN_finished, RPRN_reset),
-	[ESC_SHIFT_LGUI]  = ACTION_TAP_DANCE_FN_ADVANCED(NULL, ESL_finished, ESL_reset)
+	[ESC_SHIFT_LGUI]  = ACTION_TAP_DANCE_FN_ADVANCED(NULL, ESL_finished, ESL_reset),
+	[_LCTRL_LALT]  = ACTION_TAP_DANCE_FN_ADVANCED(NULL, LCTRLALT_finished, LCTRLALT_reset)
 
 };
 
@@ -236,20 +267,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* BASE
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * |ESCAPE|Escape|   Q  |   W  |   E  |   R  |  T   |   |  Y   |   U  |   I  |   O  |   P  |  [   | LGUI |
+   * | Tab  |Escape|   Q  |   W  |   E  |   R  |  T   |   |  Y   |   U  |   I  |   O  |   P  |  [   |   `  |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * | Bkspc| Tab  |   A  |   S  |   D  |   F  |  G   |   |  H   |   J  |   K  |   L  |   ;  |   '  | Enter|
+   * | Bkspc| Enter|   A  |   S  |   D  |   F  |  G   |   |  H   |   J  |   K  |   L  |   ;  |   '  | Enter|
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * | Enter|Shift(|   Z  |   X  |   C  |   V  |  B   |   |  N   |   M  |   ,  |   .  |   /  |  ]   |Escape|
+   * | Space|Shift(|   Z  |   X  |   C  |   V  |  B   |   |  N   |   M  |   ,  |   .  |   /  |  ]   |Escape|
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * | LGUI | Space|   \  | LGUI | LAlt | Enter|LCtrl |   |)RSft |Space |   -  |   =  |  `   |RClick| RIGHT|
+   * | LGUI |  Tab | Space| LGUI | LAlt | LCtrl|Escape|   |)RSft |Space |   -  |   =  |   \  |RClick| LGUI |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASEPlate] = LAYOUT(
-	KC_ESCAPE,	KC_GESC,	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,			KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	QK_RGUI,	
-	KC_BSPACE,	LT(MOUSEPlate,	KC_TAB),	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,			KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	KC_ENTER,	
-	KC_ENTER,	KC_LSPO,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,			KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	KC_GESC,	
-	QK_LGUI,	KC_SPC,	KC_BSLS,	QK_LGUI,	KC_LALT,	LT(MEDIAPlate, KC_ENTER),	KC_LCTRL,			KC_RSPC,	LT(MOVESPlate, KC_SPC),	KC_MINS,	KC_EQL,	KC_GRAVE,	KC_MS_BTN2,	KC_RGHT	
+	KC_TAB,	KC_GESC,	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,			KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	KC_GRAVE,	
+	KC_BSPACE,	LT(MOUSEPlate,	KC_ENTER),	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,			KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	KC_ENTER,	
+	KC_SPC,	KC_LSPO,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,			KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	KC_GESC,	
+	QK_LGUI,	KC_TAB,	KC_SPC,	QK_LGUI,	KC_LALT,	KC_LCTRL,	LT(MEDIAPlate, KC_ESCAPE),			KC_RSPC,	LT(MOVESPlate, KC_SPC),	KC_MINS,	KC_EQL,	KC_BSLS,	KC_MS_BTN2,	QK_RGUI	
+//	QK_LGUI,	KC_TAB,	KC_SPC,	QK_LGUI,	KC_LSPO,	TD(_LCTRL_LALT),	LT(MEDIAPlate, KC_ESCAPE),			KC_RSPC,	LT(MOVESPlate, KC_SPC),	KC_MINS,	KC_EQL,	KC_BSLS,	KC_MS_BTN2,	QK_RGUI	
   ),
 
 
