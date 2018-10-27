@@ -271,19 +271,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
    * | Bkspc|   A  |   S  |   D  |   F  |  G   |  Tab |   |  H   |   J  |   K  |   L  |   ;  |   '  | Enter|
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * | Space|   Z  |   X  |   C  |   V  |  B   |Escape|   |  N   |   M  |   ,  |   .  |   /  |  ]   |Escape|
+   * | Space|   Z  |   X  |   C  |   V  |  B   | LAlt |   |  N   |   M  |   ,  |   .  |   /  |  ]   |Escape|
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * | LGUI | LGUI |Escape| LAlt |Shift(| LCtrl| Enter|   | Space|)RSft |   -  |   =  |   \  |RClick| LGUI |
+   * | LGUI | LGUI |Escape| Enter|Shift(| LCtrl|Escape|   | Space|)RSft |   =  |   -  |   \  |RClick| LGUI |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASEPlate] = LAYOUT(
 	KC_TAB,	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,	KC_SPC,			KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	KC_GRAVE,	
 	KC_BSPACE,	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,	LT(MOUSEPlate,	KC_TAB),			KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	KC_ENTER,	
-	KC_SPC,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,	KC_GESC,			KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	KC_GESC,	
-//	QK_LGUI,	KC_TAB,	KC_SPC,	QK_LGUI,	KC_LALT,	KC_LCTRL,	LT(MEDIAPlate, KC_ESCAPE),			KC_RSPC,	LT(MOVESPlate, KC_SPC),	KC_MINS,	KC_EQL,	KC_BSLS,	KC_MS_BTN2,	QK_RGUI	
-//	QK_LGUI,	KC_TAB,	KC_SPC,	QK_LGUI,	KC_LSPO,	TD(_LCTRL_LALT),	LT(MEDIAPlate, KC_ESCAPE),			KC_RSPC,	LT(MOVESPlate, KC_SPC),	KC_MINS,	KC_EQL,	KC_BSLS,	KC_MS_BTN2,	QK_RGUI
-// 	QK_LGUI,	QK_LGUI,	KC_GESC,	KC_LSPO,	KC_SPC,	TD(_LCTRL_LALT),	LT(MEDIAPlate, KC_ENTER),			KC_RSPC,	LT(MOVESPlate, KC_SPC),	KC_MINS,	KC_EQL,	KC_BSLS,	KC_MS_BTN2,	QK_RGUI	
- 	QK_LGUI,	QK_LGUI,	KC_GESC,	KC_LALT,	KC_LSPO,	KC_LCTRL,	LT(MEDIAPlate, KC_ENTER),			LT(MOVESPlate, KC_SPC),	KC_RSPC,	KC_MINS,	KC_EQL,	KC_BSLS,	KC_MS_BTN2,	QK_RGUI	
+	KC_SPC,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,	KC_LALT,			KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	KC_GESC,	
+ 	QK_LGUI,	QK_LGUI,	KC_GESC,	KC_ENTER,	KC_LSPO,	KC_LCTRL,	LT(MEDIAPlate, KC_ESCAPE),			LT(MOVESPlate, KC_SPC),	KC_RSPC,	KC_EQL,	KC_MINS,	KC_BSLS,	KC_MS_BTN2,	QK_RGUI	
   ),
 
 
