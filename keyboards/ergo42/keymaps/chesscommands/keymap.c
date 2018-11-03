@@ -273,7 +273,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
    * | Space|   Z  |   X  |   C  |   V  |  B   |Shift(|   |  N   |   M  |   ,  |   .  |   /  |  ]   |Escape|
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * | LGUI | LGUI |Escape| Enter|Escape| LCtrl| LAlt |   | Space|)RSft |   =  |   -  |   \  |RClick| LGUI |
+   * | LGUI | LGUI |Escape| Enter|Escape| LCtrl| LAlt |   | Space|)Shift|   =  |   -  |   \  |RClick| LGUI |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASEPlate] = LAYOUT(
@@ -308,22 +308,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* Move Layer
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * | RESET|Escape| Pad7 | Pad8 | Pad8 |  *   |  /   |   | PgUp | Tab  | Home | End  | SysRq|Bkspc |      |
+   * | RESET|Escape|      |      |      |      |CapLck|   | PgUp |PgDown| Home | End  | SysRq|Bkspc |      |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * |      |NumLck| Pad4 | Pad5 | Pad6 |  -   |CapLck|   |  Å©  |  Å´  |  Å™  |  Å®  | -_   | Enter|      |
+   * |      |      |      |      |      |      |      |   |  Å©  |  Å´  |  Å™  |  Å®  | -_   | Enter|      |
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * |      |ScrLck| Pad1 | Pad2 | Pad3 |  +   |LShift|   | PgDn |  |   |  [{  |  ]}  |  _   |RShift|      |
+   * |      |  1   |  2   |  3   |  4   |  5   |LShift|   |  6   |  7   |  8   |  9   |  0   |  _   |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      |ScrLok| Pad0 |  .   |  =   | LCtrl| LAlt |  |ó\ñÒçœÇ›|     |  +   |  _   |  |   |      |      |
+   * |      |ScrLok|      |      |      | LCtrl| LAlt |  |ó\ñÒçœÇ›|     |  +   |  _   |  |   |  `   |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MOVESPlate] = LAYOUT(
-	RESET,	KC_ESCAPE,	KC_KP_7,	KC_KP_8,	KC_KP_9,	KC_KP_ASTERISK,	KC_KP_SLASH,			KC_PGUP,	KC_TAB,	KC_HOME,	KC_END,	KC_PSCREEN,	KC_BSPACE,	KC_NO,	
-	KC_NO,	KC_NUMLOCK,	KC_KP_4,	KC_KP_5,	KC_KP_6,	KC_KP_MINUS,	KC_CAPSLOCK,			KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_MINUS, KC_ENTER, KC_NO,	
-	KC_NO,	KC_SCROLLLOCK,	KC_KP_1,	KC_KP_2,	KC_KP_3,	KC_KP_PLUS,	KC_LSHIFT,			KC_PGDOWN,	KC_PIPE,	KC_LBRACKET,	KC_RBRACKET,	KC_UNDERSCORE,	KC_RSHIFT,	KC_NO,	
-	KC_NO,	KC_LOCKING_SCROLL,	KC_KP_0,	KC_KP_DOT,	KC_KP_EQUAL,	_______,	_______,			KC_NO,	KC_NO, KC_PLUS, KC_UNDERSCORE, KC_PIPE, KC_NO, KC_NO	
+	RESET,	KC_ESCAPE,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	KC_CAPSLOCK,			KC_PGUP,	KC_PGDOWN,	KC_HOME,	KC_END,	KC_PSCREEN,	KC_BSPACE,	KC_NO,	
+	KC_NO,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,			KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_MINUS, KC_ENTER, KC_NO,	
+	KC_NO,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5,	_______,			KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	KC_UNDERSCORE,	KC_NO,	
+	KC_NO,	KC_LOCKING_SCROLL,	_______,	_______,	_______,	_______,	_______,			KC_NO,	_______, KC_PLUS, KC_UNDERSCORE, KC_PIPE, KC_GRAVE, KC_NO	
   ),
- 
+
 
 
 
@@ -336,15 +336,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------|------+------+------+------+------+------+   |------+------+------+------+------+------|------+
    * | åpè≥ |  !   |  @   |  #   |  $   |  %   | PgUp |   |  ^   |  &   |  *   |  (   |  )   |  F12 | åpè≥ |
    * |------|------+------+------+------+------+------+   |------+------+------+------+------+------|------+
-   * | åpè≥ |      | Home | End  | Del  | Bkspc| PgDn |   |      |      |   ,  |   .  |   /  |   ;  | åpè≥ |
+   * | åpè≥ |LShift| Home | End  | Del  | Bkspc| PgDn |   |      |  |   |   ,  |   .  |   /  |   ;  | åpè≥ |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      |      |      |      |      |      |      |  |îºäp/ëSäp|RSft|      |      |      |      |      |
+   * |      |      |      |     |ó\ñÒçœÇ›|     |      |  |îºäp/ëSäp|RSft|      |      |      |      |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MEDIAPlate] = LAYOUT(
 	_______,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,	_______,			KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	KC_F11,	_______,	
 	_______,	KC_EXCLAIM,	KC_AT,	KC_HASH,	KC_DOLLAR,	KC_PERCENT,	KC_PGUP,			KC_CIRCUMFLEX,	KC_AMPERSAND,	KC_ASTERISK,	KC_LEFT_PAREN,	KC_RIGHT_PAREN,	KC_F12,	_______,	
-	_______,	KC_NO,	KC_HOME,	KC_END,	KC_DELETE,	KC_BSPACE, 	KC_PGDOWN,		KC_NO,	KC_NO,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_SCLN,	_______,	
+	_______,	KC_RSHIFT,	KC_HOME,	KC_END,	KC_DELETE,	KC_BSPACE, 	KC_PGDOWN,		KC_NO,	KC_PIPE,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_SCLN,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,	_______,			HANZENjap_eng,	_______,	_______,	_______,	_______,	_______,	_______	
   ),
 
@@ -353,7 +353,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,------------------------------------------------.   ,------------------------------------------------.
    * | RESET|      | Home | End  |      |      | Tab  |   | VolUp| Lclk |Middle| Rclk |      | Play |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      | Home | Å™   | End  | PgUp |      |      |   |MsLeft|MsDown| MsUp |MsRght|      | Stop |      |
+   * |      | End  | Å™   | Home | PgUp |      |      |   |MsLeft|MsDown| MsUp |MsRght|      | Stop |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    * |      | Å©   | Å´   | Å®   | PgDn | Bkspc|      |   | VolDn| Prev | Next |      | Mute |RShift|      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
@@ -362,9 +362,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    */
   [MOUSEPlate] = LAYOUT(
 	RESET,	XXXXXXX,	KC_HOME,	KC_END,	KC_NO,	XXXXXXX,	KC_TAB,			KC_AUDIO_VOL_UP,	KC_MS_BTN1,	KC_MS_BTN3,	KC_MS_BTN2,	KC_NO,	KC_MEDIA_PLAY_PAUSE,	XXXXXXX,
-	XXXXXXX,	KC_HOME,	KC_UP,	KC_END,	KC_PGUP,	XXXXXXX,	XXXXXXX,			KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_UP,	KC_MS_RIGHT,	KC_NO,	KC_MEDIA_STOP,	XXXXXXX,
+	XXXXXXX,	KC_END,	KC_UP,	KC_HOME,	KC_PGUP,	XXXXXXX,	XXXXXXX,			KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_UP,	KC_MS_RIGHT,	KC_NO,	KC_MEDIA_STOP,	XXXXXXX,
 	XXXXXXX,	KC_LEFT,	KC_DOWN,	KC_RGHT,	KC_PGDOWN,	KC_BSPACE,	XXXXXXX,			KC_AUDIO_VOL_DOWN,	KC_MEDIA_PREV_TRACK,	KC_MEDIA_NEXT_TRACK,	KC_NO,	KC_AUDIO_MUTE,	KC_RSHIFT,	XXXXXXX,
-	XXXXXXX,	XXXXXXX,	XXXXXXX,	_______,	_______,	_______,	_______,			XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	KC_MS_WH_LEFT,	KC_MS_WH_RIGHT,	XXXXXXX
+	XXXXXXX,	XXXXXXX,	XXXXXXX,	_______,	_______,	_______,	_______,			XXXXXXX,	_______,	XXXXXXX,	XXXXXXX,	KC_MS_WH_LEFT,	KC_MS_WH_RIGHT,	XXXXXXX
   )
 
 
