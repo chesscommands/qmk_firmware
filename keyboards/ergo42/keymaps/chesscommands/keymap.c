@@ -280,7 +280,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_TAB,	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,	KC_SPC,			KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	KC_GRAVE,	
 	KC_BSPACE,	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,	KC_TAB,			KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	KC_ENTER,	
 	KC_SPC,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,	KC_LSPO,			KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	KC_GESC,	
-// 	QK_LGUI,	QK_LGUI,	KC_GESC,	KC_ENTER,	KC_LSPO,	KC_LCTRL,	LT(MEDIAPlate, KC_ESCAPE),			LT(MOVESPlate, KC_SPC),	KC_RSPC,	KC_EQL,	KC_MINS,	KC_BSLS,	KC_MS_BTN2,	QK_RGUI
  	QK_LGUI,	QK_LGUI,	KC_GESC,	LT(MOUSEPlate,	KC_ENTER),	LT(MEDIAPlate, KC_ESCAPE),	KC_LCTRL,	ALT_T(KC_ENTER),			LT(MOVESPlate, KC_SPC),	KC_RSPC,	KC_EQL,	KC_MINS,	KC_BSLS,	KC_MS_BTN2,	QK_RGUI	
   ),
 
@@ -308,20 +307,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* Move Layer
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * | RESET|  1   |  2   |  3   |  4   |  5   |CapLck|   |  6   |  7   |  8   |  9   |  0   |Bkspc |      |
+   * | RESET|      | Pad7 | Pad8 | Pad8 |  *   |  /   |   | PgUp |  -_  | Home | End  | SysRq|  {   |      |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * |      |      |      |      |      |      |      |   |  Å©  |  Å´  |  Å™  |  Å®  | -_   | Enter|      |
+   * |      |LShift| Pad4 | Pad5 | Pad6 |  -   |CapLck|   |  Å©  |  Å´  |  Å™  |  Å®  |   :  |  "   |      |
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * |      |      |      |      |      |      |LShift|   | PgUp |PgDown| Home | End  | SysRq|  _   |      |
+   * |      |ScrLok| Pad1 | Pad2 | Pad3 |  +   |LShift|   |PgDown|  _   |   <  |   >  |   ?  |  }   |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      |ScrLok|      |      |      | LCtrl| LAlt |  |ó\ñÒçœÇ›|     |  +   |  _   |  |   |  `   |      |
+   * |      |      |      |      | Pad0 | LCtrl| LAlt |  |ó\ñÒçœÇ›|     |  +   |  _   |  |   | Enter|      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MOVESPlate] = LAYOUT(
-	RESET,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5,	KC_CAPSLOCK,			KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	KC_BSPACE,	KC_NO,	
-	KC_NO,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,			KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_MINUS, KC_ENTER, KC_NO,	
-	KC_NO,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	_______,			KC_PGUP,	KC_PGDOWN,	KC_HOME,	KC_END,	KC_PSCREEN,	KC_UNDERSCORE,	KC_NO,	
-	KC_NO,	KC_LOCKING_SCROLL,	_______,	_______,	_______,	_______,	_______,			KC_NO,	_______, KC_PLUS, KC_UNDERSCORE, KC_PIPE, KC_GRAVE, KC_NO	
+	RESET,	XXXXXXX,	KC_KP_7,	KC_KP_8,	KC_KP_9,	KC_KP_ASTERISK,	KC_KP_SLASH,			KC_PGUP,	KC_MINUS,	KC_HOME,	KC_END,	KC_PSCREEN,	KC_LEFT_CURLY_BRACE,	KC_NO,	
+	KC_NO,	KC_LSHIFT,	KC_KP_4,	KC_KP_5,	KC_KP_6,	KC_KP_MINUS,	KC_CAPSLOCK,			KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_COLON, KC_DOUBLE_QUOTE, KC_NO,	
+	KC_NO,	KC_LOCKING_SCROLL,	KC_KP_1,	KC_KP_2,	KC_KP_3,	KC_KP_PLUS,	_______,			KC_PGDOWN,	KC_UNDERSCORE,	KC_LEFT_ANGLE_BRACKET,	KC_RIGHT_ANGLE_BRACKET,	KC_QUESTION,	KC_RIGHT_CURLY_BRACE,	KC_NO,	
+	KC_NO,	_______,	_______,	_______,	KC_KP_0,	_______,	_______,			KC_NO,	_______, KC_PLUS, KC_UNDERSCORE, KC_PIPE, KC_ENTER, KC_NO	
   ),
 
 
@@ -334,37 +333,39 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,------------------------------------------------.   ,------------------------------------------------.
    * | åpè≥ |  !   |  @   |  #   |  $   |  %   | åpè≥ |   |  ^   |  &   |  *   |  (   |  )   |      | åpè≥ |
    * |------|------+------+------+------+------+------+   |------+------+------+------+------+------|------+
-   * | åpè≥ |  F1  |  F2  |  F3  |  F4  |  F5  | PgUp |   |  F6  |  F7  |  F8  |  F9  |  F10 |  F11 | åpè≥ |
+   * | åpè≥ |  1   |  2   |  3   |  4   |  5   | PgUp |   |  6   |  7   |  8   |  9   |  0   |      | åpè≥ |
    * |------|------+------+------+------+------+------+   |------+------+------+------+------+------|------+
-   * | åpè≥ |LShift| Home | End  | Del  | Bkspc| PgDn |   |  |   |   ,  |   .  |   /  |   ;  |  F12 | åpè≥ |
+   * | åpè≥ | Del  | Home | End  | LCtrl| Bkspc| PgDn |   |  |   |  _   |   <  |   >  |   ?  |      | åpè≥ |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      |      |      |     |ó\ñÒçœÇ›|     |      |  |îºäp/ëSäp|RSft|      |      |      |      |      |
+   * |      |LShift|      |     |ó\ñÒçœÇ›|     |      |  |îºäp/ëSäp|RSft|      |      |      |      |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MEDIAPlate] = LAYOUT(
-	_______,	KC_EXCLAIM,	KC_AT,	KC_HASH,	KC_DOLLAR,	KC_PERCENT,	_______,			KC_CIRCUMFLEX,	KC_AMPERSAND,	KC_ASTERISK,	KC_LEFT_PAREN,	KC_RIGHT_PAREN,	KC_NO,	_______,	
-	_______,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5, 	KC_PGUP,			KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	KC_F11,	_______,	
-	_______,	KC_RSHIFT,	KC_HOME,	KC_END,	KC_DELETE,	KC_BSPACE,	KC_PGDOWN,			KC_PIPE,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_SCLN,	KC_F12,	_______,	
-	_______,	_______,	_______,	_______,	_______,	_______,	_______,			HANZENjap_eng,	_______,	_______,	_______,	_______,	_______,	_______	
+//	_______,	KC_EXCLAIM,	KC_AT,	KC_HASH,	KC_DOLLAR,	KC_PERCENT,	_______,			KC_CIRCUMFLEX,	KC_AMPERSAND,	KC_ASTERISK,	KC_LEFT_PAREN,	KC_RIGHT_PAREN,	KC_NO,	_______,	
+	_______,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,	KC_F11,			KC_F12,	KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	_______,
+	_______,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5, 	KC_PGUP,			KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	KC_NO,	_______,	
+//	_______,	KC_RSHIFT,	(KC_HOME | KC_LCTRL),	(KC_END | KC_LCTRL),	KC_DELETE,	KC_BSPACE,	KC_PGDOWN,			KC_PIPE,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_SCLN,	KC_NO,	_______,	
+	_______,	KC_DELETE,	KC_HOME,	KC_END,	KC_LCTRL,	KC_BSPACE,	KC_PGDOWN,			KC_PIPE,	KC_UNDERSCORE,	KC_LEFT_ANGLE_BRACKET,	KC_RIGHT_ANGLE_BRACKET,	KC_QUESTION,	KC_NO,	_______,	
+	_______,	KC_LSHIFT,	_______,	_______,	_______,	_______,	_______,			HANZENjap_eng,	_______,	_______,	_______,	_______,	_______,	_______	
   ),
 
 
   /* MOUSE Layer
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * | RESET|      | Home | End  |      |      | Tab  |   | VolUp| Lclk |Middle| Rclk |      | Play |      |
+   * | RESET|  F1  |  F2  |  F3  |  F4  |  F5  | F11  |   | F12  |  F6  |  F7  |  F8  |  F9  |  F10 |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      | End  | Å™   | Home | PgUp |      |      |   |MsLeft|MsDown| MsUp |MsRght|      | Stop |      |
+   * |      |LShift|      | Rclk | Lclk |Middle|      |   |MsLeft|MsDown| MsUp |MsRght|WhelUp| Stop |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      | Å©   | Å´   | Å®   | PgDn | Bkspc|      |   | VolDn| Prev | Next |      | Mute |RShift|      |
+   * |      | F13  | F14  |  F15 |  F16 |  F17 | F23  |   | F24  | F18  | F19  | F20  |  F21 |  F22 |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      |      |     |ó\ñÒçœÇ›|     |      |      |   |      |      |      |      | Wleft|WRight|      |
+   * |      |      |     |ó\ñÒçœÇ›|     |      | RESET|   |      |      |      | Wleft|WlDown|WRight|      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MOUSEPlate] = LAYOUT(
-	RESET,	XXXXXXX,	KC_HOME,	KC_END,	KC_NO,	XXXXXXX,	KC_TAB,			KC_AUDIO_VOL_UP,	KC_MS_BTN1,	KC_MS_BTN3,	KC_MS_BTN2,	KC_NO,	KC_MEDIA_PLAY_PAUSE,	XXXXXXX,
-	XXXXXXX,	KC_END,	KC_UP,	KC_HOME,	KC_PGUP,	XXXXXXX,	XXXXXXX,			KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_UP,	KC_MS_RIGHT,	KC_NO,	KC_MEDIA_STOP,	XXXXXXX,
-	XXXXXXX,	KC_LEFT,	KC_DOWN,	KC_RGHT,	KC_PGDOWN,	KC_BSPACE,	XXXXXXX,			KC_AUDIO_VOL_DOWN,	KC_MEDIA_PREV_TRACK,	KC_MEDIA_NEXT_TRACK,	KC_NO,	KC_AUDIO_MUTE,	KC_RSHIFT,	XXXXXXX,
-	XXXXXXX,	XXXXXXX,	XXXXXXX,	_______,	_______,	_______,	_______,			XXXXXXX,	_______,	XXXXXXX,	XXXXXXX,	KC_MS_WH_LEFT,	KC_MS_WH_RIGHT,	XXXXXXX
+	RESET,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,	KC_F11,			KC_F12,	KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	XXXXXXX,
+	XXXXXXX,	KC_LSHIFT,	XXXXXXX,	KC_MS_BTN2,	KC_MS_BTN1,	KC_MS_BTN3,	XXXXXXX,			KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_UP,	KC_MS_RIGHT,	KC_MS_WH_UP,	KC_MEDIA_STOP,	XXXXXXX,
+	XXXXXXX,	KC_F13,	KC_F14,	KC_F15,	KC_F16,	KC_F17,	KC_F23,			KC_F24,	KC_F18,	KC_F19,	KC_F20,	KC_F21,	KC_F22,	XXXXXXX,
+	XXXXXXX,	XXXXXXX,	XXXXXXX,	_______,	_______,	_______,	RESET,			XXXXXXX,	_______,	XXXXXXX,	KC_MS_WH_LEFT,	KC_MS_WH_DOWN,	KC_MS_WH_RIGHT,	XXXXXXX
   )
 
 

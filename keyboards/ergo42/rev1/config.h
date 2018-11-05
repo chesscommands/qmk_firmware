@@ -33,7 +33,70 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define USB_MAX_POWER_CONSUMPTION 100
 
 
+
+
+
+
+
+//	タッピング時間を過ぎた状態での押下を有効にするための措置20180825
+//		https://beta.docs.qmk.fm/features/feature_advanced_keycodes
+//		http://cydonianbanana.hateblo.jp/entry/2017/04/15/164015
 #define RETRO_TAPPING
+#define PERMISSIVE_HOLD
+
+
+//				使い方がよくわからない.有効になってくれない.
+//#define IGNORE_MOD_TAP_INTERRUPT
+//		https://bouzuya.hatenablog.com/entry/2017/09/09/235959
+
+
+
+//	20181015
+#define MOUSEKEY_DELAY				0
+#define MOUSEKEY_INTERVAL			0
+#define MOUSEKEY_MAX_SPEED			7
+#define MOUSEKEY_TIME_TO_MAX		80
+#define MOUSEKEY_WHEEL_MAX_SPEED	8
+#define MOUSEKEY_WHEEL_TIME_TO_MAX	80
+
+
+
+
+
+//#define TAPPING_TOGGLE  1
+
+
+
+
+/*	AutoShiftを有効にした場合に,以下を有効にして調整する.	*/
+#define NO_AUTO_SHIFT_SPECIAL
+//#define NO_AUTO_SHIFT_NUMERIC
+#define NO_AUTO_SHIFT_ALPHA
+
+
+
+
+
+//#define GRAVE_ESC_GUI_OVERRIDE
+//#define GRAVE_ESC_SHIFT_OVERRIDE
+//#define GRAVE_ESC_CTRL_OVERRIDE
+//#define GRAVE_ESC_ALT_OVERRIDE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* USB Device descriptor parameter */
@@ -57,7 +120,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CATERINA_BOOTLOADER
 
 /* define tapping term */
-#define TAPPING_TERM 85	// ←この値がちょうどいいのかもしれない20181102
+#define TAPPING_TERM 90	// ←この値がちょうどいいのかもしれない20181102
 //#define TAPPING_TERM 180	←反応が遅いため,使い物にならない20181102
 //#define TAPPING_TERM 75
 
