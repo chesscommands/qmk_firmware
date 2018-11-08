@@ -120,7 +120,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CATERINA_BOOTLOADER
 
 /* define tapping term */
-#define TAPPING_TERM 90	// ©‚±‚Ì’l‚ª‚¿‚å‚¤‚Ç‚¢‚¢‚Ì‚©‚à‚µ‚ê‚È‚¢20181102
+#define TAPPING_TERM 100	// ©‚±‚Ì’l‚ª‚¿‚å‚¤‚Ç‚¢‚¢‚Ì‚©‚à‚µ‚ê‚È‚¢20181102
 //#define TAPPING_TERM 180	©”½‰‚ª’x‚¢‚½‚ß,g‚¢•¨‚É‚È‚ç‚È‚¢20181102
 //#define TAPPING_TERM 75
 
