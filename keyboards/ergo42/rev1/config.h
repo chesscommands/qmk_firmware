@@ -41,12 +41,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //	タッピング時間を過ぎた状態での押下を有効にするための措置20180825
 //		https://beta.docs.qmk.fm/features/feature_advanced_keycodes
 //		http://cydonianbanana.hateblo.jp/entry/2017/04/15/164015
-#define RETRO_TAPPING
-#define PERMISSIVE_HOLD
+//#define RETRO_TAPPING
+//#define PERMISSIVE_HOLD
 
 
 //				使い方がよくわからない.有効になってくれない.
-//#define IGNORE_MOD_TAP_INTERRUPT
+#define IGNORE_MOD_TAP_INTERRUPT
 //		https://bouzuya.hatenablog.com/entry/2017/09/09/235959
 
 
@@ -120,7 +120,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CATERINA_BOOTLOADER
 
 /* define tapping term */
-#define TAPPING_TERM 100	// ←この値がちょうどいいのかもしれない20181102
+//#define TAPPING_TERM 100	// ←この値がちょうどいいのかもしれない20181102
+#define TAPPING_TERM 90
 //#define TAPPING_TERM 180	←反応が遅いため,使い物にならない20181102
 //#define TAPPING_TERM 75
 
