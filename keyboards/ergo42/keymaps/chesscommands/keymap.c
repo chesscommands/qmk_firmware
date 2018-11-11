@@ -252,7 +252,7 @@ void LENTERCTR_finished (qk_tap_dance_state_t *state, void *user_data) {
 	switch (left_Enter_tap_CtrlPress_state.state) {
 		case SINGLE_TAP: register_code(KC_ENTER); break;
 		case SINGLE_HOLD: register_code(KC_LCTRL); break;
-		case DOUBLE_HOLD: default: register_code(KC_ENTER); break;
+		case DOUBLE_HOLD: register_code(KC_ENTER); break;
 	}
 }
 void LENTERCTR_reset (qk_tap_dance_state_t *state, void *user_data) {
@@ -300,21 +300,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* BASE
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * | Tab  |Escape|   Q  |   W  |   E  |   R  |  T   |   |  Y   |   U  |   I  |   O  |   P  |  [   |   `  |
+   * | Space|   Q  |   W  |   E  |   R  |  T   | LCtrl|   |  Y   |   U  |   I  |   O  |   P  |  [   |   `  |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * | Bkspc| Tab  |   A  |   S  |   D  |   F  |  G   |   |  H   |   J  |   K  |   L  |   ;  |   '  | Enter|
+   * | Tab  |   A  |   S  |   D  |   F  |  G   | Enter|   |  H   |   J  |   K  |   L  |   ;  |   '  | Enter|
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * | Space|LShift|   Z  |   X  |   C  |   V  |  B   |   |  N   |   M  |   ,  |   .  |   /  |  ]   |Escape|
+   * |LShift|   Z  |   X  |   C  |   V  |  B   | Space|   |  N   |   M  |   ,  |   .  |   /  |  ]   |Escape|
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * | LGUI |  `   | LGUI | Enter| LAlt | Space| LCtrl|   | Space| Shift|   =  |   -  |   \  |RClick| LGUI |
+   * |  `   | LGUI |Escape| LAlt | Enter| LCtrl| Bkspc|   | Space| Shift|   =  |   -  |   \  |RClick| LGUI |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASEPlate] = LAYOUT(
-	KC_TAB,	KC_GESC,	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,			KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	KC_GRAVE,	
-	KC_BSPACE,	KC_TAB,	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,			KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	KC_ENTER,	
-	KC_SPC,	KC_LSHIFT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,			KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	KC_GESC,	
-// 	QK_LGUI,	KC_GRAVE,	QK_LGUI,	LT(MOUSEPlate,	KC_SPC),	KC_LALT,	LT(MEDIAPlate, KC_ENTER),	KC_LCTRL,			LT(MOVESPlate, KC_SPC),	KC_RSPC,	KC_EQL,	KC_MINS,	KC_BSLS,	KC_MS_BTN2,	QK_RGUI	
- 	QK_LGUI,	KC_GRAVE,	QK_LGUI,	LT(MOUSEPlate,	KC_ENTER),	KC_LALT,	LT(MEDIAPlate, KC_SPC),	TD(LENTER_LCTRL),			LT(MOVESPlate, KC_SPC),	KC_SFTENT,	KC_EQL,	KC_MINS,	KC_BSLS,	KC_MS_BTN2,	QK_RGUI	
+//	KC_GESC,	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,	KC_TAB,			KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	KC_GRAVE,	
+	KC_SPC,	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,	KC_LCTRL,			KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	KC_GRAVE,	
+	KC_TAB,	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,	KC_ENTER,			KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	KC_ENTER,	
+	KC_LSHIFT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,	KC_SPC,			KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	KC_GESC,	
+//	KC_GRAVE,	QK_LGUI,	LT(MOUSEPlate,	KC_ENTER),	KC_LALT,	LT(MEDIAPlate, KC_ESCAPE),	TD(LENTER_LCTRL),	KC_BSPACE,			LT(MOVESPlate, KC_SPC),	KC_SFTENT,	KC_EQL,	KC_MINS,	KC_BSLS,	KC_MS_BTN2,	QK_RGUI	
+ 	KC_GRAVE,	QK_LGUI,	LT(MOUSEPlate,	KC_ESCAPE),	KC_LALT,	LT(MEDIAPlate, KC_ENTER),	KC_LCTRL,	KC_BSPACE,			LT(MOVESPlate, KC_SPC),	KC_SFTENT,	KC_EQL,	KC_MINS,	KC_BSLS,	KC_MS_BTN2,	QK_RGUI	
   ),
 
 
@@ -345,16 +346,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
    * |      |      |CapLck| Pad4 | Pad5 | Pad6 |  -   |   |  Å©  |  Å´  |  Å™  |  Å®  |   :  |  "   |      |
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * |      |LShift|      | Pad1 | Pad2 | Pad3 |  +   |   |PgDown|  -   |   <  |   >  |   ?  |  }   |      |
+   * |LShift|      |      | Pad1 | Pad2 | Pad3 |  +   |   |PgDown|  -   |   <  |   >  |   ?  |  }   |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    * |      |      |ScrLok|      | Pad0 |      | LCtrl|  |ó\ñÒçœÇ›|  `  |  +   |  _   |  |   | Enter|      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MOVESPlate] = LAYOUT(
 	RESET,	_______,	KC_KP_SLASH,	KC_KP_7,	KC_KP_8,	KC_KP_9,	KC_KP_ASTERISK,			KC_PGUP,	KC_UNDERSCORE,	KC_HOME,	KC_END,	KC_PSCREEN,	KC_LEFT_CURLY_BRACE,	KC_NO,	
-	KC_NO,	_______,	KC_CAPSLOCK,	KC_KP_4,	KC_KP_5,	KC_KP_6,	KC_KP_MINUS,			KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_COLON, KC_DOUBLE_QUOTE, KC_NO,	
-	KC_NO,	_______,	KC_NO,	KC_KP_1,	KC_KP_2,	KC_KP_3,	KC_KP_PLUS,			KC_PGDOWN,	KC_MINUS,	KC_LEFT_ANGLE_BRACKET,	KC_RIGHT_ANGLE_BRACKET,	KC_QUESTION,	KC_RIGHT_CURLY_BRACE,	KC_NO,	
-	KC_NO,	_______,	KC_LOCKING_SCROLL,	_______,	KC_KP_0,	_______,	_______,			KC_NO,	KC_GRAVE, KC_PLUS, KC_UNDERSCORE, KC_PIPE, KC_ENTER, KC_NO	
+	_______,	KC_CAPSLOCK,	KC_KP_4,	KC_KP_5,	KC_KP_6,	KC_KP_MINUS,	KC_NO,			KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_COLON, KC_DOUBLE_QUOTE, KC_NO,	
+	_______,	KC_NO,	KC_KP_1,	KC_KP_2,	KC_KP_3,	KC_KP_PLUS,	KC_NO,			KC_PGDOWN,	KC_MINUS,	KC_LEFT_ANGLE_BRACKET,	KC_RIGHT_ANGLE_BRACKET,	KC_QUESTION,	KC_RIGHT_CURLY_BRACE,	KC_NO,	
+	_______,	KC_LOCKING_SCROLL,	_______,	KC_KP_0,	_______,	_______,	_______,			KC_NO,	KC_GRAVE, KC_PLUS, KC_UNDERSCORE, KC_PIPE, KC_ENTER, KC_NO	
   ),
 
 
@@ -365,22 +366,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* Media and mouse keys
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * | åpè≥ | åpè≥ |  !   |  @   |  #   |  $   |  %   |   |  ^   |  &   |  *   |  (   |  )   |      | åpè≥ |
-   * |------+------|------+------+------+------+------+   |------+------+------+------+------+------|------+
-   * | åpè≥ | PgUp |  1   |  2   |  3   |  4   |  5   |   |  6   |  7   |  8   |  9   |  0   |      | åpè≥ |
-   * |------+------|------+------+------+------+------+   |------+------+------+------+------+------|------+
-   * | åpè≥ |LShift| LCtrl| Home | End  | Del  | Bkspc|   |  |   |  _   |   <  |   >  |   ?  |      | åpè≥ |
+   * | åpè≥ |  !   |  @   |  #   |  $   |  %   | åpè≥ |   |  ^   |  &   |  *   |  (   |  )   |      | åpè≥ |
+   * |------|------+------+------+------+------+------+   |------+------+------+------+------+------|------+
+   * | PgUp |  1   |  2   |  3   |  4   |  5   | åpè≥ |   |  6   |  7   |  8   |  9   |  0   |      | åpè≥ |
+   * |------|------+------+------+------+------+------+   |------+------+------+------+------+------|------+
+   * |LShift| LCtrl| Home | End  | Del  | Bkspc| åpè≥ |   |  |   |  _   |   <  |   >  |   ?  |      | åpè≥ |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      | PgDn |LShift|      |     |ó\ñÒçœÇ›|     |  |îºäp/ëSäp|RSft|      |      |      |      |      |
+   * | PgDn |LShift|      |     |ó\ñÒçœÇ›|     |      |  |îºäp/ëSäp|RSft|      |      |      |      |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MEDIAPlate] = LAYOUT(
-//	_______,	KC_EXCLAIM,	KC_AT,	KC_HASH,	KC_DOLLAR,	KC_PERCENT,	_______,			KC_CIRCUMFLEX,	KC_AMPERSAND,	KC_ASTERISK,	KC_LEFT_PAREN,	KC_RIGHT_PAREN,	KC_NO,	_______,	
-	_______,	KC_F11,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,			KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	KC_F12,	_______,
-	_______,	KC_PGUP,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5, 			KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	KC_NO,	_______,	
-//	_______,	KC_RSHIFT,	(KC_HOME && KC_LCTRL),	(KC_END || KC_LCTRL),	KC_DELETE,	KC_BSPACE,	KC_PGDOWN,			KC_PIPE,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_SCLN,	KC_NO,	_______,	
-	_______,	KC_LSHIFT,	KC_LCTRL,	KC_HOME,	KC_END,	KC_DELETE,	KC_BSPACE,			KC_PIPE,	KC_UNDERSCORE,	KC_LEFT_ANGLE_BRACKET,	KC_RIGHT_ANGLE_BRACKET,	KC_QUESTION,	KC_NO,	_______,	
-	_______,	KC_PGDOWN,	KC_LSHIFT,	_______,	_______,	_______,	_______,			HANZENjap_eng,	_______,	_______,	_______,	_______,	_______,	_______	
+//	KC_EXCLAIM,	KC_AT,	KC_HASH,	KC_DOLLAR,	KC_PERCENT,	_______,	_______,			KC_CIRCUMFLEX,	KC_AMPERSAND,	KC_ASTERISK,	KC_LEFT_PAREN,	KC_RIGHT_PAREN,	KC_NO,	_______,	
+	KC_F11,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,	_______,			KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	KC_F12,	_______,
+	KC_PGUP,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5, 	_______,			KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	KC_NO,	_______,	
+//	KC_RSHIFT,	(KC_HOME && KC_LCTRL),	(KC_END || KC_LCTRL),	KC_DELETE,	KC_BSPACE,	KC_PGDOWN,	_______,			KC_PIPE,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_SCLN,	KC_NO,	_______,	
+	KC_LSHIFT,	KC_LCTRL,	KC_HOME,	KC_END,	KC_DELETE,	KC_BSPACE,	_______,			KC_PIPE,	KC_UNDERSCORE,	KC_LEFT_ANGLE_BRACKET,	KC_RIGHT_ANGLE_BRACKET,	KC_QUESTION,	KC_NO,	_______,	
+	KC_PGDOWN,	KC_LSHIFT,	_______,	_______,	_______,	_______,	_______,			HANZENjap_eng,	_______,	_______,	_______,	_______,	_______,	_______	
   ),
 
 

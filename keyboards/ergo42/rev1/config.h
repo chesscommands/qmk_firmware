@@ -42,11 +42,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //		https://beta.docs.qmk.fm/features/feature_advanced_keycodes
 //		http://cydonianbanana.hateblo.jp/entry/2017/04/15/164015
 //#define RETRO_TAPPING
-//#define PERMISSIVE_HOLD
+#define PERMISSIVE_HOLD
 
 
 //				Žg‚¢•û‚ª‚æ‚­‚í‚©‚ç‚È‚¢.—LŒø‚É‚È‚Á‚Ä‚­‚ê‚È‚¢.
-#define IGNORE_MOD_TAP_INTERRUPT
+//#define IGNORE_MOD_TAP_INTERRUPT
 //		https://bouzuya.hatenablog.com/entry/2017/09/09/235959
 
 
@@ -63,7 +63,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 
-//#define TAPPING_TOGGLE  1
+//#define TAPPING_TOGGLE  2
 
 
 
