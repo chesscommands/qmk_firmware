@@ -70,8 +70,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /*	AutoShiftを有効にした場合に,以下を有効にして調整する.	*/
 #define NO_AUTO_SHIFT_SPECIAL
-//#define NO_AUTO_SHIFT_NUMERIC
-#define NO_AUTO_SHIFT_ALPHA
+//#define NO_AUTO_SHIFT_NUMERIC	←数字のみ無効にする宣言.
+//#define NO_AUTO_SHIFT_ALPHA	←アルファベットのみ無効にする宣言.
 
 
 
@@ -120,8 +120,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CATERINA_BOOTLOADER
 
 /* define tapping term */
-//#define TAPPING_TERM 100	// ←この値がちょうどいいのかもしれない20181102
-#define TAPPING_TERM 90
+#define TAPPING_TERM 100	// ←この値がちょうどいいのかもしれない20181102
+//#define TAPPING_TERM 90
 //#define TAPPING_TERM 180	←反応が遅いため,使い物にならない20181102
 //#define TAPPING_TERM 75
 
