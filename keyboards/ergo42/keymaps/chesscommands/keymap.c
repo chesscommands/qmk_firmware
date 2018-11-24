@@ -80,6 +80,7 @@ enum TapDanceDeclarations{
 	ESC_SHIFT_LGUI,
 	_LCTRL_LALT,
 	LENTER_LCTRL,
+	LCTRL_TWOLEYERMEDIA,
 
 	SOME_OTHER_DANCE
 };
@@ -136,6 +137,16 @@ static tap left_Enter_tap_CtrlPress_state = {
 	.is_press_action = true,
 	.state = 0
 };
+
+
+
+static tap CtrlPress_2PressLeyer_state = {
+	// âüÇµë±ÇØÇ≈LCtrlÉLÅ[ÅE2âÒÉ^ÉbÉvå„ÇÃâüÇµë±ÇØÇ≈ÉåÉCÉÑÅ[ïœçXÉLÅ[Ç∆Ç∑ÇÈ.
+	.is_press_action = true,
+	.state = 0
+};
+
+
 
 
 
@@ -267,13 +278,41 @@ void LENTERCTR_reset (qk_tap_dance_state_t *state, void *user_data) {
 
 
 
+
+//	à»â∫ÅAÉRÉìÉpÉCÉãÉGÉâÅ[Ç™î≠ê∂ÇµÅAévòfí ÇËÇ…Ç¢Ç©Ç»Ç©Ç¡ÇΩ20181124
+void CTRLPRESSLEYERMEDIA_finished (qk_tap_dance_state_t *state, void *user_data) {
+	CtrlPress_2PressLeyer_state.state = cur_dance(state);
+	switch (CtrlPress_2PressLeyer_state.state) {
+		case SINGLE_TAP: register_code(KC_LCTRL); break;
+		case SINGLE_HOLD: register_code(KC_LCTRL); break;
+//		case DOUBLE_HOLD: register_code(MO(MEDIAPlate)); break;
+	}
+}
+void CTRLPRESSLEYERMEDIA_reset (qk_tap_dance_state_t *state, void *user_data) {
+	switch (CtrlPress_2PressLeyer_state.state) {
+		case SINGLE_TAP: unregister_code(KC_LCTRL); break;
+		case SINGLE_HOLD: unregister_code(KC_LCTRL); break;
+//		case DOUBLE_HOLD: default: unregister_code(MO(MEDIAPlate)); break;
+	}
+	CtrlPress_2PressLeyer_state.state = 0;
+}
+
+
+
+
+
+
+
+
+
 //Tap Dance Definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
 	[LPRN_LBRC_LCBR]  = ACTION_TAP_DANCE_FN_ADVANCED(NULL, LPRN_finished, LPRN_reset),
 	[RPRN_RBRC_RCBR]  = ACTION_TAP_DANCE_FN_ADVANCED(NULL, RPRN_finished, RPRN_reset),
 	[ESC_SHIFT_LGUI]  = ACTION_TAP_DANCE_FN_ADVANCED(NULL, ESL_finished, ESL_reset),
 	[_LCTRL_LALT]  = ACTION_TAP_DANCE_FN_ADVANCED(NULL, LCTRLALT_finished, LCTRLALT_reset),
-	[LENTER_LCTRL] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, LENTERCTR_finished, LENTERCTR_reset)
+	[LENTER_LCTRL] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, LENTERCTR_finished, LENTERCTR_reset),
+	[LCTRL_TWOLEYERMEDIA] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, CTRLPRESSLEYERMEDIA_finished, CTRLPRESSLEYERMEDIA_reset)
 
 };
 
@@ -306,7 +345,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
    * |Escape|   Z  |   X  |   C  |   V  |  B   | Space|   |  N   |   M  |   ,  |   .  |   /  |  ]   |Escape|
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |  `   | LGUI|îºäp/ëSäp|LAltSpace| | LCtrl| Bkspc|   | Space| Shift|   =  |   \  |   -  |RClick| LGUI |
+   * |  `   | LGUI|îºäp/ëSäp|LAltEsc|LCtrl|Space|Bkspc|   | Space| Shift|   =  |   \  |   -  |RClick| LGUI |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASEPlate] = LAYOUT(
@@ -317,7 +356,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //	KC_GRAVE,	QK_LGUI,	LT(MOUSEPlate,	KC_ENTER),	KC_LALT,	LT(MEDIAPlate, KC_ESCAPE),	TD(LENTER_LCTRL),	KC_BSPACE,			LT(MOVESPlate, KC_SPC),	KC_SFTENT,	KC_EQL,	KC_MINS,	KC_BSLS,	KC_MS_BTN2,	QK_RGUI	
 // 	KC_GRAVE,	QK_LGUI,	LT(MOUSEPlate,	KC_ENTER),	LT(MEDIAPlate, KC_ESCAPE),	KC_LALT,	KC_LCTRL,	KC_BSPACE,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_MINS,	KC_BSLS,	KC_MS_BTN2,	QK_RGUI	
 //	KC_GRAVE,	QK_LGUI,	LT(MOUSEPlate,	HANZENjap_eng),	LALT_T(KC_SPC),	LT(MEDIAPlate, KC_ESCAPE),	KC_LCTRL,	KC_BSPACE,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_MINS,	KC_BSLS,	KC_MS_BTN2,	QK_RGUI	
-	KC_GRAVE,	QK_LGUI,	HANZENjap_eng,	LALT_T(KC_SPC),	LT(MEDIAPlate, KC_ESCAPE),	KC_LCTRL,	KC_BSPACE,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_BSLS,	KC_MINS,	KC_MS_BTN2,	QK_RGUI	
+	KC_GRAVE,	QK_LGUI,	HANZENjap_eng,	LALT_T(KC_ESCAPE),	KC_LCTRL,	LT(MEDIAPlate, KC_SPC),	KC_BSPACE,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_BSLS,	KC_MINS,	KC_MS_BTN2,	QK_RGUI	
+//	KC_GRAVE,	QK_LGUI,	HANZENjap_eng,	LALT_T(KC_SPC),	LT(MEDIAPlate, KC_ESCAPE),	TD(LCTRL_TWOLEYERMEDIA),	KC_BSPACE,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_BSLS,	KC_MINS,	KC_MS_BTN2,	QK_RGUI	
   ),
 
 
@@ -368,7 +408,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* Media and mouse keys
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * |  1   |  2   |  3   |  4   |  5   |LShift| åpè≥ |   |  6   |  7   |  8   |  9   |  0   | F12  | åpè≥ |
+   * |LShift|  1   |  2   |  3   |  4   |  5   | åpè≥ |   |  6   |  7   |  8   |  9   |  0   | F12  | åpè≥ |
    * |------|------+------+------+------+------+------+   |------+------+------+------+------+------|------+
    * |LShift|  F1  |  F2  |  F3  |  F4  |  F5  | åpè≥ |   |  F6  |  F7  |  F8  |  F9  |  F10 | F11  | åpè≥ |
    * |------|------+------+------+------+------+------+   |------+------+------+------+------+------|------+
@@ -378,12 +418,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MEDIAPlate] = LAYOUT(
-	KC_1,	KC_2,	KC_3,	KC_4,	KC_5, 	KC_LSHIFT,	_______,			KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	KC_F12,	_______,	
-//	KC_EXCLAIM,	KC_AT,	KC_HASH,	KC_DOLLAR,	KC_PERCENT,	_______,	_______,			KC_CIRCUMFLEX,	KC_AMPERSAND,	KC_ASTERISK,	KC_LEFT_PAREN,	KC_RIGHT_PAREN,	KC_NO,	_______,	
-//	KC_F11,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,	_______,			KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	KC_F12,	_______,
-//	KC_1,	KC_2,	KC_3,	KC_4,	KC_5, 	KC_LSHIFT,	_______,			KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	KC_NO,	_______,	
+	KC_LSHIFT,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5, 	_______,			KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	KC_F12,	_______,	
 	KC_F12,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,	RESET,			KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	KC_F11,	XXXXXXX,
-//	KC_RSHIFT,	(KC_HOME && KC_LCTRL),	(KC_END || KC_LCTRL),	KC_DELETE,	KC_BSPACE,	KC_PGDOWN,	_______,			KC_PIPE,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_SCLN,	KC_NO,	_______,	
 	KC_PGUP,	KC_LCTRL,	KC_HOME,	KC_END,	KC_DELETE,	KC_BSPACE,	_______,			KC_PIPE,	KC_UNDERSCORE,	KC_LEFT_ANGLE_BRACKET,	KC_RIGHT_ANGLE_BRACKET,	KC_QUESTION,	KC_NO,	_______,	
 	KC_PGDOWN,	KC_LSHIFT,	_______,	KC_ENTER,	_______,	_______,	_______,			KC_RSHIFT,	_______,	KC_PLUS, KC_PIPE, KC_UNDERSCORE,	_______,	_______	
   ),
