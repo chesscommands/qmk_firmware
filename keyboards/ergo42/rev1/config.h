@@ -65,6 +65,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 //#define TAPPING_TOGGLE  2
 
+#define ONESHOT_TIMEOUT 8000
+
+
+
+
+
+
+
 
 
 
