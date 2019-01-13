@@ -339,21 +339,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* BASE
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * |GUIEsc|   Q  |   W  |   E  |   R  |  T   | APP  |   |  Y   |   U  |   I  |   O  |   P  |  [   |   `  |
+   * |GUIEnt|   Q  |   W  |   E  |   R  |  T   | APP  |   |  Y   |   U  |   I  |   O  |   P  |  [   |   `  |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
    * | Tab  |   A  |   S  |   D  |   F  |  G   |LShift|   |  H   |   J  |   K  |   L  |   ;  |   '  | Enter|
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
    * |LShift|   Z  |   X  |   C  |   V  |  B   | Tab  |   |  N   |   M  |   ,  |   .  |   /  |  ]   |Escape|
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |  Del |Escape|îºëSäp|BakSpc| LAlt |LCtrl | LAlt |   | Space| Shift|   =  |   \  |   -  |  `   | LGUI |
+   * |BakSpc|  Del |îºëSäp| Space| LAlt |LCtrl | LAlt |   | Space| Shift|   =  |   `  |   -  |  \   | LGUI |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASEPlate] = LAYOUT(
-	LGUI_T(KC_ESCAPE),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,	KC_APPLICATION,			KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	KC_GRAVE,	
+	LGUI_T(KC_ENTER),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,	KC_APPLICATION,			KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	KC_GRAVE,	
 	KC_TAB,	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,	LSFT_T(KC_ESCAPE),			KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	KC_SFTENT,	
 	KC_LSHIFT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,	KC_TAB,			KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	KC_GESC,	
 //	KC_BSPACE,	LT(MEDIAPlate, KC_ESCAPE),	HANZENjap_eng,	KC_DELETE,	LALT_T(KC_SPC),	LCTL_T(KC_ENTER),	LSFT_T(KC_ESCAPE),			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_BSLS,	KC_MINS,	KC_GRAVE,	QK_RGUI	
-	KC_DELETE,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	KC_SPC,	LALT_T(KC_ENTER),	KC_LCTRL,	LSFT_T(KC_ESCAPE),			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_BSLS,	KC_MINS,	KC_GRAVE,	QK_RGUI	
+	KC_BSPACE,	LT(MEDIAPlate, KC_DELETE),	HANZENjap_eng,	KC_SPC,	LALT_T(KC_ESCAPE),	KC_LCTRL,	LSFT_T(KC_ESCAPE),			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI	
   ),
 
 
@@ -386,14 +386,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
    * |LShift|  +   |MsLeft|MsDown|MsRght| PgDn |      |   | Home | End  |   <  |   >  |   ?  |  }   | RESET|
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   *|ASÉgÉOÉã|ScrLok|     |      |      | LCtrl|      |  |ó\ñÒçœÇ›|  =  |  +   |  |   |  _   |  ~   |      |
+   *|ASÉgÉOÉã|ScrLok|     |      |      | LCtrl|      |  |ó\ñÒçœÇ›|  =  |  +   |  ~   |  _   |  |   |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MOVESPlate] = LAYOUT(
 	_______,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5,	_______,			KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	KC_LEFT_CURLY_BRACE,	KC_NO,	
 	KC_LSHIFT,	KC_EQL,	KC_MS_BTN2,	KC_MS_UP,	KC_MS_BTN1,	KC_PGUP,	_______,			KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_COLON, KC_DOUBLE_QUOTE, KC_NO,	
 	_______,	KC_PLUS,	KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_RIGHT,	KC_PGDOWN,	_______,			KC_HOME,	KC_END,	KC_LEFT_ANGLE_BRACKET,	KC_RIGHT_ANGLE_BRACKET,	KC_QUESTION,	KC_RIGHT_CURLY_BRACE,	RESET,	
-	KC_ASTG,	KC_LOCKING_SCROLL,	_______,	_______,	_______,	_______,	_______,			KC_NO,	KC_EQL, KC_PLUS, KC_PIPE, KC_UNDERSCORE, KC_TILDE, KC_NO	
+	KC_ASTG,	KC_LOCKING_SCROLL,	_______,	_______,	_______,	_______,	_______,			KC_NO,	KC_EQL, KC_PLUS, KC_TILDE, KC_UNDERSCORE, KC_PIPE, KC_NO	
   ),
 
 //	KC_ASTGÅFAutoShifté©ìÆâüâ∫ÇÃÉgÉOÉãÉLÅ[
@@ -410,14 +410,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------|------+------+------+------+------+------+   |------+------+------+------+------+------|------+
    * |WhelUp| LCtrl| Home | End  | Del  | Bkspc| åpè≥ |   |  |   |  _   |   <  |   >  |   ?  |      | åpè≥ |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |WlDown|     |îº/ëSäp|      |LShift|      |      |   |RShift| RSft |  +   |  |   |   _  |      |      |
+   * |WlDown|      |LShift|      |      |      |      |   |RShift| RSft |  +   |  |   |   _  |      |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MEDIAPlate] = LAYOUT(
 	KC_LSHIFT,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5, 	_______,			KC_6,	KC_7,	KC_8,	KC_9,	KC_PSCREEN,	KC_F12,	_______,	
 	KC_LSHIFT,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,	RESET,			KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	KC_F11,	XXXXXXX,
 	KC_MS_WH_UP,	KC_LCTRL,	KC_HOME,	KC_END,	KC_DELETE,	KC_BSPACE,	_______,			KC_PIPE,	KC_UNDERSCORE,	KC_LEFT_ANGLE_BRACKET,	KC_RIGHT_ANGLE_BRACKET,	KC_QUESTION,	KC_NO,	_______,	
-	KC_MS_WH_DOWN,	KC_ENTER,	_______,	_______,	KC_LSHIFT,	_______,	_______,			KC_RSHIFT,	_______,	KC_PLUS, KC_PIPE, KC_UNDERSCORE,	_______,	_______	
+	KC_MS_WH_DOWN,	KC_ENTER,	KC_LSHIFT,	_______,	_______,	_______,	_______,			KC_RSHIFT,	_______,	KC_PLUS, KC_PIPE, KC_UNDERSCORE,	_______,	_______	
   ),
 
 
