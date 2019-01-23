@@ -345,15 +345,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
    * |LShift|   Z  |   X  |   C  |   V  |  B   | Tab  |   |  N   |   M  |   ,  |   .  |   /  |  ]   |Escape|
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |BakSpc|  Del |”¼‘SŠp| Space| LAlt |LCtrl | LAlt |   | Space| Shift|   =  |   `  |   -  |  \   | LGUI |
+   * |Escape| Space|”¼‘SŠp|  Del | LAlt |LCtrl | LAlt |   | Space| Shift|   =  |   `  |   -  |  \   | LGUI |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASEPlate] = LAYOUT(
 	LGUI_T(KC_ENTER),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,	KC_APPLICATION,			KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	KC_GRAVE,	
 	KC_TAB,	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,	LSFT_T(KC_ESCAPE),			KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	KC_SFTENT,	
 	KC_LSHIFT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,	KC_TAB,			KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	KC_GESC,	
-//	KC_BSPACE,	LT(MEDIAPlate, KC_ESCAPE),	HANZENjap_eng,	KC_DELETE,	LALT_T(KC_SPC),	LCTL_T(KC_ENTER),	LSFT_T(KC_ESCAPE),			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_BSLS,	KC_MINS,	KC_GRAVE,	QK_RGUI	
-	KC_BSPACE,	LT(MEDIAPlate, KC_DELETE),	HANZENjap_eng,	KC_SPC,	LALT_T(KC_ESCAPE),	KC_LCTRL,	LSFT_T(KC_ESCAPE),			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI	
+	KC_ESCAPE,	LT(MEDIAPlate, KC_SPC),	HANZENjap_eng,	KC_DELETE,	LALT_T(KC_BSPACE),	KC_LCTRL,	LSFT_T(KC_ESCAPE),			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI	
   ),
 
 
