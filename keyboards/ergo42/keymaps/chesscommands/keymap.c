@@ -345,14 +345,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
    * |LShift|   Z  |   X  |   C  |   V  |  B   | Tab  |   |  N   |   M  |   ,  |   .  |   /  |  ]   |Escape|
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * | Bkspc| Space|îºëSäp|Delete| LAlt |LCtrl | LAlt |   | Space| Shift|   =  |   `  |   -  |  \   | LGUI |
+   * |îºëSäp| Space| Bkspc|Delete| LAlt |LCtrl | LAlt |   | Space| Shift|   =  |   `  |   -  |  \   | LGUI |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASEPlate] = LAYOUT(
 	LGUI_T(KC_ENTER),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,	KC_APPLICATION,			KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	KC_GRAVE,	
 	KC_TAB,	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,	LSFT_T(KC_ESCAPE),			KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	KC_SFTENT,	
 	KC_LSHIFT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,	KC_TAB,			KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	KC_GESC,	
-	KC_BSPACE,	LT(MEDIAPlate, KC_SPC),	HANZENjap_eng,	KC_DELETE,	LALT_T(KC_ESCAPE),	KC_LCTRL,	LSFT_T(KC_ESCAPE),			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI	
+	HANZENjap_eng,	LT(MEDIAPlate, KC_SPC),	KC_BSPACE,	KC_DELETE,	LALT_T(KC_ESCAPE),	KC_LCTRL,	LSFT_T(KC_ESCAPE),			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI	
   ),
 
 
@@ -381,7 +381,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,------------------------------------------------.   ,------------------------------------------------.
    * |      |  1   |  2   |  3   |  4   |  5   |      |   |  6   |  7   |  8   |  9   |  0   |  {   |      |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * |LShift|  =   | Lclk | MsUp | Rclk | PgUp |      |   |  Å©  |  Å´  |  Å™  |  Å®  |   :  |  "   |      |
+   * |LShift|  =   | MsUp | Lclk | Rclk | PgUp |      |   |  Å©  |  Å´  |  Å™  |  Å®  |   :  |  "   |      |
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
    * |LShift|  +   |MsLeft|MsDown|MsRght| PgDn |      |   | Home | End  |   <  |   >  |   ?  |  }   | RESET|
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
@@ -390,7 +390,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    */
   [MOVESPlate] = LAYOUT(
 	_______,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5,	_______,			KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	KC_LEFT_CURLY_BRACE,	KC_NO,	
-	KC_LSHIFT,	KC_EQL,	KC_MS_BTN2,	KC_MS_UP,	KC_MS_BTN1,	KC_PGUP,	_______,			KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_COLON, KC_DOUBLE_QUOTE, KC_NO,	
+	KC_LSHIFT,	KC_EQL,	KC_MS_UP,	KC_MS_BTN2,	KC_MS_BTN1,	KC_PGUP,	_______,			KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_COLON, KC_DOUBLE_QUOTE, KC_NO,	
 	_______,	KC_PLUS,	KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_RIGHT,	KC_PGDOWN,	_______,			KC_HOME,	KC_END,	KC_LEFT_ANGLE_BRACKET,	KC_RIGHT_ANGLE_BRACKET,	KC_QUESTION,	KC_RIGHT_CURLY_BRACE,	RESET,	
 	KC_ASTG,	KC_LOCKING_SCROLL,	_______,	_______,	_______,	_______,	_______,			KC_NO,	KC_EQL, KC_PLUS, KC_TILDE, KC_UNDERSCORE, KC_PIPE, KC_NO	
   ),
