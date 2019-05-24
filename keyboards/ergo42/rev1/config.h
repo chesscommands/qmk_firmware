@@ -40,7 +40,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 //	タッピング時間を過ぎた状態での押下を有効にするための措置20180825
 //		https://beta.docs.qmk.fm/features/feature_advanced_keycodes
-//		http://cydonianbanana.hateblo.jp/entry/2017/04/15/164015
 //#define RETRO_TAPPING
 #define PERMISSIVE_HOLD
 
@@ -67,6 +66,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define ONESHOT_TIMEOUT 8000
 
+
+
+
+
+/* 2回すばやく押して2回目ホールドで単押しに設定したキーの連続入力が可能 */
+//	https://docs.qmk.fm/#/feature_advanced_keycodes?id=tapping-force-hold
+//	https://qiita.com/chesscommands/items/cf740e2e8b2b6879c798
+//#define TAPPING_FORCE_HOLD
+//	KC_SFTENT用に設定した20190518
+//		意図した動きになってくれなかったため,無効化.
 
 
 
@@ -128,10 +137,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CATERINA_BOOTLOADER
 
 /* define tapping term */
-#define TAPPING_TERM 100	// ←この値がちょうどいいのかもしれない20181102
-//#define TAPPING_TERM 90
+//#define TAPPING_TERM 80
+//#define TAPPING_TERM 100	// ←この値がちょうどいいのかもしれない20181102
+#define TAPPING_TERM 90
 //#define TAPPING_TERM 180	←反応が遅いため,使い物にならない20181102
 //#define TAPPING_TERM 75
+//#define TAPPING_TERM 200	←絶対にあり得ない反応速度20190518
+//#define TAPPING_TERM 50	←指の動きをこれ以上早くできないため、無謀な値だった。ましてや,これ以上小さい値は死ぬことになる20190518
+//#define TAPPING_TERM 60
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST

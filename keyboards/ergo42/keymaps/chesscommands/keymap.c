@@ -55,6 +55,8 @@ enum layerNumber {
 
 enum custom_keycodes {
   ZEROReturn = SAFE_RANGE, // can always be here
+	CTRLENTER,
+	ALTSPACE,
 
   END_SAFE_RANGE
 };
@@ -63,6 +65,9 @@ enum custom_keycodes {
 
 
 
+// CTRLENTERóp
+static uint16_t my_hash_timer;
+#define MY_TAPPING_TERM 60	// CTRLENTERÇ…ÇÕÇ¢Ç¢Ç©Ç‡ÇµÇÍÇ»Ç¢Ç™,Ç‚ÇÕÇË,àÍï»Ç‡ìÒï»Ç‡Ç†ÇÈ.Ç±ÇÃílÇ≈ÇÕégÇ¢Ç±Ç»ÇπÇ»Ç¢.
 
 
 
@@ -334,7 +339,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 
 
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* BASE
@@ -343,16 +347,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
    * | Tab  |   A  |   S  |   D  |   F  |  G   |LShift|   |  H   |   J  |   K  |   L  |   ;  |   '  | Enter|
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * |LShift|   Z  |   X  |   C  |   V  |  B   | Tab  |   |  N   |   M  |   ,  |   .  |   /  |  ]   |Escape|
+   * | Space|   Z  |   X  |   C  |   V  |  B   | Tab  |   |  N   |   M  |   ,  |   .  |   /  |  ]   |Escape|
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * | Bkspc| Space|îºëSäp|Delete|Alt/Ent|LCtrl|LShift|   | Space| Shift|   =  |   `  |   -  |  \   | LGUI |
+   * |Delete| Bkspc|îºëSäp| LAlt |Sft/Etr|LCtrl|LShift|   | Space| Shift|   =  |   `  |   -  |  \   | LGUI |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASEPlate] = LAYOUT(
 	LGUI_T(KC_ESCAPE),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,	KC_APPLICATION,			KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	KC_GRAVE,	
 	KC_TAB,	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,	LSFT_T(KC_ESCAPE),			KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	KC_SFTENT,	
-	KC_LSHIFT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,	KC_TAB,			KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	KC_GESC,	
-	KC_BSPACE,	LT(MEDIAPlate, KC_SPC),	HANZENjap_eng,	KC_DELETE,	LALT_T(KC_ENTER),	KC_LCTRL,	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI	
+	KC_SPC,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,	KC_TAB,			KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	KC_GESC,	
+//	KC_BSPACE,	LT(MEDIAPlate, KC_SPC),	HANZENjap_eng,	KC_DELETE,	LALT_T(KC_ENTER),	KC_LCTRL,	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI	
+//	KC_BSPACE,	LT(MEDIAPlate, KC_SPC),	HANZENjap_eng,	KC_DELETE,	KC_LALT,	CTRLENTER,	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI	
+//	KC_BSPACE,	LT(MEDIAPlate, KC_SPC),	HANZENjap_eng,	KC_DELETE,	ALTSPACE,	CTL_T(KC_ENTER),	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI	
+//	KC_LALT,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	KC_DELETE,	KC_SFTENT,	KC_LCTRL,	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI
+	KC_DELETE,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	KC_LALT,	SFT_T(KC_ENTER),	KC_LCTRL,	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI	
   ),
 
 
@@ -407,16 +415,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------|------+------+------+------+------+------+   |------+------+------+------+------+------|------+
    * |LShift|  F1  |  F2  |  F3  |  F4  |  F5  | åpè≥ |   |  F6  |  F7  |  F8  |  F9  |  F10 | F11  | åpè≥ |
    * |------|------+------+------+------+------+------+   |------+------+------+------+------+------|------+
-   * |WhelUp| LCtrl| Home | End  |Escape|PrScrn| åpè≥ |   |  |   |  _   |   <  |   >  |   ?  |      | åpè≥ |
+   * |WhelUp| Enter| Home | End  |Escape|PrScrn| åpè≥ |   |  |   |  _   |   <  |   >  |   ?  |      | åpè≥ |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |WlDown|      |      |      |LShift|      |      |   |RShift| RSft |  +   |  |   |   _  |      |      |
+   * |WlDown| LCtrl|      |      |LShift|      |      |   |RShift| RSft |  +   |  |   |   _  |      |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MEDIAPlate] = LAYOUT(
 	KC_LSHIFT,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5, 	_______,			KC_6,	KC_7,	KC_8,	KC_9,	KC_PSCREEN,	KC_F12,	_______,	
 	KC_LSHIFT,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,	RESET,			KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	KC_F11,	XXXXXXX,
-	KC_MS_WH_UP,	KC_LCTRL,	KC_HOME,	KC_END,	KC_ESCAPE,	LALT(KC_PSCREEN),	_______,			KC_PIPE,	KC_UNDERSCORE,	KC_LEFT_ANGLE_BRACKET,	KC_RIGHT_ANGLE_BRACKET,	KC_QUESTION,	KC_NO,	_______,	
-	KC_MS_WH_DOWN,	KC_ENTER,	_______,	_______,	KC_LSHIFT,	_______,	_______,			KC_RSHIFT,	_______,	KC_PLUS, KC_PIPE, KC_UNDERSCORE,	_______,	_______	
+	KC_MS_WH_UP,	KC_ENTER,	KC_HOME,	KC_END,	KC_ESCAPE,	LALT(KC_PSCREEN),	_______,			KC_PIPE,	KC_UNDERSCORE,	KC_LEFT_ANGLE_BRACKET,	KC_RIGHT_ANGLE_BRACKET,	KC_QUESTION,	KC_NO,	_______,	
+	KC_MS_WH_DOWN,	KC_LCTRL,	_______,	_______,	KC_LSHIFT,	_______,	_______,			KC_RSHIFT,	_______,	KC_PLUS, KC_PIPE, KC_UNDERSCORE,	_______,	_______	
   ),
 
 //	AltÅ{F4ÅFÉEÉBÉìÉhÉEÇï¬Ç∂ÇÈ ÅiÉuÉâÉNÉâÇ»ÇÁAltÅ{F4êîâÒÇâüÇ∑Ç©âüÇµÇ¡ï˙ÇµÅj	Å©ÉRÉåÇ™Ç≈Ç´Ç»Ç¢ÅBAutoHotKeyÇ≈ë„ë÷
@@ -550,6 +558,38 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 		}
 		else {
 			// ÉLÅ[âüè„éûÇ…ìÆÇ≠
+		}
+		return false;
+		break;
+
+
+	case CTRLENTER:
+// https://www.reddit.com/r/olkb/comments/a5ujx6/can_i_make_qmks_modtap_behave_like_easyavrs_tap/
+		if(record->event.pressed) {
+			my_hash_timer = timer_read();
+			register_code(KC_LCTL); // Change the key to be held here
+		} else {
+			unregister_code(KC_LCTL); // Change the key that was held here, too!
+			if (timer_elapsed(my_hash_timer) < MY_TAPPING_TERM) {
+				SEND_STRING(SS_TAP(X_ENTER)); // Change the character(s) to be sent on tap here
+			}
+		}
+		return false; // We didn't handle other keypresses
+		break;
+
+
+	case ALTSPACE:
+		if(record->event.pressed) {
+			my_hash_timer = timer_read();
+			register_code(KC_LALT);
+		} else {
+			unregister_code(KC_LALT);
+			if (timer_elapsed(my_hash_timer) < MY_TAPPING_TERM) {
+//				register_code(KC_ESCAPE);
+//				unregister_code(KC_ESCAPE);
+				SEND_STRING(SS_TAP(X_ESCAPE));
+				SEND_STRING(SS_TAP(X_SPACE));
+			}
 		}
 		return false;
 		break;
