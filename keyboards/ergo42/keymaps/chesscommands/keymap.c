@@ -67,7 +67,7 @@ enum custom_keycodes {
 
 // CTRLENTERóp
 static uint16_t my_hash_timer;
-#define MY_TAPPING_TERM 60	// CTRLENTERÇ…ÇÕÇ¢Ç¢Ç©Ç‡ÇµÇÍÇ»Ç¢Ç™,Ç‚ÇÕÇË,àÍï»Ç‡ìÒï»Ç‡Ç†ÇÈ.Ç±ÇÃílÇ≈ÇÕégÇ¢Ç±Ç»ÇπÇ»Ç¢.
+#define MY_TAPPING_TERM 65	// CTRLENTERÇ…ÇÕÇ¢Ç¢Ç©Ç‡ÇµÇÍÇ»Ç¢Ç™,Ç‚ÇÕÇË,àÍï»Ç‡ìÒï»Ç‡Ç†ÇÈ.Ç±ÇÃílÇ≈ÇÕégÇ¢Ç±Ç»ÇπÇ»Ç¢.
 
 
 
@@ -356,11 +356,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	LGUI_T(KC_ESCAPE),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,	KC_APPLICATION,			KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	KC_GRAVE,	
 	KC_TAB,	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,	LSFT_T(KC_ESCAPE),			KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	KC_SFTENT,	
 	KC_LALT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,	KC_TAB,			KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	KC_GESC,	
-//	KC_BSPACE,	LT(MEDIAPlate, KC_SPC),	HANZENjap_eng,	KC_DELETE,	LALT_T(KC_ENTER),	KC_LCTRL,	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI	
-//	KC_BSPACE,	LT(MEDIAPlate, KC_SPC),	HANZENjap_eng,	KC_DELETE,	KC_LALT,	CTRLENTER,	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI	
-//	KC_BSPACE,	LT(MEDIAPlate, KC_SPC),	HANZENjap_eng,	KC_DELETE,	ALTSPACE,	CTL_T(KC_ENTER),	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI	
-//	KC_LALT,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	KC_DELETE,	KC_SFTENT,	KC_LCTRL,	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI
-//	KC_SPC,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	SFT_T(KC_ENTER),	KC_LCTRL,	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI	
 	KC_SPC,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	KC_LSHIFT,	CTRLENTER,	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI	
   ),
 
@@ -434,18 +429,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* MOUSE and Function Layer
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * | F12  | F13  | F14  |  F15 |  F16 |  F17 | RESET|   | F24  | F18  | F19  | F20  |  F21 |  F22 |      |
+   * | F12  | F13  | F14  |  F15 |  F16 |  F17 | RESET|   | F24  | F18  | F19  | F20  |  F21 |  F22 |      |	Å©égÇ¢âÒÇµÇΩÇ¢ÅB
+   * | åpè≥ |  !   |  @   |  #   |  $   |  %   | åpè≥ |   |  ^   |  &   |  *   |  (   |  )   |      | åpè≥ |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    * |      |LShift|      | Lclk | Rclk |Middle|      |   |MsLeft|MsDown| MsUp |MsRght|WhelUp| Stop |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    * |LShift|  F1  |  F2  |  F3  |  F4  |  F5  | F23  |   |  F6  |  F7  |  F8  |  F9  |  F10 |  F11 |      |
-   * |  !   |  @   |  #   |  $   |  %   | åpè≥ | åpè≥ |   |  ^   |  &   |  *   |  (   |  )   |      | åpè≥ |	Å©égÇ¢âÒÇµÇΩÇ¢ÅB
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    * | RESET|      |     |ó\ñÒçœÇ›|     |      | RESET|   |      |      |      | Wleft|WlDown|WRight|      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MOUSEPlate] = LAYOUT(
-	KC_F12,	KC_F13,	KC_F14,	KC_F15,	KC_F16,	KC_F17,	RESET,			KC_F24,	KC_F18,	KC_F19,	KC_F20,	KC_F21,	KC_F22,	XXXXXXX,
+//	KC_F12,	KC_F13,	KC_F14,	KC_F15,	KC_F16,	KC_F17,	RESET,			KC_F24,	KC_F18,	KC_F19,	KC_F20,	KC_F21,	KC_F22,	XXXXXXX,
+	_______,	KC_EXCLAIM,	KC_AT,	KC_HASH,	KC_DOLLAR,	KC_PERCENT,	_______,			KC_CIRCUMFLEX,	KC_AMPERSAND,	KC_ASTERISK,	KC_LEFT_PAREN,	KC_RIGHT_PAREN,	KC_NO,	_______,	
 	_______,	KC_LSHIFT,	XXXXXXX,	KC_MS_BTN2,	KC_MS_BTN1,	KC_MS_BTN3,	XXXXXXX,			KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_UP,	KC_MS_RIGHT,	KC_MS_WH_UP,	KC_MEDIA_STOP,	XXXXXXX,
 	KC_LSHIFT,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,	KC_F23,			KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	KC_F11,	XXXXXXX,
 	RESET,	XXXXXXX,	XXXXXXX,	_______,	_______,	_______,	RESET,			XXXXXXX,	_______,	XXXXXXX,	KC_MS_WH_LEFT,	KC_MS_WH_DOWN,	KC_MS_WH_RIGHT,	XXXXXXX
