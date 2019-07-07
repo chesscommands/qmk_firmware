@@ -136,6 +136,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define CATERINA_BOOTLOADER
 
+
+
+#define TAPPING_TERM_PER_KEY	// キーごとにタッピング時間を設定する。	←そのはずなのだが、設定が反映されない20190610
+//	https://github.com/qmk/qmk_firmware/blob/master/docs/custom_quantum_functions.md
+
+
 /* define tapping term */
 //#define TAPPING_TERM 80
 //#define TAPPING_TERM 100	// ←この値がちょうどいいのかもしれない20181102
@@ -144,7 +150,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define TAPPING_TERM 75
 //#define TAPPING_TERM 200	←絶対にあり得ない反応速度20190518
 //#define TAPPING_TERM 50	←指の動きをこれ以上早くできないため、無謀な値だった。ましてや,これ以上小さい値は死ぬことになる20190518
+//#define TAPPING_TERM 30
 //#define TAPPING_TERM 60
+
+
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST

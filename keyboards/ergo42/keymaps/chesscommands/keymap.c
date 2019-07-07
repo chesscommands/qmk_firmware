@@ -67,7 +67,7 @@ enum custom_keycodes {
 
 // CTRLENTER用
 static uint16_t my_hash_timer;
-#define MY_TAPPING_TERM 65	// CTRLENTERにはいいかもしれないが,やはり,一癖も二癖もある.この値では使いこなせない.
+#define MY_TAPPING_TERM 68	// CTRLENTERにはいいかもしれないが,やはり,一癖も二癖もある.この値では使いこなせない.
 
 
 
@@ -347,16 +347,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
    * | Tab  |   A  |   S  |   D  |   F  |  G   |LShift|   |  H   |   J  |   K  |   L  |   ;  |   '  | Enter|
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * | LAlt |   Z  |   X  |   C  |   V  |  B   | Tab  |   |  N   |   M  |   ,  |   .  |   /  |  ]   |Escape|
+   * | Shift|   Z  |   X  |   C  |   V  |  B   | Tab  |   |  N   |   M  |   ,  |   .  |   /  |  ]   |Escape|
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * | Space| Bkspc|半全角|Delete|Sft|LCtrl/Etr|LShift|   | Space| Shift|   =  |   `  |   -  |  \   | LGUI |
+   * | Space| Bkspc|半全角|Delete|Alt/Etr|LCtrl|LShift|   | Space| Shift|   `  |   \  |   -  |  =   | LGUI |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASEPlate] = LAYOUT(
 	LGUI_T(KC_ESCAPE),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,	KC_APPLICATION,			KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	KC_GRAVE,	
 	KC_TAB,	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,	LSFT_T(KC_ESCAPE),			KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	KC_SFTENT,	
-	KC_LALT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,	KC_TAB,			KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	KC_GESC,	
-	KC_SPC,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	KC_LSHIFT,	CTRLENTER,	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_EQL,	KC_GRAVE,	KC_MINS,	KC_BSLS,	QK_RGUI	
+	KC_LSHIFT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,	KC_TAB,			KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	KC_GESC,	
+//	KC_SPC,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	ALT_T(KC_ENTER),	KC_LCTRL,	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
+	KC_SPC,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	ALT_T(KC_ENTER),	CTL_T(KC_ENTER),	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
   ),
 
 
@@ -388,14 +389,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
    * |LShift|  +   |MsLeft|MsDown|MsRght| PgDn |      |   | Home | End  |   <  |   >  |   ?  |  }   | RESET|
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   *|ASトグル|ScrLok|     |      |      | LCtrl|      |  |予約済み|  =  |  +   |  ~   |  _   |  |   |      |
+   *|ASトグル|ScrLok|     |      |      | LCtrl|      |  |予約済み|  =  |  ~   |  |   |  _   |  +   |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MOVESPlate] = LAYOUT(
 	_______,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5,	_______,			KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	KC_LEFT_CURLY_BRACE,	KC_NO,	
 	KC_LSHIFT,	KC_EQL,	KC_MS_UP,	KC_MS_BTN2,	KC_MS_BTN1,	KC_PGUP,	_______,			KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_COLON, KC_DOUBLE_QUOTE, KC_NO,	
 	_______,	KC_PLUS,	KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_RIGHT,	KC_PGDOWN,	_______,			KC_HOME,	KC_END,	KC_LEFT_ANGLE_BRACKET,	KC_RIGHT_ANGLE_BRACKET,	KC_QUESTION,	KC_RIGHT_CURLY_BRACE,	RESET,	
-	KC_ASTG,	KC_LOCKING_SCROLL,	_______,	_______,	_______,	_______,	_______,			KC_NO,	KC_EQL, KC_PLUS, KC_TILDE, KC_UNDERSCORE, KC_PIPE, KC_NO	
+	KC_ASTG,	KC_LOCKING_SCROLL,	_______,	_______,	_______,	_______,	_______,			KC_NO,	KC_EQL, KC_TILDE, KC_PIPE, KC_UNDERSCORE, KC_PLUS, KC_NO	
   ),
 
 //	KC_ASTG：AutoShift自動押下のトグルキー
@@ -406,20 +407,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* Media and mouse keys
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * |LShift|  1   | Home | End  |  4   |  5   | 継承 |   |  6   |  7   |  8   |  9   |PrScrn| F12  | 継承 |
+   * |LShift|  1   |CtlHme|CtlEnd|  4   |  5   | 継承 |   |  6   |  7   |  8   |  9   |PrScrn| F12  | 継承 |
    * |------|------+------+------+------+------+------+   |------+------+------+------+------+------|------+
    * |LShift|  F1  |SftHme|SftEnd|  F4  |  F5  | 継承 |   |Shft←|Shft↓|Shft↑|Shft→|  F10 | F11  | 継承 |
    * |------|------+------+------+------+------+------+   |------+------+------+------+------+------|------+
-   * |WhelUp| LCtrl|CtlHme|CtlEnd|Escape|PrScrn| 継承 |   |Ctrl←|Ctrl↓|Ctrl↑|Ctrl→|   ?  |      | 継承 |
+   * |WhelUp| LCtrl| Home | End  |Escape|PrScrn| 継承 |   |Ctrl←|Ctrl↓|Ctrl↑|Ctrl→|   ?  |      | 継承 |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    * |WlDown| LCtrl| Enter|      |LShift|      |      |   |RShift| RSft |  +   |  |   |   _  |      |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MEDIAPlate] = LAYOUT(
-	KC_LSHIFT,	KC_1,	KC_HOME,	KC_END,	KC_4,	KC_5, 	_______,			KC_6,	KC_7,	KC_8,	KC_9,	KC_PSCREEN,	KC_F12,	_______,	
+	KC_LSHIFT,	KC_1,	LCTL(KC_HOME),	LCTL(KC_END),	KC_4,	KC_5, 	_______,			KC_6,	KC_7,	KC_8,	KC_9,	KC_PSCREEN,	KC_F12,	_______,	
 	KC_LSHIFT,	KC_F1,	LSFT(KC_HOME),	LSFT(KC_END),	KC_F4,	KC_F5,	RESET,			LSFT(KC_LEFT),	LSFT(KC_DOWN), LSFT(KC_UP),   LSFT(KC_RGHT),	KC_F10,	KC_F11,	XXXXXXX,
-	KC_MS_WH_UP,	KC_LCTRL,	LCTL(KC_HOME),	LCTL(KC_END),	KC_ESCAPE,	LALT(KC_PSCREEN),	_______,			LCTL(KC_LEFT),	LCTL(KC_DOWN), LCTL(KC_UP),   LCTL(KC_RGHT),	KC_QUESTION,	KC_NO,	_______,	
-	KC_MS_WH_DOWN,	KC_LCTRL,	KC_ENTER,	_______,	KC_LSHIFT,	CTL_T(KC_ENTER),	_______,			KC_RSHIFT,	_______,	KC_PLUS, KC_PIPE, KC_UNDERSCORE,	_______,	_______	
+	KC_MS_WH_UP,	KC_LCTRL,	KC_HOME,	KC_END,	KC_ESCAPE,	LALT(KC_PSCREEN),	_______,			LCTL(KC_LEFT),	LCTL(KC_DOWN), LCTL(KC_UP),   LCTL(KC_RGHT),	KC_QUESTION,	KC_NO,	_______,	
+	KC_MS_WH_DOWN,	KC_LCTRL,	KC_ENTER,	_______,	KC_LSHIFT,	_______,	_______,			KC_RSHIFT,	_______,	KC_PLUS, KC_PIPE, KC_UNDERSCORE,	_______,	_______	
   ),
 
 //	Alt＋F4：ウィンドウを閉じる （ブラクラならAlt＋F4数回を押すか押しっ放し）	←コレができない。AutoHotKeyで代替
@@ -436,7 +437,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    * |LShift|  F1  |  F2  |  F3  |  F4  |  F5  | F23  |   |  F6  |  F7  |  F8  |  F9  |  F10 |  F11 |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * | RESET|      |     |予約済み|     |      | RESET|   |      |      |      | Wleft|WlDown|WRight|      |
+   * | RESET|      |Enter|予約済み|     |      | RESET|   |      |      |      | Wleft|WlDown|WRight|      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MOUSEPlate] = LAYOUT(
@@ -444,7 +445,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______,	KC_EXCLAIM,	KC_AT,	KC_HASH,	KC_DOLLAR,	KC_PERCENT,	_______,			KC_CIRCUMFLEX,	KC_AMPERSAND,	KC_ASTERISK,	KC_LEFT_PAREN,	KC_RIGHT_PAREN,	KC_NO,	_______,	
 	_______,	KC_LSHIFT,	XXXXXXX,	KC_MS_BTN2,	KC_MS_BTN1,	KC_MS_BTN3,	XXXXXXX,			KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_UP,	KC_MS_RIGHT,	KC_MS_WH_UP,	KC_MEDIA_STOP,	XXXXXXX,
 	KC_LSHIFT,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,	KC_F23,			KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	KC_F11,	XXXXXXX,
-	RESET,	XXXXXXX,	XXXXXXX,	_______,	_______,	_______,	RESET,			XXXXXXX,	_______,	XXXXXXX,	KC_MS_WH_LEFT,	KC_MS_WH_DOWN,	KC_MS_WH_RIGHT,	XXXXXXX
+	RESET,	XXXXXXX,	KC_ENTER,	_______,	_______,	_______,	RESET,			XXXXXXX,	_______,	XXXXXXX,	KC_MS_WH_LEFT,	KC_MS_WH_DOWN,	KC_MS_WH_RIGHT,	XXXXXXX
   )
 
 
@@ -630,6 +631,17 @@ uint32_t layer_state_set_user(uint32_t state) {
 
 
 
-
+uint16_t get_tapping_term(uint16_t keycode) {
+	switch (keycode) {
+		case ALT_T(KC_ENTER):
+		case CTL_T(KC_ENTER):
+//			return TAPPING_TERM + 300;
+//			return 68;	←かなり早く動かさなければならないため、ちょっと無理20190704
+//			return 70;	// ほんのちょっとのエンターキー押下で反応しない。もっと時間を延ばす必要があるのだろう20190706
+			return 73;
+		default:
+			return TAPPING_TERM;
+	}
+}
 
 
