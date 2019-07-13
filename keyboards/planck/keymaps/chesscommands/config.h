@@ -37,3 +37,37 @@
 // Most tactile encoders have detents every 4 stages
 #define ENCODER_RESOLUTION 4
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#ifndef CONFIG_MY_H
+#define CONFIG_MY_H
+
+#include "config_common.h"
+
+
+
+
+
+//#define TAPPING_TERM	30
+//#define TAPPING_TOGGLE	1
+//#define TAPPING_TERM_PER_KEY
+
+
+
+
+
+
+
+#endif

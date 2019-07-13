@@ -131,4 +131,44 @@
 //#define WS2812_DMA_CHANNEL 7                  // DMA channel for TIMx_UP
 //#define WS2812_EXTERNAL_PULLUP
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//#define GRAVE_ESC_GUI_OVERRIDE  // GUIキーとの組み合わせで、Escキーのまま使う。
+//#define GRAVE_ESC_SHIFT_OVERRIDE
+//#define GRAVE_ESC_CTRL_OVERRIDE
+//#define GRAVE_ESC_ALT_OVERRIDE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #endif

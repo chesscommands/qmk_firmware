@@ -15,7 +15,8 @@ OPT_DEFS += -DINTERRUPT_CONTROL_ENDPOINT
 #   the appropriate keymap folder that will get included automatically
 #
 BOOTMAGIC_ENABLE = lite     # Virtual DIP switch configuration(+1000)
-MOUSEKEY_ENABLE = no       # Mouse keys(+4700)
+#MOUSEKEY_ENABLE = no       # Mouse keys(+4700)
+MOUSEKEY_ENABLE = yes       # 有効にした20190621
 EXTRAKEY_ENABLE = yes       # Audio control and System control(+450)
 CONSOLE_ENABLE = yes         # Console for debug(+400)
 COMMAND_ENABLE = no        # Commands for debug and configuration

@@ -42,4 +42,18 @@
 #define DRIVER_LED_TOTAL (DRIVER_1_LED_TOTAL + DRIVER_2_LED_TOTAL)
 
 
+
+
+
+
+
+#define TAPPING_TERM_PER_KEY	// キーごとにタッピング時間を設定する。
+//	https://github.com/qmk/qmk_firmware/blob/master/docs/custom_quantum_functions.md
+
+/* define tapping term */
+#define TAPPING_TERM 90
+
+
+
+
 #endif
