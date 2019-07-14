@@ -343,22 +343,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* BASE
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * |GUIEsc|   Q  |   W  |   E  |   R  |  T   | None |   |  Y   |   U  |   I  |   O  |   P  |  [   | None |
+   * | Tab  |   Q  |   W  |   E  |   R  |  T   | None |   |  Y   |   U  |   I  |   O  |   P  |  [   | None |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
    * |Ctl/Ent|  A  |   S  |   D  |   F  |  G   | None |   |  H   |   J  |   K  |   L  |   ;  |   '  | Enter|
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
    * | Shift|   Z  |   X  |   C  |   V  |  B   | None |   |  N   |   M  |   ,  |   .  |   /  |  ]   | None |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * | Space| Bkspc|半全角|Delete| Tab |Alt/Spc| None |   | Space| Shift|   `  |   \  |   -  |  =   | LGUI |
+   * | Space| Bkspc|半全角|Delete|GUIEsc|Alt/Spc| None|   | Space| Shift|   `  |   \  |   -  |  =   | LGUI |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASEPlate] = LAYOUT(
-	LGUI_T(KC_ESCAPE),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,	XXXXXXX,			KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	XXXXXXX,	
+	KC_TAB,	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,	XXXXXXX,			KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	XXXXXXX,	
 	CTL_T(KC_ENTER),	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,	XXXXXXX,			KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	KC_SFTENT,	
 	KC_LSHIFT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,	XXXXXXX,			KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	XXXXXXX,	
 //	KC_SPC,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	ALT_T(KC_ENTER),	KC_LCTRL,	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
 //	KC_SPC,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	ALT_T(KC_ENTER),	CTL_T(KC_ENTER),	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
-	KC_SPC,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	KC_TAB,	ALT_T(KC_SPC),	XXXXXXX,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
+//	KC_SPC,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	KC_TAB,	ALT_T(KC_SPC),	XXXXXXX,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
+	KC_SPC,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	LGUI_T(KC_ESCAPE),	ALT_T(KC_SPC),	XXXXXXX,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
   ),
 
 
@@ -384,9 +385,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* Move Layer
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * |      |  1   |  2   |  3   |  4   |  5   |      |   |  6   |  7   |  8   |  9   |  0   |  {   |      |
+   * |LShift|  1   |  2   |  3   |  4   |  5   |      |   |  6   |  7   |  8   |  9   |  0   |  {   |      |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * |LShift|  =   | MsUp | Lclk | Rclk | PgUp |      |   |  ←  |  ↓  |  ↑  |  →  |   :  |  "   |      |
+   * |      |  =   | MsUp | Lclk | Rclk | PgUp |      |   |  ←  |  ↓  |  ↑  |  →  |   :  |  "   |      |
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
    * |LShift|  +   |MsLeft|MsDown|MsRght| PgDn |      |   | Home | End  |   <  |   >  |   ?  |  }   | RESET|
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
@@ -394,10 +395,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MOVESPlate] = LAYOUT(
-	_______,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5,	_______,			KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	KC_LEFT_CURLY_BRACE,	KC_NO,	
-	KC_LSHIFT,	KC_EQL,	KC_MS_UP,	KC_MS_BTN2,	KC_MS_BTN1,	KC_PGUP,	_______,			KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_COLON, KC_DOUBLE_QUOTE, KC_NO,	
+	KC_LSHIFT,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5,	_______,			KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	KC_LEFT_CURLY_BRACE,	KC_NO,	
+	_______,	KC_EQL,	KC_MS_UP,	KC_MS_BTN2,	KC_MS_BTN1,	KC_PGUP,	_______,			KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_COLON, KC_DOUBLE_QUOTE, KC_NO,	
 	_______,	KC_PLUS,	KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_RIGHT,	KC_PGDOWN,	_______,			KC_HOME,	KC_END,	KC_LEFT_ANGLE_BRACKET,	KC_RIGHT_ANGLE_BRACKET,	KC_QUESTION,	KC_RIGHT_CURLY_BRACE,	RESET,	
-	KC_ASTG,	KC_LOCKING_SCROLL,	_______,	_______,	_______,	KC_LCTRL,	_______,			KC_NO,	KC_EQL, KC_TILDE, KC_PIPE, KC_UNDERSCORE, KC_PLUS, KC_NO	
+	KC_ASTG,	KC_LOCKING_SCROLL,	_______,	_______,	_______,	_______,	_______,			KC_NO,	KC_EQL, KC_TILDE, KC_PIPE, KC_UNDERSCORE, KC_PLUS, KC_NO	
   ),
 
 //	KC_ASTG：AutoShift自動押下のトグルキー
@@ -641,7 +642,10 @@ uint16_t get_tapping_term(uint16_t keycode) {
 //			return TAPPING_TERM + 300;
 //			return 68;	←かなり早く動かさなければならないため、ちょっと無理20190704
 //			return 70;	// ほんのちょっとのエンターキー押下で反応しない。もっと時間を延ばす必要があるのだろう20190706
-			return 73;
+			return TAPPING_TERM;	// 左手小指用の時間20190713
+			return 73;	// 親指での操作ならばちょうどいい時間になっているが、小指での操作では早く動かせないため不適切な値になってしまった20190713
+//		case LT(MEDIAPlate, KC_BSPACE):	// コンパイルエラーになる20190713
+//			return TAPPING_TERM + 10;
 		default:
 			return TAPPING_TERM;
 	}
