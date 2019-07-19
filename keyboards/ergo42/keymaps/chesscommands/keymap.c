@@ -345,22 +345,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,------------------------------------------------.   ,------------------------------------------------.
    * | Tab  |   Q  |   W  |   E  |   R  |  T   | None |   |  Y   |   U  |   I  |   O  |   P  |  [   | None |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * |Sft/Ent|  A  |   S  |   D  |   F  |  G   | None |   |  H   |   J  |   K  |   L  |   ;  |   '  | Enter|
+   * |LShift|   A  |   S  |   D  |   F  |  G   | None |   |  H   |   J  |   K  |   L  |   ;  |   '  | Enter|
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
    * |GUI/Ent|  Z  |   X  |   C  |   V  |  B   | None |   |  N   |   M  |   ,  |   .  |   /  |  ]   | None |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |GUIEsc| Bkspc|”¼‘SŠp|Delete|Alt/Esc|Ctl/Spc|None|   | Space|RShift|   `  |   \  |   -  |  =   | LGUI |
+   * |GUIEsc| Bkspc|”¼‘SŠp|Delete|Alt/Ent|Ctl/Esc|None|   | Space|RShift|   `  |   \  |   -  |  =   | LGUI |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASEPlate] = LAYOUT(
 	KC_TAB,	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,	XXXXXXX,			KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	XXXXXXX,	
-	LSFT(KC_ENTER),	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,	XXXXXXX,			KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	KC_SFTENT,	
+	KC_LSHIFT,	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,	XXXXXXX,			KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	KC_SFTENT,	
 	LGUI_T(KC_ENTER),	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,	XXXXXXX,			KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	XXXXXXX,	
 //	KC_SPC,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	ALT_T(KC_ENTER),	KC_LCTRL,	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
 //	KC_SPC,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	ALT_T(KC_ENTER),	CTL_T(KC_ENTER),	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
 //	KC_SPC,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	KC_TAB,	ALT_T(KC_SPC),	XXXXXXX,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
 //	KC_SPC,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	CTL_T(KC_ENTER),	ALT_T(KC_SPC),	XXXXXXX,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
-	LGUI_T(KC_ENTER),	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	ALT_T(KC_ESCAPE),	CTL_T(KC_SPC),	XXXXXXX,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
+	LGUI_T(KC_ENTER),	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	ALT_T(KC_ENTER),	CTL_T(KC_ESCAPE),	XXXXXXX,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
   ),
 
 
