@@ -43,7 +43,6 @@
  * #define UNUSED_PINS
  */
 
-#define NUMBER_OF_ENCODERS 1
 #define ENCODERS_PAD_A { B12 }
 #define ENCODERS_PAD_B { B13 }
 
@@ -130,5 +129,45 @@
 #define WS2812_DMA_STREAM STM32_DMA1_STREAM2  // DMA stream for TIMx_UP (look up in reference manual under DMA Channel selection)
 //#define WS2812_DMA_CHANNEL 7                  // DMA channel for TIMx_UP
 //#define WS2812_EXTERNAL_PULLUP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//#define GRAVE_ESC_GUI_OVERRIDE  // GUIキーとの組み合わせで、Escキーのまま使う。
+//#define GRAVE_ESC_SHIFT_OVERRIDE
+//#define GRAVE_ESC_CTRL_OVERRIDE
+//#define GRAVE_ESC_ALT_OVERRIDE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #endif
