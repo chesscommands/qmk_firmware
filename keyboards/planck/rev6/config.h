@@ -138,36 +138,4 @@
 
 
 
-
-
-
-
-
-
-
-
-//#define GRAVE_ESC_GUI_OVERRIDE  // GUIキーとの組み合わせで、Escキーのまま使う。
-//#define GRAVE_ESC_SHIFT_OVERRIDE
-//#define GRAVE_ESC_CTRL_OVERRIDE
-//#define GRAVE_ESC_ALT_OVERRIDE
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #endif
