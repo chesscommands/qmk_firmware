@@ -171,14 +171,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------++------|------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |  ]   |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |Bkspc | Tab |半全角|WinApp|Alt/del|Ctl/Spc||Space| Shift|   `  |   ¥  |   -  |  =   |
+ * |Bkspc |WinApp|半全角| Tab/ |Alt/del|Ctl/Spc||Space|Shift|   `  |   ¥  |   -  |  =   |
  * `------------------------------------------------------------------------------------'
  */
 [_BASEPlate] = LAYOUT_planck_grid(
 	LGUI_T(KC_ESCAPE),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,		KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	
 	CTL_T(KC_ENTER),	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,		KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	
 	KC_LSHIFT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,		KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	
-	KC_BSPACE,	LT(_MEDIAPlate, KC_TAB),	HANZEN_jap0Reng4win,	LT(_MOUSEPlate, KC_APPLICATION),	ALT_T(KC_DELETE),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL	
+	KC_TAB,	LT(_MEDIAPlate, KC_APPLICATION),	HANZEN_jap0Reng4win,	LT(_MOUSEPlate, KC_BSPACE),	ALT_T(KC_DELETE),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL	
 ),
 
 
@@ -190,14 +190,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------++------|------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |  ]   |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * | Bkspc|  Tab |半全角| F12 /|Alt/del|GUI/Spc||Space|RShift|   `  |   ¥  |   -  |  =   |
+ * | Bkspc| F12 |半全角| Tab/ |Alt/del|GUI/Spc||Space|RShift|   `  |   ¥  |   -  |  =   |
  * `------------------------------------------------------------------------------------'
  */
 [_MACBASE] = LAYOUT_planck_grid(
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
-	_______,	LT(_MEDIAPlate, KC_TAB),	HANZEN_jap0Reng4mac,	LT(_MOUSEPlate, KC_F12),	_______,	LGUI_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	_______,	_______,	_______,	_______,	_______	
+	_______,	LT(_MEDIAPlate, KC_F12),	HANZEN_jap0Reng4mac,	LT(_MOUSEPlate, KC_BSPACE),	_______,	LGUI_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	_______,	_______,	_______,	_______,	_______	
 
 ),
 //	※mcr：スクリーンショット用マクロキー
@@ -400,7 +400,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______,	LALT(KC_PSCREEN),	KC_HOME,	KC_END,	KC_LSHIFT,	KC_PGDOWN,		KC_MS_WH_LEFT,	KC_MS_WH_DOWN, KC_MS_WH_UP,   KC_MS_WH_RIGHT,	KC_QUESTION,	KC_NO,	
 	_______,	_______,	_______,	KC_MS_BTN2,	_______,	_______,		_______,	_______,	KC_TILDE, KC_PIPE, KC_UNDERSCORE, KC_PLUS	
   ),
-
 
 /* MOUSE and Function Layer
  * ,------------------------------------------------------------------------------------.
@@ -855,13 +854,13 @@ uint16_t get_tapping_term(uint16_t keycode) {
 	switch (keycode) {
 		case CTL_T(KC_TAB):	// Mac用20190815
 		case LCTL(LSFT(KC_TAB)):
-//		case LT(_MOUSEPlate, KC_TAB):	// 追加20190911
-		case LT(_MEDIAPlate, KC_TAB):	// 追加20190912
+		case LT(_MOUSEPlate, KC_TAB):	// 追加20190911
+//		case LT(_MEDIAPlate, KC_TAB):	// 追加20190912
 		case CTL_T(KC_ENTER):	// 20190910
 		case LGUI_T(KC_TAB):
 			return TAPPING_TERM * 2;
-		case LT(_MOUSEPlate, KC_TAB):	// 追加(TAPPING_TERMのみならばブラウザのタブ切り替えが正常になる。しかし、アプリ切り替えに何が出てくる。*2,*1.8,*1.5,*1.3の場合は評価が逆になる。)(1.3・1.5は最悪かな)20190910
-			return TAPPING_TERM * 1.5;
+//		case LT(_MOUSEPlate, KC_TAB):	// 追加(TAPPING_TERMのみならばブラウザのタブ切り替えが正常になる。しかし、アプリ切り替えに何が出てくる。*2,*1.8,*1.5,*1.3の場合は評価が逆になる。)(1.3・1.5は最悪かな)20190910
+//			return TAPPING_TERM * 1.5;
 		case LT(_MOVEPlate, KC_SPC):	// スペース機能を活用したい20190728
 			return TAPPING_TERM * 1.5;
 		case LGUI_T(KC_ESCAPE):	// Windows用
