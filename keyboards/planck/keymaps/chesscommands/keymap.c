@@ -171,14 +171,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------++------|------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |  ]   |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |Alt/Bkspc|WinApp|半全角|del/| Tab|Ctl/Spc|| Space| Shift|   `  |   ¥  |   -  |  =   |
+ * | Tab  |WinApp|半全角|del/|Alt/Tab|Ctl/Spc|| Space| Shift|   `  |   ¥  |   -  |  =   |
  * `------------------------------------------------------------------------------------'
  */
 [_BASEPlate] = LAYOUT_planck_grid(
 	LGUI_T(KC_ESCAPE),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,		KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	
 	CTL_T(KC_ENTER),	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,		KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	
 	KC_LSHIFT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,		KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	
-	ALT_T(KC_BSPACE),	LT(_MEDIAPlate, KC_BSPACE),	HANZEN_jap0Reng4win,	LT(_MOUSEPlate, KC_DELETE),	KC_TAB,	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL	
+	KC_TAB,	LT(_MEDIAPlate, KC_BSPACE),	HANZEN_jap0Reng4win,	LT(_MOUSEPlate, KC_TAB),	ALT_T(KC_TAB),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL	
 ),
 
 
@@ -190,14 +190,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------++------|------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |  ]   |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |Alt/Bkspc|F12|半全角| del/ | Tab |GUI/Spc|| Space|RShift|   `  |   ¥  |   -  |  =   |
+ * |Bkspc |F12|半全角| del/ |Alt/Tab| GUI/Spc|| Space|RShift|   `  |   ¥  |   -  |  =   |
  * `------------------------------------------------------------------------------------'
  */
 [_MACBASE] = LAYOUT_planck_grid(
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
-	_______,	LT(_MEDIAPlate, KC_F12),	HANZEN_jap0Reng4mac,	LT(_MOUSEPlate, KC_DELETE),	_______,	LGUI_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	_______,	_______,	_______,	_______,	_______	
+	KC_BSPACE,	LT(_MEDIAPlate, KC_BSPACE),	HANZEN_jap0Reng4mac,	LT(_MOUSEPlate, KC_DELETE),	_______,	LGUI_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	_______,	_______,	_______,	_______,	_______	
 
 ),
 //	※mcr：スクリーンショット用マクロキー
@@ -857,6 +857,7 @@ uint16_t get_tapping_term(uint16_t keycode) {
 		case LT(_MOUSEPlate, KC_TAB):	// 追加20190911
 //		case LT(_MEDIAPlate, KC_TAB):	// 追加20190912
 		case CTL_T(KC_ENTER):	// 20190910
+		case ALT_T(KC_TAB):	// 20190915
 		case LGUI_T(KC_TAB):
 		case ALT_T(KC_BSPACE):	// 20190913
 			return TAPPING_TERM * 2;
