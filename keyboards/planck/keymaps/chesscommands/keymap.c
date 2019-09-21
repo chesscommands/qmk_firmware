@@ -171,14 +171,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------++------|------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |  ]   |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * | Tab  |WinApp|半全角|del/|Alt/Tab|Ctl/Spc|| Space| Shift|   `  |   ¥  |   -  |  =   |
+ * |半全角| MEDIA| del|Tab/|Alt/Bkspc|Ctl/Spc|| Space| Shift|   `  |   =  |   -  |  ¥   |
  * `------------------------------------------------------------------------------------'
  */
 [_BASEPlate] = LAYOUT_planck_grid(
 	LGUI_T(KC_ESCAPE),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,		KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	
 	CTL_T(KC_ENTER),	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,		KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	
 	KC_LSHIFT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,		KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	
-	KC_TAB,	LT(_MEDIAPlate, KC_BSPACE),	HANZEN_jap0Reng4win,	LT(_MOUSEPlate, KC_TAB),	ALT_T(KC_TAB),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL	
+	HANZEN_jap0Reng4win,	MO(_MEDIAPlate),	KC_DELETE,	LT(_MOUSEPlate, KC_TAB),	ALT_T(KC_BSPACE),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_EQL,	KC_MINS,	KC_BSLS	
 ),
 
 
@@ -190,14 +190,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------++------|------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |  ]   |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |Bkspc |F12|半全角| del/ |Alt/Tab| GUI/Spc|| Space|RShift|   `  |   ¥  |   -  |  =   |
+ * |半全角| MEDIA| del|Tab/|Alt/Bkspc|GUI/Spc|| Space|RShift|   `  |   =  |   -  |  ¥   |
  * `------------------------------------------------------------------------------------'
  */
 [_MACBASE] = LAYOUT_planck_grid(
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
-	KC_BSPACE,	LT(_MEDIAPlate, KC_BSPACE),	HANZEN_jap0Reng4mac,	LT(_MOUSEPlate, KC_DELETE),	_______,	LGUI_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	_______,	_______,	_______,	_______,	_______	
+	HANZEN_jap0Reng4mac,	MO(_MEDIAPlate),	KC_DELETE,	LT(_MOUSEPlate, KC_TAB),	_______,	LGUI_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	_______,	_______,	_______,	_______,	_______	
 
 ),
 //	※mcr：スクリーンショット用マクロキー
@@ -215,9 +215,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_MAC_CtrlLayer] = LAYOUT_planck_grid(
 	_______,	_______,	_______,	_______,	_______,	_______, 		_______,	_______,	_______,	_______,	_______,	_______,	
-	LGUI_T(KC_TAB),	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
+	LGUI_T(KC_ENTER),	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
-	TO(_MACBASE),	_______,	_______,	_______,	_______,	CTL_T(KC_ESCAPE),		_______,	_______,	_______,	_______,	_______,	_______	
+	TO(_MACBASE),	_______,	_______,	_______,	_______,	CTL_T(KC_SPACE),		_______,	_______,	_______,	_______,	_______,	_______	
 ),
 //	"CTL_T(KC_TAB)"は、話にならないぐらいTabキーが動かない20190721
 
@@ -368,14 +368,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------++------|------+------+------+------+------|
  * |      |  1   |  2   |  3   |  4   |  5   ||  6   |  7   |  8   |  9   |  0   | Enter|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |      |      |      |      |      |      ||      |RShift|   ~  |   |  |   _  |   +  |
+ * |      |      |      |      |      |      ||      |RShift|   ~  |   +  |   _  |  |   |
  * `------------------------------------------------------------------------------------'
  */
 [_MOVEPlate] = LAYOUT_planck_grid(
 	_______,	KC_EXCLAIM,	KC_AT,	KC_HASH,	KC_DOLLAR,	KC_PERCENT,		KC_CIRCUMFLEX,	KC_AMPERSAND,	KC_ASTERISK,	KC_LEFT_PAREN,	KC_RIGHT_PAREN,	KC_DELETE,	
 	_______,	KC_HOME,	KC_END,	KC_MS_BTN2,	KC_MS_BTN1,	KC_LCTRL,		KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_RSHIFT, KC_BSPACE,	
 	_______,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5,		KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	KC_ENTER,	
-	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______, KC_TILDE, KC_PIPE, KC_UNDERSCORE, KC_PLUS	
+	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______, KC_TILDE, KC_PLUS, KC_UNDERSCORE, KC_PIPE	
 ),
 
 //	KC_ASTG：AutoShift自動押下のトグルキー
@@ -852,12 +852,14 @@ bool music_mask_user(uint16_t keycode) {
 
 uint16_t get_tapping_term(uint16_t keycode) {
 	switch (keycode) {
+		case ALT_T(KC_TAB):	// 20190915
+			return TAPPING_TERM * 3;
+		case LT(_MOUSEPlate, KC_TAB):	// 追加20190911
+			return TAPPING_TERM * 2.5;
 		case CTL_T(KC_TAB):	// Mac用20190815
 		case LCTL(LSFT(KC_TAB)):
-		case LT(_MOUSEPlate, KC_TAB):	// 追加20190911
 //		case LT(_MEDIAPlate, KC_TAB):	// 追加20190912
 		case CTL_T(KC_ENTER):	// 20190910
-		case ALT_T(KC_TAB):	// 20190915
 		case LGUI_T(KC_TAB):
 		case ALT_T(KC_BSPACE):	// 20190913
 			return TAPPING_TERM * 2;
