@@ -80,7 +80,7 @@
 
 //	タッピング時間を過ぎた状態での押下を有効にするための措置20180825
 //		https://beta.docs.qmk.fm/features/feature_advanced_keycodes
-#define RETRO_TAPPING	// TAPPING_TERMを経過しても、他のキーを押していなければTapとして扱われるようになる。
+//#define RETRO_TAPPING	// TAPPING_TERMを経過しても、他のキーを押していなければTapとして扱われるようになる。
 #define PERMISSIVE_HOLD	// TAPPING_TERM経過前に他のキーを押すと、Holdとして扱われるようになる。
 
 
@@ -116,7 +116,7 @@
 /* 2回すばやく押して2回目ホールドで単押しに設定したキーの連続入力が可能 */
 //	https://docs.qmk.fm/#/feature_advanced_keycodes?id=tapping-force-hold
 //	https://qiita.com/chesscommands/items/cf740e2e8b2b6879c798
-//#define TAPPING_FORCE_HOLD
+#define TAPPING_FORCE_HOLD
 //	KC_SFTENT用に設定した20190518
 //		意図した動きになってくれなかったため,無効化20190729
 //      要は、上記の説明が逆なのか？

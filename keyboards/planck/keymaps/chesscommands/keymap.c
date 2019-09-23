@@ -167,18 +167,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,------------------------------------------------------------------------------------.
  * |GUI/Esc|  Q  |   W  |   E  |   R  |  T   ||  Y   |   U  |   I  |   O  |   P  |  [   |
  * |------+------+------+------+------+------++-------------+------+------+------+------|
- * | Ent  |   A  |   S  |   D  |   F  |  G   ||  H   |   J  |   K  |   L  |   ;  |   '  |
+ * |  Tab |   A  |   S  |   D  |   F  |  G   ||  H   |   J  |   K  |   L  |   ;  |   '  |
  * |------+------+------+------+------+------++------|------+------+------+------+------|
- * | Shift|   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |  ]   |
+ * |  Ent |   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |  ]   |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |半全角| MEDIA| del|Tab/|Alt/Bkspc|Ctl/Spc|| Space| Shift|   `  |   =  |   -  |  ¥   |
+ * | Shift| MEDIA|半全角|/del|Alt/Bkspc|Ctl/Spc||Space|Shift|   `  |   =  |   -  |  ¥   |
  * `------------------------------------------------------------------------------------'
  */
 [_BASEPlate] = LAYOUT_planck_grid(
 	LGUI_T(KC_ESCAPE),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,		KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	
-	CTL_T(KC_ENTER),	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,		KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	
-	KC_LSHIFT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,		KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	
-	HANZEN_jap0Reng4win,	MO(_MEDIAPlate),	KC_DELETE,	LT(_MOUSEPlate, KC_TAB),	ALT_T(KC_BSPACE),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_EQL,	KC_MINS,	KC_BSLS	
+	CTL_T(KC_TAB),	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,		KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	
+	LSFT_T(KC_ENTER),	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,		KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	
+	KC_LSHIFT,	MO(_MEDIAPlate),	HANZEN_jap0Reng4win,	LT(_MOUSEPlate, KC_DELETE),	ALT_T(KC_BSPACE),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_EQL,	KC_MINS,	KC_BSLS	
 ),
 
 
@@ -188,16 +188,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------++-------------+------+------+------+------|
  * |Ctl/Tab|  A  |   S  |   D  |   F  |  G   ||  H   |   J  |   K  |   L  |   ;  |   '  |
  * |------+------+------+------+------+------++------|------+------+------+------+------|
- * | Shift|   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |  ]   |
+ * |  Ent |   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |  ]   |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |半全角| MEDIA| del|Tab/|Alt/Bkspc|GUI/Spc|| Space|RShift|   `  |   =  |   -  |  ¥   |
+ * | Shift| MEDIA|半全角|/del|Alt/Bkspc|Ctl/Spc||Space|Shift|   `  |   =  |   -  |  ¥   |
  * `------------------------------------------------------------------------------------'
  */
 [_MACBASE] = LAYOUT_planck_grid(
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
-	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
-	HANZEN_jap0Reng4mac,	MO(_MEDIAPlate),	KC_DELETE,	LT(_MOUSEPlate, KC_TAB),	_______,	LGUI_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	_______,	_______,	_______,	_______,	_______	
+	LSFT_T(KC_ENTER),	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
+	_______,	MO(_MEDIAPlate),	HANZEN_jap0Reng4mac,	LT(_MOUSEPlate, KC_DELETE),	_______,	LGUI_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	_______,	_______,	_______,	_______,	_______	
 
 ),
 //	※mcr：スクリーンショット用マクロキー
@@ -385,19 +385,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Media and mouse keys
  * ,------------------------------------------------------------------------------------.
- * |      |  F1  |  F2  |  F3  |  F4  |  F5  || Rclk |Middle| Lclk |      |PrScrn| F12  |
+ * |      |  F1  |  F2  |  F3  |  F4  |  F5  || Rclk |Middle| Lclk |      |PrScrn|Delete|
  * |------|------+------+------+------+------++------+------+------+------+------+------|
- * |      | ※mcr| Rclk |LShift|CtlTab|PageUp||MsLeft|MsDown| MsUp |MsRght|  F10 | F11  |
+ * |      | ※mcr| Rclk |LShift|CtlTab|PageUp||MsLeft|MsDown| MsUp |MsRght|RShift|backSpace|
  * |------|------+------+------+------+------++------+------+------+------+------+------|
- * |      |PrScrn| Home | End  |LShift|PgDown|| Wleft|WlDown|WhelUp|WRight|   ?  |      |
+ * |      |PrScrn| Home | End  |LShift|PgDown|| Wleft|WlDown|WhelUp|WRight|   ?  | Enter|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
  * | Swap |      |      | Lclk |      |      ||      | RSft |   ~  |   |  |   _  |  +   |
  * `------------------------------------------------------------------------------------'
  */
   [_MEDIAPlate] = LAYOUT_planck_grid(
-	_______,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5, 		KC_MS_BTN1,	KC_MS_BTN3,	KC_MS_BTN2,	_______,	KC_PSCREEN,	KC_F12,	
-	_______,	SCREENSHOTPART_GET4mac,	KC_MS_BTN1,	KC_LSHIFT,	LCTL(KC_TAB),	KC_PGUP,		KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_UP,	KC_MS_RIGHT,	KC_F10,	KC_F11,	
-	_______,	LALT(KC_PSCREEN),	KC_HOME,	KC_END,	KC_LSHIFT,	KC_PGDOWN,		KC_MS_WH_LEFT,	KC_MS_WH_DOWN, KC_MS_WH_UP,   KC_MS_WH_RIGHT,	KC_QUESTION,	KC_NO,	
+	_______,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5, 		KC_MS_BTN1,	KC_MS_BTN3,	KC_MS_BTN2,	_______,	KC_PSCREEN,	KC_DELETE,	
+	_______,	SCREENSHOTPART_GET4mac,	KC_MS_BTN1,	KC_LSHIFT,	LCTL(KC_TAB),	KC_PGUP,		KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_UP,	KC_MS_RIGHT,	KC_RSHIFT,	KC_BSPACE,	
+	_______,	LALT(KC_PSCREEN),	KC_HOME,	KC_END,	KC_LSHIFT,	KC_PGDOWN,		KC_MS_WH_LEFT,	KC_MS_WH_DOWN, KC_MS_WH_UP,   KC_MS_WH_RIGHT,	KC_QUESTION,	KC_ENTER,	
 	TO(_MAC_CtrlLayer),	_______,	_______,	KC_MS_BTN2,	_______,	_______,		_______,	_______,	KC_TILDE, KC_PIPE, KC_UNDERSCORE, KC_PLUS	
   ),
 
@@ -405,17 +405,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,------------------------------------------------------------------------------------.
  * | LGUI |  F1  |  F2  |  F3  |  F4  |  F5  ||  F6  |  F7  |  F8  |  F9  | F10  |Delete|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |CtlTab|CtlSftTb|    |      |      |      || F21  | F22  | F23  | F24  |      | Bkspc|
+ * |CtlTab|CtlSftTb|    | Enter|      |      || F21  | F22  | F23  | F24  |      | Bkspc|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |      | F11  | F12  | F13  | F14  | F15  || F16  | F17  | F18  | F19  | F20  | Enter|
+ * |LShift| F11  | F12  | F13  | F14  | F15  || F16  | F17  | F18  | F19  | F20  | Enter|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
  * | RESET|      |Enter|予約済み|     |     ||予約済み|Shift|予約済み|WHleft|WlDown|WHRigt|
  * `------------------------------------------------------------------------------------'
  */
   [_MOUSEPlate] = LAYOUT_planck_grid(
 	KC_LGUI,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,			KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	KC_DELETE,	
-	LCTL(KC_TAB),	LCTL(LSFT(KC_TAB)),	_______,	_______,	_______,	_______,			KC_F21,	KC_F22,	KC_F23,	KC_F24,	_______,	KC_BSPACE,	
-	_______,	KC_F11,	KC_F12,	KC_F13,	KC_F14,	KC_F15,			KC_F16,	KC_F17,	KC_F18,	KC_F19,	KC_F20,	KC_ENTER,	
+	LCTL(KC_TAB),	LCTL(LSFT(KC_TAB)),	_______,	KC_ENTER,	_______,	_______,			KC_F21,	KC_F22,	KC_F23,	KC_F24,	_______,	KC_BSPACE,	
+	KC_LSHIFT,	KC_F11,	KC_F12,	KC_F13,	KC_F14,	KC_F15,			KC_F16,	KC_F17,	KC_F18,	KC_F19,	KC_F20,	KC_ENTER,	
 //	RESET,	_______,	KC_ENTER,	_______,	_______,	MAGIC_SWAP_LCTL_LGUI,	XXXXXXX,	_______,	XXXXXXX,	KC_MS_WH_LEFT,	KC_MS_WH_DOWN,	KC_MS_WH_RIGHT	
 	RESET,	_______,	KC_ENTER,	_______,	_______,	_______,			_______,	_______,	_______,	KC_MS_WH_LEFT,	KC_MS_WH_DOWN,	KC_MS_WH_RIGHT	
   ),
@@ -856,7 +856,11 @@ uint16_t get_tapping_term(uint16_t keycode) {
 			return TAPPING_TERM * 3;
 		case LT(_MOUSEPlate, KC_TAB):	// 追加20190911
 			return TAPPING_TERM * 2.5;
-		case CTL_T(KC_TAB):	// Mac用20190815
+		case LSFT_T(KC_ENTER):	// 20190923
+		case CTL_T(KC_TAB):	// 20190923
+		case LSFT_T(KC_TAB):	// 20190921
+			return TAPPING_TERM * 2.3;	// 20190923
+//		case CTL_T(KC_TAB):	// Mac用20190815
 		case LCTL(LSFT(KC_TAB)):
 //		case LT(_MEDIAPlate, KC_TAB):	// 追加20190912
 		case CTL_T(KC_ENTER):	// 20190910
