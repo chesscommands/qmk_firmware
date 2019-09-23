@@ -165,30 +165,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* WindowsBase Qwerty
  * ,------------------------------------------------------------------------------------.
- * |GUI/Esc|  Q  |   W  |   E  |   R  |  T   ||  Y   |   U  |   I  |   O  |   P  |  [   |
+ * |GUI/Tab|  Q  |   W  |   E  |   R  |  T   ||  Y   |   U  |   I  |   O  |   P  |  [   |
  * |------+------+------+------+------+------++-------------+------+------+------+------|
- * |  Tab |   A  |   S  |   D  |   F  |  G   ||  H   |   J  |   K  |   L  |   ;  |   '  |
+ * |  Ent |   A  |   S  |   D  |   F  |  G   ||  H   |   J  |   K  |   L  |   ;  |   '  |
  * |------+------+------+------+------+------++------|------+------+------+------+------|
- * |  Ent |   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |  ]   |
+ * |  Esc |   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |  ]   |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
  * | Shift| MEDIA|半全角|/del|Alt/Bkspc|Ctl/Spc||Space|Shift|   `  |   =  |   -  |  ¥   |
  * `------------------------------------------------------------------------------------'
  */
 [_BASEPlate] = LAYOUT_planck_grid(
-	LGUI_T(KC_ESCAPE),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,		KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	
-	CTL_T(KC_TAB),	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,		KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	
-	LSFT_T(KC_ENTER),	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,		KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	
-	KC_LSHIFT,	MO(_MEDIAPlate),	HANZEN_jap0Reng4win,	LT(_MOUSEPlate, KC_DELETE),	ALT_T(KC_BSPACE),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_EQL,	KC_MINS,	KC_BSLS	
+	LGUI_T(KC_TAB),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,		KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	
+	CTL_T(KC_ENTER),	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,		KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	
+	LSFT_T(KC_ESCAPE),	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,		KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RBRACKET,	
+	KC_LSHIFT,	MO(_MEDIAPlate),	HANZEN_jap0Reng4win,	LT(_MOUSEPlate, KC_DELETE),	ALT_T(KC_ESCAPE),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_EQL,	KC_MINS,	KC_BSLS	
 ),
-
+//KC_BSPACE
 
 /* _MACBASE Qwerty
  * ,------------------------------------------------------------------------------------.
- * |GUI/Esc|  Q  |   W  |   E  |   R  |  T   ||  Y   |   U  |   I  |   O  |   P  |  [   |
+ * |GUI/Tab|  Q  |   W  |   E  |   R  |  T   ||  Y   |   U  |   I  |   O  |   P  |  [   |
  * |------+------+------+------+------+------++-------------+------+------+------+------|
- * |Ctl/Tab|  A  |   S  |   D  |   F  |  G   ||  H   |   J  |   K  |   L  |   ;  |   '  |
+ * |Ctl/Ent|  A  |   S  |   D  |   F  |  G   ||  H   |   J  |   K  |   L  |   ;  |   '  |
  * |------+------+------+------+------+------++------|------+------+------+------+------|
- * |  Ent |   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |  ]   |
+ * |  Esc |   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |  ]   |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
  * | Shift| MEDIA|半全角|/del|Alt/Bkspc|Ctl/Spc||Space|Shift|   `  |   =  |   -  |  ¥   |
  * `------------------------------------------------------------------------------------'
@@ -196,7 +196,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_MACBASE] = LAYOUT_planck_grid(
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
-	LSFT_T(KC_ENTER),	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
+	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	MO(_MEDIAPlate),	HANZEN_jap0Reng4mac,	LT(_MOUSEPlate, KC_DELETE),	_______,	LGUI_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	_______,	_______,	_______,	_______,	_______	
 
 ),
@@ -856,6 +856,7 @@ uint16_t get_tapping_term(uint16_t keycode) {
 			return TAPPING_TERM * 3;
 		case LT(_MOUSEPlate, KC_TAB):	// 追加20190911
 			return TAPPING_TERM * 2.5;
+		case LSFT_T(KC_ESCAPE):	// 20190923
 		case LSFT_T(KC_ENTER):	// 20190923
 		case CTL_T(KC_TAB):	// 20190923
 		case LSFT_T(KC_TAB):	// 20190921
