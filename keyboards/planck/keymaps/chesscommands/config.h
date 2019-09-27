@@ -70,7 +70,12 @@
 #define TAPPING_TERM_PER_KEY	// キーごとにタッピング時間を設定する。
 //	https://github.com/qmk/qmk_firmware/blob/master/docs/custom_quantum_functions.md
 
-#define TAPPING_TERM 90
+#define TAPPING_TERM 90	//　←この値が一番最適だった20190925
+//#define TAPPING_TERM 180
+//  なぜに90にしなければならなかったのか・・・完全に理由を忘れてしまった。
+//  vimエディタを使って思い出した。
+//  押下速度が速い場合、反応しないからだ20190925
+
 
 
 //	レイヤー変更から戻ったとき、Shiftキーやmodifierキーが押されっぱなしを解放する措置20190729

@@ -51,7 +51,7 @@
 //	https://github.com/qmk/qmk_firmware/blob/master/docs/custom_quantum_functions.md
 
 /* define tapping term */
-#define TAPPING_TERM 90
+//#define TAPPING_TERM 90
 
 
 
