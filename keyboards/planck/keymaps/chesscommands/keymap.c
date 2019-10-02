@@ -184,20 +184,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* _MACBASE Qwerty
  * ,------------------------------------------------------------------------------------.
- * |GUI/Esc|  Q  |   W  |   E  |   R  |  T   ||  Y   |   U  |   I  |   O  |   P  |  -   |
+ * |GUI/Esc|  Q  |   W  |   E  |   R  |  T   ||  Y   |   U  |   I  |   O  |   P  |  [   |
  * |------+------+------+------+------+------++-------------+------+------+------+------|
  * |Ctl/Ent|  A  |   S  |   D  |   F  |  G   ||  H   |   J  |   K  |   L  |   ;  |  '   |
  * |------+------+------+------+------+------++------|------+------+------+------+------|
- * |  Tab |   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |LShift|
+ * |  Tab |   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |-Shift|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * | Shift| MEDIA|半全角|/del|Alt/Bkspc|Ctl/Spc||Space|  =  |   [  |  ]   |   `  |   ¥  |
+ * | Shift| MEDIA|半全角|/del|Alt/Bkspc|Ctl/Spc||Space|  =  |   `  |   ¥  | None |  ]   |
  * `------------------------------------------------------------------------------------'
  */
+/*
 [_MACBASE] = LAYOUT_planck_grid(
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	MO(_MEDIAPlate),	HANZEN_jap0Reng4mac,	LT(_MOUSEPlate, KC_DELETE),	_______,	LGUI_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	_______,	_______,	_______,	_______,	_______	
+
+),
+*/
+[_MACBASE] = LAYOUT_planck_grid(
+	LGUI_T(KC_ESCAPE),	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	KC_LBRACKET,	
+	CTL_T(KC_ENTER),	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
+	LSFT_T(KC_TAB),	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	RSFT_T(KC_MINS),	
+	KC_LSHIFT,	MO(_MEDIAPlate),	HANZEN_jap0Reng4mac,	LT(_MOUSEPlate, KC_DELETE),	_______,	LGUI_T(KC_SPC),		LT(_MOVEPlate, KC_SPC),	_______,	KC_GRAVE,	KC_BSLS,	KC_ENTER,	KC_RBRACKET	
 
 ),
 //	※mcr：スクリーンショット用マクロキー
@@ -872,10 +881,12 @@ uint16_t get_tapping_term(uint16_t keycode) {
 			return TAPPING_TERM * 2;
 //		case LT(_MOUSEPlate, KC_TAB):	// 追加(TAPPING_TERMのみならばブラウザのタブ切り替えが正常になる。しかし、アプリ切り替えに何が出てくる。*2,*1.8,*1.5,*1.3の場合は評価が逆になる。)(1.3・1.5は最悪かな)20190910
 //			return TAPPING_TERM * 1.5;
+		case RSFT_T(KC_LBRACKET):
+		case RSFT_T(KC_MINS):
 		case LSFT_T(KC_TAB):	// 20190926	←1.3の場合は、Shiftキー単体で動かすには抜群によかったが、Tabキーが全く使えなかったため、妥協して1.5にした。1.8では、Tabキー操作に問題がある。そのため2にした。
-			return TAPPING_TERM * 2;
+			return TAPPING_TERM * 2.3;
 		case LT(_MOVEPlate, KC_SPC):	// スペース機能を活用したい20190728	←なぜ1.8にしたのか不明20190926
-			return TAPPING_TERM * 1.5;
+			return TAPPING_TERM * 1.8;
 		case LGUI_T(KC_ESCAPE):	// Windows用
 		case CTL_T(KC_ESCAPE):	// Mac用
 			return TAPPING_TERM * 1.5;

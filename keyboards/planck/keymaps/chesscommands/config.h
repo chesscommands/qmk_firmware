@@ -79,7 +79,7 @@
 
 
 //	レイヤー変更から戻ったとき、Shiftキーやmodifierキーが押されっぱなしを解放する措置20190729
-//#define PREVENT_STUCK_MODIFIERS
+#define PREVENT_STUCK_MODIFIERS
 	// https://github.com/qmk/qmk_firmware/blob/f39e1b5dfe7552f01dbc6eab95c268f41a9d98e2/readme.md#prevent-stuck-modifiers
 
 
