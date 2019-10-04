@@ -165,20 +165,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* WindowsBase Qwerty
  * ,------------------------------------------------------------------------------------.
- * |GUI/Esc|  Q  |   W  |   E  |   R  |  T   ||  Y   |   U  |   I  |   O  |   P  |  -   |
+ * |GUI/Esc|  Q  |   W  |   E  |   R  |  T   ||  Y   |   U  |   I  |   O  |   P  |  [   |
  * |------+------+------+------+------+------++-------------+------+------+------+------|
- * |  Ent |   A  |   S  |   D  |   F  |  G   ||  H   |   J  |   K  |   L  |   ;  |  '   |
+ * |Ctl/Ent|  A  |   S  |   D  |   F  |  G   ||  H   |   J  |   K  |   L  |   ;  |  '   |
  * |------+------+------+------+------+------++------|------+------+------+------+------|
- * |  Tab |   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |LShift|
+ * |Tab/Sft|  Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |- /Sft|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * | Shift| MEDIA|半全角|/del|Alt/Bkspc|Ctl/Spc||Space|  =  |   [  |  ]   |   `  |   ¥  |
+ * | Shift| MEDIA|半全角|/del|Alt/Bkspc|Ctl/Spc||Space|  =  |   `  |   ¥  | Enter|  ]   |
  * `------------------------------------------------------------------------------------'
  */
 [_BASEPlate] = LAYOUT_planck_grid(
-	LGUI_T(KC_ESCAPE),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,		KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_MINS,	
+	LGUI_T(KC_ESCAPE),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,		KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	
 	CTL_T(KC_ENTER),	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,		KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	
-	LSFT_T(KC_TAB),	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,		KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	KC_RSHIFT,	
-	KC_LSHIFT,	MO(_MEDIAPlate),	HANZEN_jap0Reng4win,	LT(_MOUSEPlate, KC_DELETE),	ALT_T(KC_BSPACE),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_EQL,	KC_LBRACKET,	KC_RBRACKET,	KC_GRAVE,	KC_BSLS	
+	LSFT_T(KC_TAB),	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,		KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	RSFT_T(KC_MINS),	
+	KC_LSHIFT,	MO(_MEDIAPlate),	HANZEN_jap0Reng4win,	LT(_MOUSEPlate, KC_DELETE),	ALT_T(KC_BSPACE),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_EQL,	KC_GRAVE,	KC_BSLS,	KC_ENTER,	KC_RBRACKET	
 ),
 
 
@@ -188,25 +188,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------++-------------+------+------+------+------|
  * |Ctl/Ent|  A  |   S  |   D  |   F  |  G   ||  H   |   J  |   K  |   L  |   ;  |  '   |
  * |------+------+------+------+------+------++------|------+------+------+------+------|
- * |  Tab |   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |-Shift|
+ * |Tab/Sft|  Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |- /Sft|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * | Shift| MEDIA|半全角|/del|Alt/Bkspc|Ctl/Spc||Space|  =  |   `  |   ¥  | None |  ]   |
+ * | Shift| MEDIA|半全角|/del|Alt/Bkspc|Ctl/Spc||Space|  =  |   `  |   ¥  | Enter|  ]   |
  * `------------------------------------------------------------------------------------'
  */
-/*
 [_MACBASE] = LAYOUT_planck_grid(
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
-	_______,	MO(_MEDIAPlate),	HANZEN_jap0Reng4mac,	LT(_MOUSEPlate, KC_DELETE),	_______,	LGUI_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	_______,	_______,	_______,	_______,	_______	
-
-),
-*/
-[_MACBASE] = LAYOUT_planck_grid(
-	LGUI_T(KC_ESCAPE),	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	KC_LBRACKET,	
-	CTL_T(KC_ENTER),	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
-	LSFT_T(KC_TAB),	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	RSFT_T(KC_MINS),	
-	KC_LSHIFT,	MO(_MEDIAPlate),	HANZEN_jap0Reng4mac,	LT(_MOUSEPlate, KC_DELETE),	_______,	LGUI_T(KC_SPC),		LT(_MOVEPlate, KC_SPC),	_______,	KC_GRAVE,	KC_BSLS,	KC_ENTER,	KC_RBRACKET	
+	_______,	MO(_MEDIAPlate),	HANZEN_jap0Reng4mac,	LT(_MOUSEPlate, KC_DELETE),	_______,	LGUI_T(KC_SPC),		LT(_MOVEPlate, KC_SPC),	_______,	_______,	_______,	_______,	_______	
 
 ),
 //	※mcr：スクリーンショット用マクロキー
