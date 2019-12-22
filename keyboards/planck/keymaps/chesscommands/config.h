@@ -121,10 +121,12 @@
 /* 2回すばやく押して2回目ホールドで単押しに設定したキーの連続入力が可能 */
 //	https://docs.qmk.fm/#/feature_advanced_keycodes?id=tapping-force-hold
 //	https://qiita.com/chesscommands/items/cf740e2e8b2b6879c798
-#define TAPPING_FORCE_HOLD
+//#define TAPPING_FORCE_HOLD
 //	KC_SFTENT用に設定した20190518
 //		意図した動きになってくれなかったため,無効化20190729
-//      要は、上記の説明が逆なのか？
+//		要は、上記の説明が逆なのか？
+//	20191217：今まで必要だと思いながら無効化していた。しかし、その理由を記載していないため、何のために無効化していたのか忘れてしまった。今後無効化するときは理由を記載すること。今は職場で使うために有効化する。
+//		⇒Enterを押した直後に、Ctrlとして使うために押しっぱなしにする。しかし、この機能を有効にした場合、Ctrlではなく、Enterとして働いてしまい、意図しない動きになってしまう。それは困る。
 
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
