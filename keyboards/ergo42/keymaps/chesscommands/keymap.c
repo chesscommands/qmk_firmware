@@ -349,7 +349,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
    * |LShift|   Z  |   X  |   C  |   V  |  B   | None |   |  N   |   M  |   ,  |   .  |   /  |  ]   | None |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * | Space| Bkspc|半全角|Delete|Alt/Ent|Ctl/Esc|None|   | Space|RShift|   `  |   \  |   -  |  =   | LGUI |
+   * |BackSpc|WinApp|半全角|Delete|Alt/Ent|Ctl/Spc|None|  | Space|RShift|   `  |   \  |   -  |  =   | LGUI |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASEPlate] = LAYOUT(
@@ -360,7 +360,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //	KC_SPC,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	ALT_T(KC_ENTER),	CTL_T(KC_ENTER),	KC_SPC,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
 //	KC_SPC,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	KC_TAB,	ALT_T(KC_SPC),	XXXXXXX,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
 //	KC_SPC,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	CTL_T(KC_ENTER),	ALT_T(KC_SPC),	XXXXXXX,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
-	KC_SPACE,	LT(MEDIAPlate, KC_BSPACE),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	ALT_T(KC_ENTER),	CTL_T(KC_ESCAPE),	XXXXXXX,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
+	KC_BSPACE,	LT(MEDIAPlate, KC_APPLICATION),	HANZENjap_eng,	LT(MOUSEPlate, KC_DELETE),	ALT_T(KC_ENTER),	CTL_T(KC_SPACE),	XXXXXXX,			LT(MOVESPlate, KC_SPC),	KC_RSHIFT,	KC_GRAVE,	KC_BSLS,	KC_MINS,	KC_EQL,	QK_RGUI	
   ),
 
 
@@ -386,19 +386,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* Move Layer
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * |      |  1   |  2   |  3   |  4   |  5   |      |   |  6   |  7   |  8   |  9   |  0   |  {   |      |
+   * |      |  1   |  2   |  3   |  4   |  5   |      |   |  6   |  7   |  8   |  9   |  0   | PgUp |      |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * |LShift|  =   | MsUp | Lclk | Rclk | PgUp |      |   |  ←  |  ↓  |  ↑  |  →  |   :  |  "   |      |
+   * |LShift| Home | End  | Lclk | Rclk | PgUp |      |   |  ←  |  ↓  |  ↑  |  →  |RShift|Delete|      |
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * |LShift|  +   |MsLeft|MsDown|MsRght| PgDn |      |   | Home | End  |   <  |   >  |   ?  |  }   | RESET|
+   * |LShift|  !   |  @   |  #   |  $   |  %   |      |   |  ^   |  &   |  *   |  (   |  )   | PgDn | RESET|
+   * |LShift|MsLeft| MsUp |MsDown|MsRght| PgDn |      |   | Home | End  |   <  |   >  |   ?  |  }   | RESET|	←不要になった20190726
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    *|ASトグル|ScrLok|     |      |      |      |      |  |予約済み|Shift|  ~   |  |   |  _   |  +   |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MOVESPlate] = LAYOUT(
-	_______,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5,	_______,			KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	KC_LEFT_CURLY_BRACE,	KC_NO,	
-	KC_LSHIFT,	KC_EQL,	KC_MS_UP,	KC_MS_BTN2,	KC_MS_BTN1,	KC_PGUP,	_______,			KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_COLON, KC_DOUBLE_QUOTE, KC_NO,	
-	_______,	KC_PLUS,	KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_RIGHT,	KC_PGDOWN,	_______,			KC_HOME,	KC_END,	KC_LEFT_ANGLE_BRACKET,	KC_RIGHT_ANGLE_BRACKET,	KC_QUESTION,	KC_RIGHT_CURLY_BRACE,	RESET,	
+	_______,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5,	_______,			KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	KC_PGUP,	KC_NO,	
+	KC_LSHIFT,	KC_HOME,	KC_END,	KC_MS_BTN2,	KC_MS_BTN1,	KC_PGUP,	_______,			KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_RSHIFT, KC_DELETE, KC_NO,	
+
+//	_______,	KC_MS_LEFT,	KC_MS_UP,	KC_MS_DOWN,	KC_MS_RIGHT,	KC_PGDOWN,	_______,			KC_HOME,	KC_END,	KC_LEFT_ANGLE_BRACKET,	KC_RIGHT_ANGLE_BRACKET,	KC_QUESTION,	KC_RIGHT_CURLY_BRACE,	RESET,	
+
+	_______,	KC_EXCLAIM,	KC_AT,	KC_HASH,	KC_DOLLAR,	KC_PERCENT,	_______,			KC_CIRCUMFLEX,	KC_AMPERSAND,	KC_ASTERISK,	KC_LEFT_PAREN,	KC_RIGHT_PAREN,	KC_PGDOWN,	RESET,	
 	KC_ASTG,	KC_LOCKING_SCROLL,	_______,	_______,	_______,	_______,	_______,			KC_NO,	_______, KC_TILDE, KC_PIPE, KC_UNDERSCORE, KC_PLUS, KC_NO	
   ),
 
@@ -410,20 +414,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* Media and mouse keys
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * |      |  1   |CtlHme|CtlEnd|  4   |  5   | 継承 |   |  6   |  7   |  8   |  9   |PrScrn| F12  | 継承 |
+   * |      |  1   |CtlHme|CtlEnd|  4   |  5   | 継承 |   | Rclk |Middle| Lclk |  9   |PrScrn| F12  | 継承 |
    * |------|------+------+------+------+------+------+   |------+------+------+------+------+------|------+
-   * |LShift|  F1  |SftHme|SftEnd|  F4  |  F5  | 継承 |   |Shft←|Shft↓|Shft↑|Shft→|  F10 | F11  | 継承 |
+   * |      |  F1  |  F2  |  F3  |  F4  |  F5  | 継承 |   |MsLeft|MsDown| MsUp |MsRght|  F10 | F11  | 継承 |
    * |------|------+------+------+------+------+------+   |------+------+------+------+------+------|------+
-   * |WhelUp| LCtrl| Home | End  |Escape|PrScrn| 継承 |   |Ctrl←|Ctrl↓|Ctrl↑|Ctrl→|   ?  |      | 継承 |
+   * |      |      | Home | End  |LShift|      | 継承 |   | Wleft|WlDown|WhelUp|WRight|   ?  |      | 継承 |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |WlDown| LCtrl| Enter|      |LShift|      |      |   |RShift| RSft |  +   |  |   |   _  |      |      |
+   * |      | LCtrl|PrScrn|      |      |      |      |   |      | RSft |  +   |  |   |   _  |      |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MEDIAPlate] = LAYOUT(
-	_______,	KC_1,	LCTL(KC_HOME),	LCTL(KC_END),	KC_4,	KC_5, 	_______,			KC_6,	KC_7,	KC_8,	KC_9,	KC_PSCREEN,	KC_F12,	_______,	
-	_______,	KC_F1,	LSFT(KC_HOME),	LSFT(KC_END),	KC_F4,	KC_F5,	RESET,			LSFT(KC_LEFT),	LSFT(KC_DOWN), LSFT(KC_UP),   LSFT(KC_RGHT),	KC_F10,	KC_F11,	XXXXXXX,
-	KC_MS_WH_UP,	KC_LCTRL,	KC_HOME,	KC_END,	KC_ESCAPE,	LALT(KC_PSCREEN),	_______,			LCTL(KC_LEFT),	LCTL(KC_DOWN), LCTL(KC_UP),   LCTL(KC_RGHT),	KC_QUESTION,	KC_NO,	_______,	
-	KC_MS_WH_DOWN,	KC_LCTRL,	KC_ENTER,	_______,	KC_LSHIFT,	_______,	_______,			KC_RSHIFT,	_______,	KC_PLUS, KC_PIPE, KC_UNDERSCORE,	_______,	_______	
+	_______,	KC_1,	LCTL(KC_HOME),	LCTL(KC_END),	KC_4,	KC_5, 	_______,			KC_MS_BTN1,	KC_MS_BTN3,	KC_MS_BTN2,	KC_9,	KC_PSCREEN,	KC_F12,	_______,	
+	_______,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,	RESET,			KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_UP,	KC_MS_RIGHT,	KC_F10,	KC_F11,	XXXXXXX,
+	_______,	_______,	KC_HOME,	KC_END,	KC_LSHIFT,	_______,	_______,			KC_MS_WH_LEFT,	KC_MS_WH_DOWN, KC_MS_WH_UP,   KC_MS_WH_RIGHT,	KC_QUESTION,	KC_NO,	_______,	
+	_______,	_______,	LALT(KC_PSCREEN),	_______,	_______,	_______,	_______,			_______,	_______,	KC_PLUS, KC_PIPE, KC_UNDERSCORE,	_______,	_______	
   ),
 
 //	Alt＋F4：ウィンドウを閉じる （ブラクラならAlt＋F4数回を押すか押しっ放し）	←コレができない。AutoHotKeyで代替
@@ -433,22 +437,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* MOUSE and Function Layer
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * | F12  | F13  | F14  |  F15 |  F16 |  F17 | RESET|   | F24  | F18  | F19  | F20  |  F21 |  F22 |      |	←使い回したい。
-   * | 継承 |  !   |  @   |  #   |  $   |  %   | 継承 |   |  ^   |  &   |  *   |  (   |  )   |      | 継承 |
+   * | 継承 |  !   |  @   |  #   |  $   |  %   | 継承 |   |  ^   |  &   |  *   |  (   |  )   |      | 継承 |	←無駄になった。どこかに使い回したい20190726
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      |LShift|      | Lclk | Rclk |Middle|      |   |MsLeft|MsDown| MsUp |MsRght|WhelUp| Stop |      |
+   * |      |  F1  |  F2  |  F3  |  F4  |  F5  |      |   |  F6  |  F7  |  F8  |  F9  | F10  |      |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |LShift|  F1  |  F2  |  F3  |  F4  |  F5  | F23  |   |  F6  |  F7  |  F8  |  F9  |  F10 |  F11 |      |
+   * |LShift| F11  | F12  | F13  | F14  | F15  |      |   | F16  | F17  | F18  | F19  | F20  |      |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * | RESET|      |Enter|予約済み|     |      | RESET|   |      |      |      | Wleft|WlDown|WRight|      |
+   * |      | F21  | F22  | F23  | F24  |      |      |   |      |      |      |      |      |      |      |
+   * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
+   * | RESET|      |Enter|予約済み|     |      | RESET|   |      |      |      |      |      |      |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [MOUSEPlate] = LAYOUT(
 //	KC_F12,	KC_F13,	KC_F14,	KC_F15,	KC_F16,	KC_F17,	RESET,			KC_F24,	KC_F18,	KC_F19,	KC_F20,	KC_F21,	KC_F22,	XXXXXXX,
-	_______,	KC_EXCLAIM,	KC_AT,	KC_HASH,	KC_DOLLAR,	KC_PERCENT,	_______,			KC_CIRCUMFLEX,	KC_AMPERSAND,	KC_ASTERISK,	KC_LEFT_PAREN,	KC_RIGHT_PAREN,	KC_NO,	_______,	
-	_______,	KC_LSHIFT,	XXXXXXX,	KC_MS_BTN2,	KC_MS_BTN1,	KC_MS_BTN3,	XXXXXXX,			KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_UP,	KC_MS_RIGHT,	KC_MS_WH_UP,	KC_MEDIA_STOP,	XXXXXXX,
-	KC_LSHIFT,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,	KC_F23,			KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	KC_F11,	XXXXXXX,
-	RESET,	XXXXXXX,	KC_ENTER,	_______,	_______,	_______,	RESET,			XXXXXXX,	_______,	XXXXXXX,	KC_MS_WH_LEFT,	KC_MS_WH_DOWN,	KC_MS_WH_RIGHT,	XXXXXXX
+//	_______,	KC_EXCLAIM,	KC_AT,	KC_HASH,	KC_DOLLAR,	KC_PERCENT,	_______,			KC_CIRCUMFLEX,	KC_AMPERSAND,	KC_ASTERISK,	KC_LEFT_PAREN,	KC_RIGHT_PAREN,	KC_NO,	_______,	
+//	_______,	KC_LSHIFT,	XXXXXXX,	KC_MS_BTN2,	KC_MS_BTN1,	KC_MS_BTN3,	XXXXXXX,			KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_UP,	KC_MS_RIGHT,	KC_MS_WH_UP,	KC_MEDIA_STOP,	XXXXXXX,
+//	KC_LSHIFT,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,	KC_F23,			KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	KC_F11,	XXXXXXX,
+//	RESET,	XXXXXXX,	KC_ENTER,	_______,	_______,	_______,	RESET,			XXXXXXX,	_______,	XXXXXXX,	KC_MS_WH_LEFT,	KC_MS_WH_DOWN,	KC_MS_WH_RIGHT,	XXXXXXX
+//	_______,	KC_EXCLAIM,	KC_AT,	KC_HASH,	KC_DOLLAR,	KC_PERCENT,	_______,			KC_CIRCUMFLEX,	KC_AMPERSAND,	KC_ASTERISK,	KC_LEFT_PAREN,	KC_RIGHT_PAREN,	KC_NO,	_______,	
+	_______,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,	_______,			KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	_______,	_______,	
+	KC_LSHIFT,	KC_F11,	KC_F12,	KC_F13,	KC_F14,	KC_F15,	_______,			KC_F16,	KC_F17,	KC_F18,	KC_F19,	KC_F20,	_______,	_______,	
+	_______,	KC_F21,	KC_F22,	KC_F23,	KC_F24,	_______,	_______,			_______,	_______,	_______,	_______,	_______,	_______,	_______,	
+	RESET,	_______,	KC_ENTER,	_______,	_______,	_______,	RESET,			_______,	_______,	_______,	_______,	_______,	_______,	_______	
   )
 
 
@@ -638,7 +648,10 @@ uint16_t get_tapping_term(uint16_t keycode) {
 	switch (keycode) {
 		case CTL_T(KC_TAB):
 			return 73;	// 全くだめ。機能しない。
-		case ALT_T(KC_ENTER):
+		case LGUI_T(KC_ESCAPE):
+			return 75;
+//		case ALT_T(KC_ENTER):
+		case CTL_T(KC_ESCAPE):
 			return 79;
 		case CTL_T(KC_ENTER):
 		case CTL_T(KC_SPC):
@@ -647,9 +660,10 @@ uint16_t get_tapping_term(uint16_t keycode) {
 //			return 68;	←かなり早く動かさなければならないため、ちょっと無理20190704
 //			return 70;	// ほんのちょっとのエンターキー押下で反応しない。もっと時間を延ばす必要があるのだろう20190706
 //			return TAPPING_TERM;	// 左手小指用の時間20190713
-			return 73;	// 親指での操作ならばちょうどいい時間になっているが、小指での操作では早く動かせないため不適切な値になってしまった20190713
+			return 74;	// 親指での操作ならばちょうどいい時間になっているが、小指での操作では早く動かせないため不適切な値になってしまった20190713
 //		case LT(MEDIAPlate, KC_BSPACE):	// コンパイルエラーになる20190713
 //			return TAPPING_TERM + 10;
+		case ALT_T(KC_ENTER):
 		default:
 			return TAPPING_TERM;
 	}
