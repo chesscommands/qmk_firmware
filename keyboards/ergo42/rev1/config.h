@@ -43,6 +43,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define RETRO_TAPPING
 #define PERMISSIVE_HOLD
 
+//	#define PREVENT_STUCK_MODIFIERS
+
+
+
+
+
+
+
+
+
 
 //				Žg‚¢•û‚ª‚æ‚­‚í‚©‚ç‚È‚¢.—LŒø‚É‚È‚Á‚Ä‚­‚ê‚È‚¢.
 //#define IGNORE_MOD_TAP_INTERRUPT
@@ -98,7 +108,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define GRAVE_ESC_SHIFT_OVERRIDE
 //#define GRAVE_ESC_CTRL_OVERRIDE
 //#define GRAVE_ESC_ALT_OVERRIDE
-
 
 
 
