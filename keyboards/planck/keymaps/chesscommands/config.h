@@ -121,7 +121,7 @@
 /* 2回すばやく押して2回目ホールドで単押しに設定したキーの連続入力が可能 */
 //	https://docs.qmk.fm/#/feature_advanced_keycodes?id=tapping-force-hold
 //	https://qiita.com/chesscommands/items/cf740e2e8b2b6879c798
-//#define TAPPING_FORCE_HOLD
+#define TAPPING_FORCE_HOLD
 //	KC_SFTENT用に設定した20190518
 //		意図した動きになってくれなかったため,無効化20190729
 //		要は、上記の説明が逆なのか？
