@@ -376,7 +376,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------|------+------+------+------+------++------+------+------+------+------+------|
  * |      | Swap |PgDown| End  |PgDown|BkSpce|| Wleft|WlDown|WhelUp|WRight|  ?   |-Minus|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * | Tab  |      | Enter| Lclk | Rclk |      ||      |  +   |  ~   |  |   | Bkspc|      |
+ * | Tab  |      | Enter| Lclk | Rclk |      ||      |  +   |  ~   |  |   | Bkspc|      |	←通常の場所にAltキーが無ければ不便だと気づいた20200128
  * `------------------------------------------------------------------------------------'
  */
   [_MEDIAPlate] = LAYOUT_planck_grid(
@@ -390,20 +390,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,------------------------------------------------------------------------------------.
  * | LGUI |  F1  |  F2  |  F3  |  F4  |  F5  ||  F6  |  F7  |  F8  |  F9  | F10  |  {   |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |Sft/Ent| F11 | F12  | F13  | F14  | F15  || F16  | F17  | F18  | F19  | F20  |  "   |
+ * |      | F11  | F12  | F13  | F14  | F15  || F16  | F17  | F18  | F19  | F20  |  "   |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |      | Home | Cut  | Copy | Past | End  || F21  | F22  | F23  | F24  |Insert|_ /Sft|
+ * |      | Shift| Home | End  | Space| Bkspc|| F21  | F22  | F23  | F24  |Insert|_ /Sft|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
  * | RESET|    |Enter|予約済みor予約済み|   ||予約済み|  +  |  ~   |  |   |backSpace| } |
  * `------------------------------------------------------------------------------------'
  */	
   [_MOUSEPlate] = LAYOUT_planck_grid( 
 	KC_LGUI,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,		KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	KC_LEFT_CURLY_BRACE,	
-	LSFT_T(KC_ENTER),	KC_F11,	KC_F12,	KC_F13,	KC_F14,	KC_F15,		KC_F16,	KC_F17,	KC_F18,	KC_F19,	KC_F20,	KC_DOUBLE_QUOTE,	
-	_______,	KC_HOME,	LSFT(KC_DELETE),	LCTL(KC_INSERT),	LSFT(KC_INSERT),	KC_END,		KC_F21,	KC_F22,	KC_F23,	KC_F24,	KC_INSERT,	RSFT_T(KC_UNDERSCORE),	
+	_______,	KC_F11,	KC_F12,	KC_F13,	KC_F14,	KC_F15,		KC_F16,	KC_F17,	KC_F18,	KC_F19,	KC_F20,	KC_DOUBLE_QUOTE,	
+//	_______,	KC_HOME,	LSFT(KC_DELETE),	LCTL(KC_INSERT),	LSFT(KC_INSERT),	KC_END,		KC_F21,	KC_F22,	KC_F23,	KC_F24,	KC_INSERT,	RSFT_T(KC_UNDERSCORE),	
+	_______,	KC_LSHIFT,	KC_HOME,	KC_END,	KC_SPC,	KC_BSPACE,		KC_F21,	KC_F22,	KC_F23,	KC_F24,	KC_INSERT,	RSFT_T(KC_UNDERSCORE),	
 //	RESET,	_______,	KC_ENTER,	_______,	_______,	MAGIC_SWAP_LCTL_LGUI,	XXXXXXX,	_______,	XXXXXXX,	KC_MS_WH_LEFT,	KC_MS_WH_DOWN,	KC_MS_WH_RIGHT	
 	RESET,	_______,	KC_ENTER,	_______,	_______,	_______,		_______,	KC_PLUS,	KC_TILDE, KC_PIPE, KC_BSPACE, KC_RIGHT_CURLY_BRACE	
   ),
+/*	上記のレイアウトが不便であれば、以下を試す20200128
+ * ,------------------------------------------------------------------------------------.
+ * | LGUI | Shift| Home | End  | Space| Bkspc|| F21  | F22  | F23  | F24  |Insert|  {   |
+ * |------+------+------+------+------+------++------+------+------+------+------+------|
+ * |      | F11  | F12  | F13  | F14  | F15  || F16  | F17  | F18  | F19  | F20  |  "   |
+ * |------+------+------+------+------+------++------+------+------+------+------+------|
+ * |      |  F1  |  F2  |  F3  |  F4  |  F5  ||  F6  |  F7  |  F8  |  F9  | F10  |_ /Sft|
+ * |------+------+------+------+------+------++------+------+------+------+------+------|
+ * | RESET|    |Enter|予約済みor予約済み|   ||予約済み|  +  |  ~   |  |   |backSpace| } |
+ * `------------------------------------------------------------------------------------'
+*/
+
 /*
 https://smatu.net/2018/12/22/mac-function-key-f1-f12-default-setting/
 	F1…ディスプレイ照度を下げる
