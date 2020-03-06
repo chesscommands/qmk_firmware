@@ -162,11 +162,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASEPlate] = LAYOUT_planck_grid(
 	LGUI_T(KC_TAB),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,		KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_EQL,	
 	CTL_T(KC_ENTER),	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,		KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	
-//	LSFT_T(KC_ESCAPE),	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,		KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	RSFT_T(KC_MINS),	
 	KC_LSHIFT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,		KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	RSFT_T(KC_MINS),	
-//	KC_APPLICATION,	MO(_MEDIAPlate),	HANZEN_jap0Reng4win,	ALT_T(KC_DELETE),	LT(_MOUSEPlate, KC_BSPACE),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_BSLS,	KC_LBRACKET,	KC_RBRACKET,	KC_ENTER,	KC_GRAVE	
 	KC_APPLICATION,	LT(_MEDIAPlate, KC_BSPACE),	HANZEN_jap0Reng4win,	ALT_T(KC_DELETE),	LT(_MOUSEPlate, KC_ESCAPE),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_BSLS,	KC_LBRACKET,	KC_RBRACKET,	KC_ENTER,	KC_GRAVE	
-//	KC_APPLICATION,	LT(_MEDIAPlate, KC_BSPACE),	HANZEN_jap0Reng4win,	LT(_MOUSEPlate, KC_ESCAPE),	ALT_T(KC_DELETE),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_BSLS,	KC_LBRACKET,	KC_RBRACKET,	KC_ENTER,	KC_GRAVE	
 ),
 
 
@@ -398,16 +395,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------++------+------+------+------+------+------|
  * |      |  F1  |  F2  |  F3  |  F4  |  F5  ||  F6  |  F7  |  F8  |  F9  | F10  |_ /Sft|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * | Esc  |      | Enter|予約済み|    |      ||予約済|  |   |  {   |  }   |bkSpace|  ~  |
+ * |BSpace|      | Enter|予約済み|    |      ||予約済|  |   |  {   |  }   |bkSpace|  ~  |
  * `------------------------------------------------------------------------------------'
  */	
   [_MOUSEPlate] = LAYOUT_planck_grid( 
 	KC_LGUI,	KC_F11,	KC_F12,	KC_F13,	KC_F14,	KC_F15,		KC_F16,	KC_F17,	KC_F18,	KC_F19,	KC_F20,	KC_PLUS,	
 	_______,	KC_HOME,	KC_END,	KC_PGUP,	KC_PGDOWN,	KC_ESCAPE,		KC_F21,	KC_F22,	KC_F23,	KC_F24,	KC_INSERT,	KC_DELETE,	
 	_______,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,		KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	RSFT_T(KC_UNDERSCORE),	
-//	_______,	KC_HOME,	LSFT(KC_DELETE),	LCTL(KC_INSERT),	LSFT(KC_INSERT),	KC_END,		KC_F21,	KC_F22,	KC_F23,	KC_F24,	KC_INSERT,	RSFT_T(KC_UNDERSCORE),	
-//	RESET,	_______,	KC_ENTER,	_______,	_______,	MAGIC_SWAP_LCTL_LGUI,	XXXXXXX,	_______,	XXXXXXX,	KC_MS_WH_LEFT,	KC_MS_WH_DOWN,	KC_MS_WH_RIGHT	
-	KC_ESCAPE,	_______,	KC_ENTER,	_______,	_______,	_______,		_______,	KC_PIPE,	KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE, KC_BSPACE, KC_TILDE	
+	KC_BSPACE,	_______,	KC_ENTER,	_______,	_______,	_______,		_______,	KC_PIPE,	KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE, KC_BSPACE, KC_TILDE	
   ),
 /*
 https://smatu.net/2018/12/22/mac-function-key-f1-f12-default-setting/
