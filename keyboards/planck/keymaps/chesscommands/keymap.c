@@ -150,39 +150,39 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* WindowsBase Qwerty
  * ,------------------------------------------------------------------------------------.
- * |GUI/Ent|  Q  |   W  |   E  |   R  |  T   ||  Y   |   U  |   I  |   O  |   P  |  -   |
+ * |GUI/Tab|  Q  |   W  |   E  |   R  |  T   ||  Y   |   U  |   I  |   O  |   P  |  [   |
  * |------+------+------+------+------+------++-------------+------+------+------+------|
- * |Ctl/Tab|  A  |   S  |   D  |   F  |  G   ||  H   |   J  |   K  |   L  |   ;  |  '   |
+ * |Ctl/Ent|  A  |   S  |   D  |   F  |  G   ||  H   |   J  |   K  |   L  |   ;  |  ]   |
  * |------+------+------+------+------+------++------|------+------+------+------+------|
- * |Sft/Ec|   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  |= /Sft|
+ * |LShift|   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  | '/Sft|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |APP|_MEDIA/BSpace|半全角|Alt/del|/Esc|Ctl/Spc||Space|  ¥  |   [  |   ]  |Enter| `   |
+ * |Esc|_MEDIA/BSpace|半全角|Alt/del|/APP|Ctl/Spc||Space|  ¥ |  =  | Enter|   `  |  -   |
  * `------------------------------------------------------------------------------------'
  */
 [_BASEPlate] = LAYOUT_planck_grid(
-	LGUI_T(KC_ENTER),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,		KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_MINS,	
-	CTL_T(KC_TAB),	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,		KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	
-	LSFT_T(KC_ESCAPE),	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,		KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	RSFT_T(KC_EQL),	
-	KC_APPLICATION,	LT(_MEDIAPlate, KC_BSPACE),	HANZEN_jap0Reng4win,	ALT_T(KC_DELETE),	LT(_MOUSEPlate, KC_ESCAPE),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_BSLS,	KC_LBRACKET,	KC_RBRACKET,	KC_ENTER,	KC_GRAVE	
+	LGUI_T(KC_TAB),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,		KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_LBRACKET,	
+	CTL_T(KC_ENTER),	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,		KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_RBRACKET,	
+	KC_LSFT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,		KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	RSFT_T(KC_QUOTE),	
+	KC_ESCAPE,	LT(_MEDIAPlate, KC_BSPACE),	HANZEN_jap0Reng4win,	ALT_T(KC_DELETE),	LT(_MOUSEPlate, KC_APPLICATION),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_BSLS,	KC_EQL,	KC_ENTER,	KC_GRAVE,	KC_MINS	
 ),
 
 
 /* _MACBASE Qwerty
  * ,------------------------------------------------------------------------------------.
- * |GUI/Ent|  Q  |   W  |   E  |   R  |  T   ||  Y   |   U  |   I  |   O  |   P  |  -   |
+ * |GUI/Tab|  Q  |   W  |   E  |   R  |  T   ||  Y   |   U  |   I  |   O  |   P  |  [   |
  * |------+------+------+------+------+------++-------------+------+------+------+------|
- * |Ctl/Tab|  A  |   S  |   D  |   F  |  G   ||  H   |   J  |   K  |   L  |   ;  |  '   |
+ * |Ctl/Ent|  A  |   S  |   D  |   F  |  G   ||  H   |   J  |   K  |   L  |   ;  |  ]   |
  * |------+------+------+------+------+------++------|------+------+------+------+------|
- * |Sft/Esc|  Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  | =/Sft|
+ * |Sft/Esc|  Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  | '/Sft|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * | Ctrl |MEDIA/BSpc|半全角|Alt/del|/Esc|GUI/Sc||Space|  ¥ |   [  |   ]  | Enter|  `   |
+ * |Esc|MEDIA/BSpc|半全角|Alt/del|/Esc|GUI/Ctrl||Space|  ¥  |   =  | Enter|  `   |  -   |
  * `------------------------------------------------------------------------------------'
  */
 [_MACBASE] = LAYOUT_planck_grid(
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
-	KC_LCTRL,	LT(_MEDIAPlate, KC_BSPACE),	HANZEN_jap0Reng4mac,	ALT_T(KC_DELETE),	LT(_MOUSEPlate, KC_ESCAPE),	LGUI_T(KC_SPC),		LT(_MOVEPlate, KC_SPC),	_______,	_______,	_______,	_______,	_______	
+	KC_ESCAPE,	LT(_MEDIAPlate, KC_BSPACE),	HANZEN_jap0Reng4mac,	ALT_T(KC_DELETE),	LT(_MOUSEPlate, KC_LCTRL),	LGUI_T(KC_SPC),		LT(_MOVEPlate, KC_SPC),	_______,	_______,	_______,	_______,	_______	
 //	KC_SPACE,	LT(_MEDIAPlate, KC_BSPACE),	HANZEN_jap0Reng4mac,	LT(_MOUSEPlate, KC_ESCAPE),	ALT_T(KC_DELETE),	LGUI_T(KC_SPC),		LT(_MOVEPlate, KC_SPC),	_______,	_______,	_______,	_______,	_______	
 
 ),
@@ -348,20 +348,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Move Layer
  * ,------------------------------------------------------------------------------------.
- * |      |  !   |  @   |  #   |  $   |  %   ||  ^   |  &   |  *   |  (   |  )   |  _   |
+ * |      |  !   |  @   |  #   |  $   |  %   ||  ^   |  &   |  *   |  (   |  )   |  {   |
  * |------+------+------+------+------+------++-------------+------+------+------+------|
- * |      | Home | End  |PageUp|PgDown|Delete||  ←  |  ↓  |  ↑  |  →  |  :   |  "   |
+ * |      | Home | End  | Esc  |BSpace|Delete||  ←  |  ↓  |  ↑  |  →  |  :   |  }   |
  * |------+------+------+------+------+------++------|------+------+------+------+------|
- * |      |  1   |  2   |  3   |  4   |  5   ||  6   |  7   |  8   |  9   |  0   |+ /Sft|
+ * |      |  1   |  2   |  3   |  4   |  5   ||  6   |  7   |  8   |  9   |  0   | "/Sft|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |      |      |      |      |      |      ||      |  |   |  {   |  }   |backSpace| ~ |
+ * | Tab  |      |      |      |      |      ||      |  |   |  +   |backSpace| ~ |  _   |
  * `------------------------------------------------------------------------------------'
  */
 [_MOVEPlate] = LAYOUT_planck_grid(
-	_______,	KC_EXCLAIM,	KC_AT,	KC_HASH,	KC_DOLLAR,	KC_PERCENT,		KC_CIRCUMFLEX,	KC_AMPERSAND,	KC_UNDERSCORE,	KC_LEFT_PAREN,	KC_RIGHT_PAREN,	KC_PLUS,	
-	_______,	KC_HOME,	KC_END,	KC_PGUP,	KC_PGDOWN,	KC_DELETE,		KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_COLON, KC_DOUBLE_QUOTE,	
-	_______,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5,		KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	RSFT_T(KC_PLUS),	
-	_______,	_______,	_______,	_______,	_______,	_______,		_______,	KC_PIPE,	KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE, KC_BSPACE, KC_TILDE	
+	_______,	KC_EXCLAIM,	KC_AT,	KC_HASH,	KC_DOLLAR,	KC_PERCENT,		KC_CIRCUMFLEX,	KC_AMPERSAND,	KC_ASTERISK,	KC_LEFT_PAREN,	KC_RIGHT_PAREN,	KC_LEFT_CURLY_BRACE,	
+	_______,	KC_HOME,	KC_END,	KC_ESCAPE,	KC_BSPACE,	KC_DELETE,		KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_COLON, KC_RIGHT_CURLY_BRACE,	
+	_______,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5,		KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	RSFT_T(KC_DOUBLE_QUOTE),	
+	KC_TAB,	_______,	_______,	_______,	_______,	_______,		_______,	KC_PIPE,	KC_PLUS, KC_BSPACE, KC_TILDE, KC_UNDERSCORE	
 ),
 
 //	KC_ASTG：AutoShift自動押下のトグルキー
@@ -371,38 +371,38 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Mouse keys
  * ,------------------------------------------------------------------------------------.
- * |      |PrScrn| Bkspc| Lclk | Rclk | Tab  ||Middle| Rclk | Lclk |  =   |PrScrn|      |	←Altキーは独立させておかなければ、WinOSでプリントスクリーン取得に困ることになる。
+ * |      |PrScrn| Space| Lclk | Rclk | Tab  ||Middle| Rclk | Lclk |  =   |PrScrn|      |	←Altキーは独立させておかなければ、WinOSでプリントスクリーン取得に困ることになる。
  * |------|------+------+------+------+------++------+------+------+------+------+------|
  * |      | ※mcr|LShift| Home |PageUp|Delete||MsLeft|MsDown| MsUp |MsRght|=Insert|Delete|
  * |------|------+------+------+------+------++------+------+------+------+------+------|
- * |      | Swap | Space| End  |PgDown| Bkspc|| Wleft|WlDown|WhelUp|WRight| RAlt |      |
+ * |      | Swap | Tab  | End  |PgDown| Bkspc|| Wleft|WlDown|WhelUp|WRight| RAlt |      |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * | RESET|      | Enter|      |      |      ||      |  |   |  {   |  }   | Bkspc|  ~   |	←通常の場所にAltキーが無ければ不便だと気づいた20200128
+ * | RESET|      | Enter|      |      |      ||      |  |   |  +   |backSpace| ~ |  _   |	←通常の場所にAltキーが無ければ不便だと気づいた20200128
  * `------------------------------------------------------------------------------------'
  */
   [_MEDIAPlate] = LAYOUT_planck_grid(
-	_______,	LALT(KC_PSCREEN),	KC_BSPACE,	KC_MS_BTN2,	KC_MS_BTN1,	KC_TAB, 		KC_MS_BTN3,	KC_MS_BTN1,	KC_MS_BTN2,	KC_EQL,	KC_PSCREEN,	_______,	
+	_______,	LALT(KC_PSCREEN),	KC_SPACE,	KC_MS_BTN2,	KC_MS_BTN1,	KC_TAB, 		KC_MS_BTN3,	KC_MS_BTN1,	KC_MS_BTN2,	KC_EQL,	KC_PSCREEN,	_______,	
 	_______,	SCREENSHOTPART_GET4mac,	KC_LSFT,	KC_HOME,	KC_PGUP,	KC_DELETE,		KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_UP,	KC_MS_RIGHT,	KC_EQL/*KC_INSERT*/, KC_DELETE,	
-	_______,	TO(_MAC_CtrlLayer),	KC_SPACE,	KC_END,	KC_PGDOWN,	KC_BSPACE,		KC_MS_WH_LEFT,	KC_MS_WH_DOWN, KC_MS_WH_UP,   KC_MS_WH_RIGHT,	KC_RALT,	_______,	
-	RESET,	_______,	KC_ENTER,	_______,	_______,	_______,		_______,	KC_PIPE,	KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE, KC_BSPACE, KC_TILDE	
+	_______,	TO(_MAC_CtrlLayer),	KC_TAB,	KC_END,	KC_PGDOWN,	KC_BSPACE,		KC_MS_WH_LEFT,	KC_MS_WH_DOWN, KC_MS_WH_UP,   KC_MS_WH_RIGHT,	KC_RALT,	_______,	
+	RESET,	_______,	KC_ENTER,	_______,	_______,	_______,		_______,	KC_PIPE,	KC_PLUS, KC_BSPACE, KC_TILDE, KC_UNDERSCORE	
   ),
 
 /* Function Layer
  * ,------------------------------------------------------------------------------------.
- * | LGUI | F11  | F12  | F13  | F14  | F15  || F16  | F17  | F18  | F19  | F20  |  _   |
+ * | GUI  | F11  | F12  | F13  | F14  | F15  || F16  | F17  | F18  | F19  | F20  |  {   |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |      | Home | End  |PageUp|PgDown| Esc  || F21  | F22  | F23  | F24  |Insert|Delete|
+ * |      | Home | End  |PageUp|PgDown|Delete||BSpace| F21  | F22  | F23  | F24  |  }   |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |      |  F1  |  F2  |  F3  |  F4  |  F5  ||  F6  |  F7  |  F8  |  F9  | F10  |+ /Sft|
+ * |      |  F1  |  F2  |  F3  |  F4  |  F5  ||  F6  |  F7  |  F8  |  F9  | F10  | "/Sft|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |BSpace|      | Enter|予約済み|    |      ||予約済|  |   |  {   |  }   |bkSpace|  ~  |
+ * | Space|      | Enter|      |      |      ||予約済|  |   |  +   |Insert|  ~   |  _   |
  * `------------------------------------------------------------------------------------'
  */	
   [_MOUSEPlate] = LAYOUT_planck_grid( 
-	KC_LGUI,	KC_F11,	KC_F12,	KC_F13,	KC_F14,	KC_F15,		KC_F16,	KC_F17,	KC_F18,	KC_F19,	KC_F20,	KC_UNDERSCORE,	
-	_______,	KC_HOME,	KC_END,	KC_PGUP,	KC_PGDOWN,	KC_ESCAPE,		KC_F21,	KC_F22,	KC_F23,	KC_F24,	KC_INSERT,	KC_DELETE,	
+	KC_LGUI,	KC_F11,	KC_F12,	KC_F13,	KC_F14,	KC_F15,		KC_F16,	KC_F17,	KC_F18,	KC_F19,	KC_F20,	KC_LEFT_CURLY_BRACE,	
+	_______,	KC_HOME,	KC_END,	KC_PGUP,	KC_PGDOWN,	KC_DELETE,		KC_BSPACE,	KC_F21,	KC_F22,	KC_F23,	KC_F24,	KC_RIGHT_CURLY_BRACE,	
 	_______,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,		KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	RSFT_T(KC_PLUS),	
-	KC_BSPACE,	_______,	KC_ENTER,	_______,	_______,	_______,		_______,	KC_PIPE,	KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE, KC_BSPACE, KC_TILDE	
+	KC_SPC,	_______,	KC_ENTER,	_______,	_______,	_______,		_______,	KC_PIPE,	KC_PLUS, KC_INSERT, KC_TILDE, KC_UNDERSCORE	
   ),
 /*
 https://smatu.net/2018/12/22/mac-function-key-f1-f12-default-setting/
@@ -430,7 +430,7 @@ https://support.apple.com/ja-jp/HT204436
  * |------+------+------+------+------+------++------+------+------+------+------+------|
  * |Audion|Andrid|Debug |Dvorak|Au_Clk|      ||      |      |色相増| Linux|色相減|      |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |Audoff|      |     |Colemak|      |      ||RollOver| Mac|彩度上|      |彩度下| Minus|
+ * |Audoff|      |     |Colemak|      |      ||RollOver| Mac|彩度上|      |彩度下|  '   |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
  * |0レイヤ| 予約|      |      |      |      || 予約 |      |明値増|      |明値減| F12  |
  * `------------------------------------------------------------------------------------'
@@ -438,7 +438,7 @@ https://support.apple.com/ja-jp/HT204436
 [_ADJUSTPlate] = LAYOUT_planck_grid(
 	XXXXXXX,	XXXXXXX,	WINDOWSLAYER,	RGB_MOD,	RGB_TOG,   TENKEYLAYER,	XXXXXXX,	XXXXXXX,	IPADLAYER,	MU_MOD,	_PLOVER,	XXXXXXX,	
 	AU_ON,	TG(_ANDROIDBASE),	DEBUG,	XXXXXXX,	CK_TOGG,	XXXXXXX,	XXXXXXX,	XXXXXXX,	RGB_HUI,	LINUXLAYER,	RGB_HUD,	XXXXXXX,	
-	AU_OFF,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	MAGIC_TOGGLE_NKRO,	MACLAYER,	RGB_SAI,	XXXXXXX,	RGB_SAD,	KC_MINS,	
+	AU_OFF,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	MAGIC_TOGGLE_NKRO,	MACLAYER,	RGB_SAI,	XXXXXXX,	RGB_SAD,	KC_QUOTE,	
 	ZEROReturn,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	RGB_VAI,	XXXXXXX,	RGB_VAD,	KC_F12	
 ),
 // AU_ON：Audioを有効化する。
@@ -878,6 +878,7 @@ uint16_t get_tapping_term(uint16_t keycode) {
 		case ALT_T(KC_BSPACE):	// 20190913
 		case ALT_T(KC_DELETE):	// 20191227
 		case RSFT_T(KC_EQL):	// 20200329
+		case RSFT_T(KC_QUOTE):	// 20201005
 //		case LT(_MOVEPlate, KC_SPC):	// ちょっとだけ時間延長20190925
 		case LGUI_T(KC_SPACE):	// Spaceキーを日常使用にするための措置20190925
 			return TAPPING_TERM * 2;
@@ -891,6 +892,7 @@ uint16_t get_tapping_term(uint16_t keycode) {
 		case LT(_MEDIAPlate, KC_ESCAPE):	// 追加20200213
 		case LT(_MEDIAPlate, KC_BSPACE):	// 追加20200214
 		case LT(_MOUSEPlate, KC_ESCAPE):	// 追加20200214
+		case LT(_MOUSEPlate, KC_APPLICATION):	// 追加20200820
 		case LT(_MOVEPlate, KC_SPC):	// スペース機能を活用したい20190728	←なぜ1.8にしたのか不明20190926
 //		case LSFT_T(KC_ESCAPE):	// 変更(×2ではだめだった)20191025
 			return TAPPING_TERM * 1.8;
