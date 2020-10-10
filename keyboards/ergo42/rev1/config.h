@@ -17,8 +17,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef REV1_CONFIG_H
-#define REV1_CONFIG_H
+#pragma once
 
 #include "config_common.h"
 
@@ -29,7 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 
-//	�d�͏���̂��߂ɒǉ����Ă��邪,�ǂ̒l���K�؂Ȃ̂��킩��Ȃ�20181026
+//	電力消費のために追加しているが,どの値が適切なのかわからない20181026
 #define USB_MAX_POWER_CONSUMPTION 100
 
 
@@ -38,7 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 
-//	�^�b�s���O���Ԃ��߂�����Ԃł̉�����L���ɂ��邽�߂̑[�u20180825
+//	タッピング時間を過ぎた状態での押下を有効にするための措置20180825
 //		https://beta.docs.qmk.fm/features/feature_advanced_keycodes
 //#define RETRO_TAPPING
 #define PERMISSIVE_HOLD
@@ -54,7 +53,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 
-//				�g�������悭�킩��Ȃ�.�L���ɂȂ��Ă���Ȃ�.
+//				使い方がよくわからない.有効になってくれない.
 //#define IGNORE_MOD_TAP_INTERRUPT
 //		https://bouzuya.hatenablog.com/entry/2017/09/09/235959
 
@@ -80,12 +79,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 
-/* 2�񂷂΂₭������2��ڃz�[���h�ŒP�����ɐݒ肵���L�[�̘A�����͂��\ */
+/* 2回すばやく押して2回目ホールドで単押しに設定したキーの連続入力が可能 */
 //	https://docs.qmk.fm/#/feature_advanced_keycodes?id=tapping-force-hold
 //	https://qiita.com/chesscommands/items/cf740e2e8b2b6879c798
 //#define TAPPING_FORCE_HOLD
-//	KC_SFTENT�p�ɐݒ肵��20190518
-//		�Ӑ}���������ɂȂ��Ă���Ȃ���������,������.
+//	KC_SFTENT用に設定した20190518
+//		意図した動きになってくれなかったため,無効化.
 
 
 
@@ -95,10 +94,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 
-/*	AutoShift��L���ɂ����ꍇ��,�ȉ���L���ɂ��Ē�������.	*/
+/*	AutoShiftを有効にした場合に,以下を有効にして調整する.	*/
 #define NO_AUTO_SHIFT_SPECIAL
-//#define NO_AUTO_SHIFT_NUMERIC	�������̂ݖ����ɂ���錾.
-//#define NO_AUTO_SHIFT_ALPHA	���A���t�@�x�b�g�̂ݖ����ɂ���錾.
+//#define NO_AUTO_SHIFT_NUMERIC	←数字のみ無効にする宣言.
+//#define NO_AUTO_SHIFT_ALPHA	←アルファベットのみ無効にする宣言.
 
 
 
@@ -143,26 +142,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_COL_PINS { F5, F6, F7, B1, B3, B2, B6 }
 // #define MATRIX_COL_PINS { B6, B2, B3, B1, F7, F6 } //uncomment this line and comment line above if you need to reverse left-to-right key order
 
-#define CATERINA_BOOTLOADER
+/* COL2ROW, ROW2COL*/
+#define DIODE_DIRECTION COL2ROW
 
 
 
-#define TAPPING_TERM_PER_KEY	// �L�[���ƂɃ^�b�s���O���Ԃ�ݒ肷��B	�����̂͂��Ȃ̂����A�ݒ肪���f����Ȃ�20190610
+#define TAPPING_TERM_PER_KEY	// キーごとにタッピング時間を設定する。	←そのはずなのだが、設定が反映されない20190610
 //	https://github.com/qmk/qmk_firmware/blob/master/docs/custom_quantum_functions.md
 
 
 /* define tapping term */
 //#define TAPPING_TERM 80
-//#define TAPPING_TERM 100	// �����̒l�����傤�ǂ����̂�������Ȃ�20181102
+//#define TAPPING_TERM 100	// ←この値がちょうどいいのかもしれない20181102
 #define TAPPING_TERM 90
-//#define TAPPING_TERM 180	���������x������,�g�����ɂȂ�Ȃ�20181102
+//#define TAPPING_TERM 180	←反応が遅いため,使い物にならない20181102
 //#define TAPPING_TERM 75
-//#define TAPPING_TERM 200	����΂ɂ��蓾�Ȃ��������x20190518
-//#define TAPPING_TERM 50	���w�̓���������ȏ㑁���ł��Ȃ����߁A���d�Ȓl�������B�܂��Ă�,����ȏ㏬�����l�͎��ʂ��ƂɂȂ�20190518
+//#define TAPPING_TERM 200	←絶対にあり得ない反応速度20190518
+//#define TAPPING_TERM 50	←指の動きをこれ以上早くできないため、無謀な値だった。ましてや,これ以上小さい値は死ぬことになる20190518
 //#define TAPPING_TERM 30
 //#define TAPPING_TERM 60
 
 
+#define SOFT_SERIAL_PIN D0
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
@@ -180,7 +181,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* ws2812 RGB LED */
 #define RGB_DI_PIN D3
-
 #define RGBLED_NUM 12    // Number of LEDs
 
 /*
@@ -200,5 +200,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_ONESHOT
 //#define NO_ACTION_MACRO
 //#define NO_ACTION_FUNCTION
-
-#endif

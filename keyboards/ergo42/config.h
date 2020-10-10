@@ -28,7 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAPPING_TOGGLE	1
 
-//	�悻�łŐ錾�ς�20181021	#define TAPPING_TERM	180	// Tap����Hold�ɐ؂�ւ��܂ł̉�������(ms)�B
+//	よそでで宣言済み20181021	#define TAPPING_TERM	180	// TapからHoldに切り替わるまでの押下時間(ms)。
 
 
 
