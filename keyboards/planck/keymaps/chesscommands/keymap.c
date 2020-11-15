@@ -44,6 +44,8 @@ enum planck_layers {
 
 	_PLOVER,	// 音楽レイヤー
 	_ADJUSTPlate,	// 他のレイヤーに切り替える。
+	_EXPANSIONLayer,	// 拡張レイヤ
+	_MISTYPEDLayer,	// 打ち間違い阻止
 	_ENDPlate_
 };
 
@@ -156,14 +158,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------++------|------+------+------+------+------|
  * |LShift|   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  | ]/Sft|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |APP|_MEDIA/BSpace|半全角|Alt/Esc|/del|Ctl/Spc||Space| ¥ |   =  |   `  |   [  | Enter|
+ * |APP|_MEDIA/BSpace|半全角|Alt/del|/Esc|Ctl/Spc||Space| ¥ |   =  |   `  |   [  | Enter|
  * `------------------------------------------------------------------------------------'
  */
 [_BASEPlate] = LAYOUT_planck_grid(
 	LGUI_T(KC_TAB),	KC_Q,	KC_W,	KC_E,	KC_R,	KC_T,		KC_Y,	KC_U,	KC_I,	KC_O,	KC_P,	KC_MINS,	
 	CTL_T(KC_ENTER),	KC_A,	KC_S,	KC_D,	KC_F,	KC_G,		KC_H,	KC_J,	KC_K,	KC_L,	KC_SCLN,	KC_QUOTE,	
 	KC_LSFT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,		KC_N,	KC_M,	KC_COMM,	KC_DOT,	KC_SLSH,	RSFT_T(KC_RBRACKET),	
-	KC_APPLICATION,	LT(_MEDIAPlate, KC_BSPACE),	HANZEN_jap0Reng4win,	ALT_T(KC_ESCAPE),	LT(_MOUSEPlate, KC_DELETE),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_BSLS,	KC_EQL,	KC_GRAVE,	KC_LBRACKET,	KC_ENTER	
+	KC_APPLICATION,	LT(_MEDIAPlate, KC_BSPACE),	HANZEN_jap0Reng4win,	ALT_T(KC_DELETE),	LT(_MOUSEPlate, KC_ESCAPE),	CTL_T(KC_SPACE),		LT(_MOVEPlate, KC_SPC),	KC_BSLS,	KC_EQL,	KC_GRAVE,	KC_LBRACKET,	KC_ENTER	
 ),
 // []を最下段の右下(右から三つ目・二つ目)に配置した場合、ちょっと使いにくい。しかし、右から四つ目の場所にある＝は使いやすい配置なので、動かしたくない20201111
 // []をファンクションレイアに移動した。そして、F23・F24を削除した。復活予定はない。
@@ -177,14 +179,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------++------|------+------+------+------+------|
  * |LShift|   Z  |   X  |   C  |   V  |  B   ||  N   |   M  |   ,  |   .  |   /  | ]/Sft|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |APP|MEDIA/BSpc|半全角|Alt/Esc|/del|GUI/Ctrl||Space|  ¥  |   =  |   `  |   [  | Enter|
+ * |APP|MEDIA/BSpc|半全角|Alt/del|/Esc|GUI/Ctrl||Space|  ¥  |   =  |   `  |   [  | Enter|
  * `------------------------------------------------------------------------------------'
  */
 [_MACBASE] = LAYOUT_planck_grid(
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
 	_______,	_______,	_______,	_______,	_______,	_______,		_______,	_______,	_______,	_______,	_______,	_______,	
-	_______,	LT(_MEDIAPlate, KC_BSPACE),	HANZEN_jap0Reng4mac,	ALT_T(KC_ESCAPE),	LT(_MOUSEPlate, KC_DELETE),	LGUI_T(KC_SPC),		LT(_MOVEPlate, KC_SPC),	_______,	_______,	_______,	_______,	_______	
+	_______,	LT(_MEDIAPlate, KC_BSPACE),	HANZEN_jap0Reng4mac,	ALT_T(KC_DELETE),	LT(_MOUSEPlate, KC_ESCAPE),	LGUI_T(KC_SPC),		LT(_MOVEPlate, KC_SPC),	_______,	_______,	_______,	_______,	_______	
 
 ),
 //	※mcr：スクリーンショット用マクロキー
@@ -370,9 +372,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 
-/* Mouse keys
+/* Mouse key
  * ,------------------------------------------------------------------------------------.
- * |      |PrScrn| Space| Lclk | Rclk |Delete||Middle| Rclk | Lclk |  =   |PrScrn|      |	←Altキーは独立させておかなければ、WinOSでプリントスクリーン取得に困ることになる。
+ * |      |※PrSc|PrScrn| Lclk | Rclk |Delete||Middle| Rclk | Lclk |   {  |   }  |      |	←Altキーは独立させておかなければ、WinOSでプリントスクリーン取得に困ることになる。
  * |------|------+------+------+------+------++------+------+------+------+------+------|
  * |      | ※mcr|LShift| Home |PageUp| Tab  ||MsLeft|MsDown| MsUp |MsRght|Insert|Delete|
  * |------|------+------+------+------+------++------+------+------+------+------+------|
@@ -382,7 +384,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------------------------------------------------------------------------------------'
  */
   [_MEDIAPlate] = LAYOUT_planck_grid(
-	_______,	LALT(KC_PSCREEN),	KC_SPACE,	KC_MS_BTN2,	KC_MS_BTN1,	KC_DELETE, 		KC_MS_BTN3,	KC_MS_BTN1,	KC_MS_BTN2,	KC_EQL,	KC_PSCREEN,	_______,	
+	_______,	LALT(KC_PSCREEN),	KC_PSCREEN,	KC_MS_BTN2,	KC_MS_BTN1,	KC_DELETE, 		KC_MS_BTN3,	KC_MS_BTN1,	KC_MS_BTN2,	KC_LEFT_CURLY_BRACE,	KC_RIGHT_CURLY_BRACE,	_______,	
 	_______,	SCREENSHOTPART_GET4mac,	KC_LSFT,	KC_HOME,	KC_PGUP,	KC_TAB,		KC_MS_LEFT,	KC_MS_DOWN,	KC_MS_UP,	KC_MS_RIGHT,	KC_INSERT, KC_DELETE,	
 	_______,	TO(_MAC_CtrlLayer),	KC_DELETE,	KC_END,	KC_PGDOWN,	KC_BSPACE,		KC_MS_WH_LEFT,	KC_MS_WH_DOWN, KC_MS_WH_UP,   KC_MS_WH_RIGHT,	KC_RALT,	RSFT_T(KC_RIGHT_CURLY_BRACE),	
 	RESET,	_______,	KC_ENTER,	_______,	_______,	_______,		_______,	KC_PIPE,	KC_PLUS,	KC_TILDE,	KC_LEFT_CURLY_BRACE,	KC_BSPACE	
@@ -390,9 +392,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Function Layer
  * ,------------------------------------------------------------------------------------.
- * | GUI  | F11  | F12  | F13  | F14  | F15  || F16  | F17  | F18  | F19  | F20  |   _  |
+ * | GUI  | F11  | F12  | F13  | F14  | F15  || F16  | F17  | F18  |   [  |   ]  |   _  |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |      | Home | End  |PageUp|PgDown| F21  || F22  |   {  |   }  |   [  |   ]  |   "  |
+ * |      | Home | End  |PageUp|PgDown| F19  || F20  | F21  | F22  | F23  | F24  |   "  |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
  * |      |  F1  |  F2  |  F3  |  F4  |  F5  ||  F6  |  F7  |  F8  |  F9  | F10  | }/Sft|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
@@ -400,8 +402,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------------------------------------------------------------------------------------'
  */	
   [_MOUSEPlate] = LAYOUT_planck_grid( 
-	KC_LGUI,	KC_F11,	KC_F12,	KC_F13,	KC_F14,	KC_F15,		KC_F16,	KC_F17,	KC_F18,	KC_F19,	KC_F20,	KC_UNDERSCORE,	
-	_______,	KC_HOME,	KC_END,	KC_PGUP,	KC_PGDOWN,	KC_F21,		KC_F22,	KC_LEFT_CURLY_BRACE,	KC_RIGHT_CURLY_BRACE,	KC_LBRACKET,	KC_RBRACKET,	KC_DOUBLE_QUOTE,	
+	KC_LGUI,	KC_F11,	KC_F12,	KC_F13,	KC_F14,	KC_F15,		KC_F16,	KC_F17,	KC_F18,	KC_LBRACKET,	KC_RBRACKET,	KC_UNDERSCORE,	
+	_______,	KC_HOME,	KC_END,	KC_PGUP,	KC_PGDOWN,	KC_F19,		KC_F20,	KC_F21,	KC_F22,	KC_F23,	KC_F24,	KC_DOUBLE_QUOTE,	
 	_______,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,		KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	RSFT_T(KC_RIGHT_CURLY_BRACE),	
 	KC_DELETE,	_______,	KC_ENTER,	KC_ESCAPE,	_______,	KC_SPC,		_______,	KC_PIPE,	KC_PLUS,	KC_TILDE,	KC_LEFT_CURLY_BRACE,	KC_INSERT	
   ),
@@ -484,6 +486,49 @@ https://support.apple.com/ja-jp/HT204436
 
 
 
+/* _ExpansionLayer Qwerty
+ * ,------------------------------------------------------------------------------------.
+ * |      |      |      |      |      |      ||      |      |      |      |      |      |
+ * |------+------+------+------+------+------++------+------+------+------+------+------|
+ * |      |      |      |      |      |      ||      |      |      |      |      |      |
+ * |------+------+------+------+------+------++------+------+------+------+------+------|
+ * |      |      |      |      |      |      ||      |      |      |      |      |      |
+ * |------+------+------+------+------+------++------+------+------+------+------+------|
+ * |      |      |      |      |      |      ||      |      |      |      |      |      |
+ * `------------------------------------------------------------------------------------'
+ */
+[_EXPANSIONLayer] = LAYOUT_planck_grid(
+	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	
+	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	
+	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	
+	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX	
+),
+
+
+
+
+
+/* _MistypedLayer Qwerty
+ * ,------------------------------------------------------------------------------------.
+ * |      |      |      |      |      |      ||      |      |      |   {  |   }  |      |
+ * |------+------+------+------+------+------++------+------+------+------+------+------|
+ * |      |      |      |      |      |      ||      |      |      |      |      |      |
+ * |------+------+------+------+------+------++------+------+------+------+------+------|
+ * |      |      |      |      |      |      ||      |      |      |      |      |      |
+ * |------+------+------+------+------+------++------+------+------+------+------+------|
+ * |      |      |      |      |      |      ||      |      |      |      |      |      |
+ * `------------------------------------------------------------------------------------'
+ */
+[_MISTYPEDLayer] = LAYOUT_planck_grid(
+	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	KC_LEFT_CURLY_BRACE,	KC_RIGHT_CURLY_BRACE,	XXXXXXX,	
+	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	
+	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	
+	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX	
+),
+
+
+
+
 /* Plover layer (http://opensteno.org)
  * ,-----------------------------------------------------------------------------------.
  * |   #  |   #  |   #  |   #  |   #  |   #  |   #  |   #  |   #  |   #  |   #  |   #  |
@@ -543,11 +588,14 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 #endif
 
 uint32_t layer_state_set_user(uint32_t state) {
-	return update_tri_layer_state(state, _MEDIAPlate, _MOVEPlate, _ADJUSTPlate);
+	return update_tri_layer_state(state, _MEDIAPlate, _MOUSEPlate, _ADJUSTPlate);
+//	return update_tri_layer_state(state, _MEDIAPlate, _MOVEPlate, _ADJUSTPlate);
 //	return update_tri_layer_state(state, _MOVEPlate, _MOUSEPlate, _ADJUSTPlate);
 		// Altキーと矢印キーの組み合わせをするつもりが、押し間違えたため、マウスレイアと矢印レイアの組み合わせにする。
 		// それでも押し間違えることがあれば、マウスレイアとファンクションレイアの組み合わせに変更する。
 		// 20201026
+	return update_tri_layer_state(state, _MOUSEPlate, _MOVEPlate, _EXPANSIONLayer);
+	return update_tri_layer_state(state, _MEDIAPlate, _MOVEPlate, _MISTYPEDLayer);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
