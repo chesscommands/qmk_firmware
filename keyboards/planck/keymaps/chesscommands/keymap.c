@@ -211,6 +211,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	TO(_MACBASE),	_______,	_______,	_______,	_______,	CTL_T(KC_SPACE),		_______,	_______,	_______,	_______,	_______,	_______	
 ),
 //	"CTL_T(KC_TAB)"は、話にならないぐらいTabキーが動かない20190721
+//		時間をいじるのであれば、TAPPING_TERM * 2;を使うこと。
 
 // Alt/Ent"ALT_T (KC_ENTER)"：配置の場所も問題だが、むしろ配置に問題があり、かなり使いにくい20190804
 
@@ -366,7 +367,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______,	KC_EXCLAIM,	KC_AT,	KC_HASH,	KC_DOLLAR,	KC_PERCENT,		KC_CIRCUMFLEX,	KC_AMPERSAND,	KC_ASTERISK,	KC_LEFT_PAREN,	KC_RIGHT_PAREN,	KC_UNDERSCORE,	
 	_______,	KC_HOME,	KC_END,	KC_ESCAPE,	KC_EQL,	KC_TAB,		KC_LEFT,	KC_DOWN, KC_UP,   KC_RGHT, KC_COLON, RSFT(KC_QUOTE),	
 	KC_LSFT,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5,		KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	RSFT_T(KC_RIGHT_CURLY_BRACE),	
-	_______,	_______,	_______,	_______,	_______,	_______,		_______,	KC_PIPE,	RSFT(KC_LBRACKET),	KC_PLUS,	KC_TILDE,	KC_BSPACE	
+	KC_DELETE,	_______,	_______,	_______,	_______,	_______,		_______,	KC_PIPE,	RSFT(KC_LBRACKET),	KC_PLUS,	KC_TILDE,	KC_BSPACE	
 ),
 
 //	KC_ASTG：AutoShift自動押下のトグルキー
@@ -417,16 +418,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------++------+------+------+------+------+------|
  * |      | Home | End  |PageUp|PgDown|  =   || F19  | F20  | F21  | F22  | F23  |   "  |
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |      |  F1  |  F2  |  F3  |  F4  |  F5  ||  F6  |  F7  |  F8  |  F9  | F10  | }/Sft|
+ * |LShift|  F1  |  F2  |  F3  |  F4  |  F5  ||  F6  |  F7  |  F8  |  F9  | F10  | }/Sft|
  * |------+------+------+------+------+------++------+------+------+------+------+------|
- * |Escape|予約済|Enter |  Alt |予約済| Space||予約済|  |   |  ]   |  +   |  ~   |backSpace|
+ * |Delete|予約済|Enter |  Alt |予約済| Space||予約済|  |   |  ]   |  +   |  ~   |backSpace|
  * `------------------------------------------------------------------------------------'
  */	
   [_MOUSEPlate] = LAYOUT_planck_grid( 
 	KC_LGUI,	KC_F11,	KC_F12,	KC_F13,	KC_F14,	KC_F15,		KC_F16,	KC_F17,	KC_F18,	KC_LBRACKET,	KC_RBRACKET,	KC_UNDERSCORE,	
 	_______,	KC_HOME,	KC_END,	KC_PGUP,	KC_PGDOWN,	KC_EQL,		KC_F19,KC_F20,	KC_F21,	KC_F22,	KC_F23,	KC_DOUBLE_QUOTE,	
-	_______,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,		KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	RSFT_T(KC_RIGHT_CURLY_BRACE),	
-	KC_ESCAPE,	_______,	KC_ENTER,	_______,	_______,	KC_SPC,		_______,	KC_PIPE,	KC_RBRACKET,	KC_PLUS,	KC_TILDE,	KC_BSPACE	
+	KC_LSFT,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,		KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	RSFT_T(KC_RIGHT_CURLY_BRACE),	
+	KC_DELETE,	_______,	KC_ENTER,	_______,	_______,	KC_SPC,		_______,	KC_PIPE,	KC_RBRACKET,	KC_PLUS,	KC_TILDE,	KC_BSPACE	
   ),
 /*
 https://smatu.net/2018/12/22/mac-function-key-f1-f12-default-setting/
@@ -728,33 +729,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 		}
 		return false;
 		break;
-/**/
-
-
-/*	以下、WindowsレイヤーとMacレイヤーなどの切り替え設定を行う20190607
-	case MOVEPlateLayer:	// 通常の矢印などの移動レイヤー
-		if (record->event.pressed) {
-			layer_on(_MOVEPlate);
-			update_tri_layer(_MOVEPlate, _MOUSEPlate, _ADJUSTPlate);
-		}
-		else {
-			layer_off(_MOVEPlate);
-			update_tri_layer(_MOVEPlate, _MOUSEPlate, _ADJUSTPlate);
-		}
-		return false;
-		break;
-	case MOUSEPlateLayer:	// HJKLキーでマウスカーソルを動かす。もしくは、日本語配列の記号を使うレイヤー
-		if (record->event.pressed) {
-			layer_on(_MOUSEPlate);
-			update_tri_layer(_MOVEPlate, _MOUSEPlate, _ADJUSTPlate);
-		}
-		else {
-			layer_off(_MOUSEPlate);
-			update_tri_layer(_MOVEPlate, _MOUSEPlate, _ADJUSTPlate);
-		}
-		return false;
-		break;
-*/
 
 	case WINDOWSLAYER:	// WindowsOS用に使うレイヤーを基準にする。
 		if (record->event.pressed) {
@@ -963,73 +937,22 @@ uint16_t get_tapping_term(uint16_t keycode) {
 	switch (keycode) {
 //		case KC_SFTENT:	// 20191222
 //			return TAPPING_TERM * 3;
-		case ALT_T(KC_TAB):	// 20190915
-			return TAPPING_TERM * 3;
-		case LT(_MOUSEPlate, KC_TAB):	// 追加20190911
-			return TAPPING_TERM * 2.5;
 //		case LSFT_T(KC_ESCAPE):	// 20190923	←Shiftキー単体での動作が使い物にならない(マウス優先作業の複数選択など)20191024
-		case LSFT_T(KC_ENTER):	// 20190923
-//		case CTL_T(KC_TAB):	// 20190923	←コメントアウト20200329
-//		case LSFT_T(KC_TAB):	// 20190921	←Tabキーを使うときには抜群に素晴らしい時間設定になっているが、Shiftキー単体を使うときには反応が遅いため、使い物にならない時間設定になっている20190926
-			return TAPPING_TERM * 2.3;	// 20190923
-		case LT(_MOUSEPlate, KC_DELETE):	// 追加20191024
-//		case LT(_MOUSEPlate, KC_BSPACE):	// 追加20191227	←これではちょっと遅い？20200131
-//		case CTL_T(KC_TAB):	// Mac用20190815
+//			return TAPPING_TERM * 2.3;	// 20190923
 		case LCTL(LSFT(KC_TAB)):
 //		case LT(_MEDIAPlate, KC_TAB):	// 追加20190912
 		case CTL_T(KC_ENTER):	// 20190910
-		case CTL_T(KC_TAB):	// 20200329
 		case LGUI_T(KC_TAB):
 		case LGUI_T(KC_ENTER):	// 20200329
-		case ALT_T(KC_BSPACE):	// 20190913
 		case ALT_T(KC_DELETE):	// 20191227
-		case ALT_T(KC_ESCAPE):	// 20201104
-		case RSFT_T(KC_EQL):	// 20200329
-		case RSFT_T(KC_QUOTE):	// 20201005
-		case RSFT_T(KC_LBRACKET):	// (1.8だったが変更)20201017
-		case RSFT_T(KC_RBRACKET):	// 20201112
-		case RSFT_T(KC_GRAVE):	// 20201107
-//		case RSFT_T(KC_LEFT_CURLY_BRACE):	←コンパイルエラーになる。
-//		case RSFT_T(RSFT(KC_LBRACKET):	←コンパイルエラーになる。
-//		case LT(_MOVEPlate, KC_SPC):	// ちょっとだけ時間延長20190925
-		case LGUI_T(KC_SPACE):	// Spaceキーを日常使用にするための措置20190925
 			return TAPPING_TERM * 2;
-//		case LT(_MOUSEPlate, KC_TAB):	// 追加(TAPPING_TERMのみならばブラウザのタブ切り替えが正常になる。しかし、アプリ切り替えに何が出てくる。*2,*1.8,*1.5,*1.3の場合は評価が逆になる。)(1.3・1.5は最悪かな)20190910
-//			return TAPPING_TERM * 1.5;
-//		case LT(_MOUSEPlate, KC_BSPACE):	// 変更20200131
-		case RSFT_T(KC_MINS):
-		case LSFT_T(KC_TAB):	// 20190926	←1.3の場合は、Shiftキー単体で動かすには抜群によかったが、Tabキーが全く使えなかったため、妥協して1.5にした。1.8では、Tabキー操作に問題がある。そのため2にした。
-			return TAPPING_TERM * 2.3;
-		case LT(_MEDIAPlate, KC_ESCAPE):	// 追加20200213
 		case LT(_MEDIAPlate, KC_BSPACE):	// 追加20200214
 		case LT(_MOUSEPlate, KC_ESCAPE):	// 追加20200214
-		case LT(_MOUSEPlate, KC_APPLICATION):	// 追加20200820
 		case LT(_MOVEPlate, KC_SPC):	// スペース機能を活用したい20190728	←なぜ1.8にしたのか不明20190926
-//		case LSFT_T(KC_ESCAPE):	// 変更(×2ではだめだった)20191025
 			return TAPPING_TERM * 1.8;
-		case LGUI_T(KC_ESCAPE):	// Windows用
-		case CTL_T(KC_ESCAPE):	// Mac用
-//		case LSFT_T(KC_ESCAPE):	// 変更(×1.8ではだめだった)1.5はギリギリ許容できる20191025
-			return TAPPING_TERM * 1.5;
-//		case LSFT_T(KC_ESCAPE):	// 変更20200205	←これぐらいが妥当なのだろう20200210
-		case LT(_MOUSEPlate, KC_BSPACE):	// 変更20200207	←かなり挑戦的
-			return TAPPING_TERM * 1.4;
-//		case LSFT_T(KC_ESCAPE):	// 変更20200207	←かなり挑戦的(だめだった。Escの効きが悪くなる20200210)
-			return TAPPING_TERM * 1.3;
-//		case CTL_T(KC_ENTER):	// Windows用
-//			return 73;	// Ctrlキー2回連続押しで、Atokの画面が起動する。
-		case ALT_T(KC_ENTER):	// Mac用
-//		case LGUI_T(KC_ENTER):	コメントアウト20200329
-//			return 68;
-//			return 73;
-			return 110;
-//		case LT(_MOUSEPlate, KC_DELETE):	// test
-//			return 90;
-//		case CTL_T(KC_ENTER):	// Mac用20190725
-//			return TAPPING_TERM + 20;
-//		case LSFT_T(KC_TAB):	// 20190926
-//			return 1.3;
-//		case ALT_T(KC_ENTER):
+		case LGUI_T(KC_SPC):	// 追加20210223	マウスでの選択時に標準では足りずに選択できなかったため。
+		case CTL_T(KC_SPACE):	// 追加20210223
+			return TAPPING_TERM * 0.8;	// ギリギリ使えるが、ほぼスペースキーは期待しない方が良いだろう。
 		default:
 			return TAPPING_TERM;
 	}
