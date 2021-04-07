@@ -6,6 +6,13 @@
  * Jack Humbertが作ったデフォルトキーマップを基準に改変している(そのため、理解していないプログラム箇所が多い)。
  */
 
+/*
+	コンパイルメモ
+make planck/rev6:chesscommands:dfu-util
+make planck/light:chesscommands:dfu
+*/
+
+
 #include QMK_KEYBOARD_H
 #include "muse.h"
 
@@ -427,7 +434,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_LGUI,	KC_F11,	KC_F12,	KC_F13,	KC_F14,	KC_F15,		KC_F16,	KC_F17,	KC_F18,	KC_LBRACKET,	KC_RBRACKET,	KC_UNDERSCORE,	
 	_______,	KC_HOME,	KC_END,	KC_PGUP,	KC_PGDOWN,	KC_EQL,		KC_F19,KC_F20,	KC_F21,	KC_F22,	KC_F23,	KC_DOUBLE_QUOTE,	
 	KC_LSFT,	KC_F1,	KC_F2,	KC_F3,	KC_F4,	KC_F5,		KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,	RSFT_T(KC_RIGHT_CURLY_BRACE),	
-	KC_DELETE,	_______,	KC_ENTER,	_______,	_______,	KC_SPC,		_______,	KC_PIPE,	KC_RBRACKET,	KC_PLUS,	KC_TILDE,	KC_BSPACE	
+	KC_DELETE,	_______,	KC_ENTER,	KC_LALT,	_______,	KC_SPC,		_______,	KC_PIPE,	KC_RBRACKET,	KC_PLUS,	KC_TILDE,	KC_BSPACE	
   ),
 /*
 https://smatu.net/2018/12/22/mac-function-key-f1-f12-default-setting/
@@ -933,7 +940,7 @@ bool music_mask_user(uint16_t keycode) {
       return true;
 }
 
-uint16_t get_tapping_term(uint16_t keycode) {
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 	switch (keycode) {
 //		case KC_SFTENT:	// 20191222
 //			return TAPPING_TERM * 3;
