@@ -952,8 +952,9 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 		case LGUI_T(KC_TAB):
 		case LGUI_T(KC_ENTER):	// 20200329
 		case ALT_T(KC_DELETE):	// 20191227
+		case LT(_MEDIAPlate, KC_BSPACE):	// 変更20210413
 			return TAPPING_TERM * 2;
-		case LT(_MEDIAPlate, KC_BSPACE):	// 追加20200214
+//		case LT(_MEDIAPlate, KC_BSPACE):	// 追加20200214
 		case LT(_MOUSEPlate, KC_ESCAPE):	// 追加20200214
 		case LT(_MOVEPlate, KC_SPC):	// スペース機能を活用したい20190728	←なぜ1.8にしたのか不明20190926
 			return TAPPING_TERM * 1.8;
